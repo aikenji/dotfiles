@@ -1,0 +1,9 @@
+[submodule ".vim/pack/vender/start/ctrlp.vim"]
+	path = .vim/pack/vender/start/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule ".vim/pack/vender/start/nerdtree"]
+	path = .vim/pack/vender/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule ".vim/pack/vender/start/auto-pairs"]
+	path = .vim/pack/vender/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
