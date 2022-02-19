@@ -11,6 +11,8 @@
 " `vim -u foo`).
 set nocompatible
 
+set noswapfile
+
 "------------------
 " Syntax and indent
 "------------------
@@ -21,6 +23,11 @@ syntax on
 set autoindent 
 " tab size is 4 space
 set tabstop=4 
+" display the indent line
+set noexpandtab
+set list lcs=tab:\|\  
+" when indenting with endter use 4 spaces width
+set shiftwidth=4
 " use UTF-8 encoding
 set encoding=UTF-8 
 
@@ -135,11 +142,21 @@ Plug 'lfv89/vim-interestingwords'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
-" Plug 'ycm-core/YouCompleteMe'
+Plug 'Yggdroot/LeaderF' 
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
 " plugin setup
+
+" interestingwords-----------------------------------------------
+nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
+vnoremap <silent> <leader>k :call InterestingWords('v')<cr>
+nnoremap <silent> <leader>K :call UncolorAllWords()<cr>
+
+nnoremap <silent> n :call WordNavigation(1)<cr>
+nnoremap <silent> N :call WordNavigation(0)<cr>
 
 " NERDTree-------------------------------------------------------
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -174,4 +191,67 @@ if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
 
+" leaderF--------------------------------------------------------
+let g:Lf_GtagsAutoGenerate = 1
+let g:Lf_Gtagslabel = 'native-pygments'
+let g:Lf_WindowPosition = 'popup' " cmd line in popup window
+let g:Lf_PreviewInPopup = 1 " use popup window to preview
+noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
+" YCM--------------------------------------------------------------
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_auto_hover = ""
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_server_log_level = 'info'
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings=1
+let g:ycm_key_invoke_completion = '<c-z>'
+set completeopt=menu,menuone,noinsert
+
+noremap <c-z> <NOP>
+
+let g:ycm_semantic_triggers =  {
+		           \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+           \ 'cs,lua,javascript': ['re!\w{2}'],
+           \ }
+
+" vim-cpp-enhanced-highlight-------------------------------------------
+" Highlighting of class scope is disabled by default. To enable set
+
+let g:cpp_class_scope_highlight = 1
+" Highlighting of member variables is disabled by default. To enable set
+
+let g:cpp_member_variable_highlight = 1
+" Highlighting of class names in declarations is disabled by default. To enable set
+
+let g:cpp_class_decl_highlight = 1
+" Highlighting of POSIX functions is disabled by default. To enable set
+
+let g:cpp_posix_standard = 1
+" There are two ways to highlight template functions. Either
+
+let g:cpp_experimental_simple_template_highlight = 1
+" which works in most cases, but can be a little slow on large files. Alternatively set
+
+let g:cpp_experimental_template_highlight = 1
+" which is a faster implementation but has some corner cases where it doesn't work.
+
+" Note: C++ template syntax is notoriously difficult to parse, so don't expect this feature to be perfect.
+
+" Highlighting of library concepts is enabled by
+
+let g:cpp_concepts_highlight = 1
+" This will highlight the keywords concept and requires as well as all named requirements (like DefaultConstructible) in the standard library.
+
+" Highlighting of user defined functions can be disabled by
+
+let g:cpp_no_function_highlight = 1
+
+
+set noexpandtab
