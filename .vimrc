@@ -23,8 +23,9 @@ syntax on
 set autoindent 
 " tab size is 4 space
 set tabstop=4 
+set noexpandtab " overwritten in .py file
+
 " display the indent line
-set noexpandtab
 set list lcs=tab:\|\  
 " when indenting with endter use 4 spaces width
 set shiftwidth=4
@@ -129,13 +130,14 @@ set statusline+=\ %F\ %M\ %R
 set statusline+=%=
 
 " Status line right side.
-set statusline+=\ %Y\ row:\ %l\ col:\ %c\ percent:\ %p%%
+set statusline+=\ %Y\ row:\ %l\ col:\ %c\ per:\ %p%%\ %{kite#statusline()}
 
 "---------------------
 " Plug setup
 "---------------------
 call plug#begin('~/.vim/plugged')
 
+Plug 'jiangmiao/auto-pairs'
 Plug 'mhinz/vim-startify' 
 Plug 'tpope/vim-fugitive' 
 Plug 'lfv89/vim-interestingwords'
@@ -192,6 +194,7 @@ if !isdirectory(s:vim_tags)
 endif
 
 " leaderF--------------------------------------------------------
+"
 let g:Lf_GtagsAutoGenerate = 1
 let g:Lf_Gtagslabel = 'native-pygments'
 let g:Lf_WindowPosition = 'popup' " cmd line in popup window
@@ -203,23 +206,6 @@ noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
 noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
-" YCM--------------------------------------------------------------
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_auto_hover = ""
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_server_log_level = 'info'
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_complete_in_strings=1
-let g:ycm_key_invoke_completion = '<c-z>'
-set completeopt=menu,menuone,noinsert
-
-noremap <c-z> <NOP>
-
-let g:ycm_semantic_triggers =  {
-		           \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-           \ 'cs,lua,javascript': ['re!\w{2}'],
-           \ }
 
 " vim-cpp-enhanced-highlight-------------------------------------------
 " Highlighting of class scope is disabled by default. To enable set
@@ -253,5 +239,6 @@ let g:cpp_concepts_highlight = 1
 
 let g:cpp_no_function_highlight = 1
 
+" Kite------------------------------------------------------------------
 
-set noexpandtab
+let g:kite_supported_languages = ['*'] 

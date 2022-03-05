@@ -33,3 +33,5 @@ alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 # >>> basic setting >>>
 export EDITOR=vim
+set -o vi # vi mode of zsh
+export PATH="/opt/homebrew/bin:$PATH"
