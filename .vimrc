@@ -81,9 +81,6 @@ set smartcase
 set incsearch
 set hlsearch
 
-" Unbind some useless/annoying default key bindings.
-nmap Q <Nop>  " 'Q' in normal mode enters Ex mode. You almost never want this.
-
 " Disable audible bell because it's annoying.
 set noerrorbells visualbell t_vb=
 
@@ -91,11 +88,17 @@ set noerrorbells visualbell t_vb=
 " sometimes be convenient.
 set mouse+=a
 
+" Enable external clipboard 
+set clipboard=unnamed 
+
 "---------------------
 " Key bindings
 "---------------------
 
-let mapleader=","
+" Unbind some useless/annoying default key bindings.
+nmap Q <Nop>  " 'Q' in normal mode enters Ex mode. You almost never want this.
+nnoremap <esc><esc> :noh<CR><esc>  " key bindings for :nohlsearch
+let mapleader=" "
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
@@ -130,17 +133,26 @@ set statusline+=\ %F\ %M\ %R
 set statusline+=%=
 
 " Status line right side.
-set statusline+=\ %Y\ row:\ %l\ col:\ %c\ per:\ %p%%\ %{kite#statusline()}
+set statusline+=\ %Y\ \ %l:\ %c\ \ %p%%\ %{kite#statusline()}
+
+"---------------------
+" File type options
+"---------------------
+augroup python
+    " ftype/python.vim overwrites this
+    autocmd FileType python setlocal ts=4 sts=4 sw=4 noexpandtab
+augroup end
 
 "---------------------
 " Plug setup
 "---------------------
 call plug#begin('~/.vim/plugged')
 
+Plug 'junegunn/vim-peekaboo'
 Plug 'jiangmiao/auto-pairs'
+Plug 'frazrepo/vim-rainbow'
 Plug 'mhinz/vim-startify' 
 Plug 'tpope/vim-fugitive' 
-Plug 'lfv89/vim-interestingwords'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
@@ -152,16 +164,8 @@ call plug#end()
 
 " plugin setup
 
-" interestingwords-----------------------------------------------
-nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
-vnoremap <silent> <leader>k :call InterestingWords('v')<cr>
-nnoremap <silent> <leader>K :call UncolorAllWords()<cr>
-
-nnoremap <silent> n :call WordNavigation(1)<cr>
-nnoremap <silent> N :call WordNavigation(0)<cr>
-
 " NERDTree-------------------------------------------------------
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <F9> :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
