@@ -86,7 +86,7 @@ set noerrorbells visualbell t_vb=
 
 " Enable mouse support. You should avoid relying on this too much, but it can
 " sometimes be convenient.
-set mouse+=a
+" set mouse+=a
 
 " Enable external clipboard 
 set clipboard=unnamed 
@@ -197,12 +197,16 @@ if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
 
-" leaderF--------------------------------------------------------
+" LeaderF--------------------------------------------------------
 "
 let g:Lf_GtagsAutoGenerate = 1
 let g:Lf_Gtagslabel = 'native-pygments'
 let g:Lf_WindowPosition = 'popup' " cmd line in popup window
-let g:Lf_PreviewInPopup = 1 " use popup window to preview
+let g:Lf_PreviewInPopup = 0 " use popup window to preview
+let g:Lf_ShowDevIcons = 0
+let g:Lf_ShortcutF = '<C-P>'
+noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>ff :<C-U><C-R>=printf("Leaderf function %s", "")<CR><CR>
 noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
