@@ -1,0 +1,7 @@
+require("aiken.plugins.plugins-setup")
+require("aiken.core.options")
+require("aiken.core.keymaps")
+require("aiken.core.colorscheme")
+require("aiken.plugins.lualine")
+require("aiken.plugins.nvim-tree")
+require("aiken.plugins.autopairs")
