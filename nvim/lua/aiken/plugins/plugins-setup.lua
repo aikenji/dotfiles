@@ -43,12 +43,18 @@ return require('packer').startup(function(use)
   -- statusline
   use 'nvim-lualine/lualine.nvim'
 
+  -- git integration
+  use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+
    -- fuzzy finding w/ telescope
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 
   -- auto closing
   use 'windwp/nvim-autopairs' 
+  
+  -- commenting with gc
+  use("numToStr/Comment.nvim")
 
   if packer_bootstrap then
     require('packer').sync()
