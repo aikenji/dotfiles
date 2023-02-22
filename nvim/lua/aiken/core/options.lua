@@ -3,10 +3,11 @@ local opt = vim.opt
 -- line numbers
 opt.number = true -- shows absolute line number on cursor line 
 opt.relativenumber = true -- shows relative line number
-
+	
 -- tabs & indentation
-opt.tabstop = 4 -- 4 spaces for tabs (python default)
-opt.shiftwidth = 4 -- 4 spaces for indent width
+opt.tabstop = 2 -- 2 spaces for tabs (python default)
+opt.shiftwidth = 2 -- 2 spaces for indent width
+opt.expandtab = true -- expand tabs for spaces
 
 --search settings
 opt.ignorecase = true -- ignore case when searching
