@@ -13,5 +13,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- any lua file in plugins/*.lua will be automatically merged in the main plugin spec
-require("lazy").setup("aiken.plugins")
-
+require("lazy").setup("plugins")
