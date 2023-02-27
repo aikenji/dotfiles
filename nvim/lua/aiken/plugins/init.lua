@@ -1,7 +1,7 @@
 local plugins = {
   -- preferred colortheme
   {
-    'folke/tokyonight.nvim', 
+    "folke/tokyonight.nvim",
     config = function()
       require("aiken.plugins.tokyonight").init()
     end,
@@ -12,16 +12,25 @@ local plugins = {
 
   {
     -- file explorer
-    'nvim-tree/nvim-tree.lua',
-    dependencies = {'nvim-tree/nvim-web-devicons'}, -- optional, for file icons
+    "nvim-tree/nvim-tree.lua",
+    dependencies = {"nvim-tree/nvim-web-devicons"}, -- optional, for file icons
     init = function()
       require("aiken.plugins.nvim-tree").init()
     end
   },
 
   {
+    -- buffer line 
+    "akinsho/bufferline.nvim", version = "v3.*",
+    dependencies = {'nvim-tree/nvim-web-devicons'},
+    config = function()
+      require("aiken.plugins.bufferline").init()
+    end
+  },
+
+  {
     -- status line
-    'nvim-lualine/lualine.nvim',
+    "nvim-lualine/lualine.nvim",
     init = function()
       require("aiken.plugins.lualine").init()
     end
@@ -43,7 +52,7 @@ local plugins = {
 
   {
     -- auto closing
-    'windwp/nvim-autopairs',
+    "windwp/nvim-autopairs",
     init = function()
       require("aiken.plugins.autopairs").init()
     end
@@ -57,10 +66,20 @@ local plugins = {
 
   {
     -- git integration
-    'lewis6991/gitsigns.nvim', -- show line modifications on left hand side
+    "lewis6991/gitsigns.nvim", -- show line modifications on left hand side
     init = function()
       require("aiken.plugins.gitsigns").init()
     end
+  },
+
+  {
+    -- show keymap list 
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup()
+    end,
   },
 
   {
@@ -68,11 +87,24 @@ local plugins = {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     dependencies = {
-      'nvim-lua/plenary.nvim', -- contains many useful lua functions
+      "nvim-lua/plenary.nvim", -- contains many useful lua functions
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- dependency for better sorting performance
-    }, 
+    },
     init = function()
       require("aiken.plugins.telescope").init()
+    end
+  },
+
+  {
+    -- easily configure language servers
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "williamboman/mason.nvim", -- in charge of managing lsp servers, linters & formatters
+      "williamboman/mason-lspconfig.nvim", -- bridges gap b/w mason & lspconfig 
+      "hrsh7th/cmp-nvim-lsp", -- for autocompletion
+    },
+    config = function()
+      require("aiken.plugins.lsp.lsp").init()
     end
   },
 
