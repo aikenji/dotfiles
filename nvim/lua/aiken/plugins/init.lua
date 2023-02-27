@@ -17,7 +17,65 @@ local plugins = {
     init = function()
       require("aiken.plugins.nvim-tree").init()
     end
-  }
+  },
+
+  {
+    -- status line
+    'nvim-lualine/lualine.nvim',
+    init = function()
+      require("aiken.plugins.lualine").init()
+    end
+  },
+
+  {
+    -- show indent line 
+    "lukas-reineke/indent-blankline.nvim",
+    config = true
+  },
+
+  {
+    -- commenting with gc
+    "numToStr/Comment.nvim",
+    init = function()
+      require("aiken.plugins.comment").init()
+    end
+  },
+
+  {
+    -- auto closing
+    'windwp/nvim-autopairs',
+    init = function()
+      require("aiken.plugins.autopairs").init()
+    end
+  },
+
+  {
+    -- add, delete, change surroundings
+    "kylechui/nvim-surround",
+    config = true
+  },
+
+  {
+    -- git integration
+    'lewis6991/gitsigns.nvim', -- show line modifications on left hand side
+    init = function()
+      require("aiken.plugins.gitsigns").init()
+    end
+  },
+
+  {
+    -- fuzzy finding w/ telescope
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- contains many useful lua functions
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- dependency for better sorting performance
+    }, 
+    init = function()
+      require("aiken.plugins.telescope").init()
+    end
+  },
+
 }
 
 -- preload of lazy plugins
