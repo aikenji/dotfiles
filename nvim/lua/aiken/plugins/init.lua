@@ -22,6 +22,7 @@ local plugins = {
   {
     -- buffer line 
     "akinsho/bufferline.nvim", version = "v3.*",
+    enabled = false,
     dependencies = {'nvim-tree/nvim-web-devicons'},
     config = function()
       require("aiken.plugins.bufferline").init()
@@ -106,6 +107,32 @@ local plugins = {
     config = function()
       require("aiken.plugins.lsp.lsp").init()
     end
+  },
+
+  {
+    -- some extections on lsp
+    "glepnir/lspsaga.nvim",
+    config = true,
+    dependencies = {"nvim-tree/nvim-web-devicons", "nvim-treesitter/nvim-treesitter"},
+    event = "BufRead",
+  },
+
+  {
+    -- autocompletion
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer", -- source for text in buffer
+      "hrsh7th/cmp-path", -- source for file system paths
+      "onsails/lspkind-nvim", -- vs-code like icons for autocompletion
+      -- snippets
+      {"L3MON4D3/LuaSnip", version = "<CurrentMajor>.*", build = "make install_jsregexp"},
+      "saadparwaiz1/cmp_luasnip", -- for autocompletion
+      "rafamadriz/friendly-snippets" -- useful snippets
+    },
+    config = function()
+        require("aiken.plugins.lsp.completion").init()
+    end,
   },
 
 }
