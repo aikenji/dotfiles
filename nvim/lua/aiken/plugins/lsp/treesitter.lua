@@ -22,6 +22,7 @@ function M.init()
       "c",
       "cpp",
       "markdown",
+      "markdown_inline",
       "bash",
       "lua",
       "vim",

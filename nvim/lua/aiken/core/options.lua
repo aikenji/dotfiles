@@ -1,22 +1,24 @@
-local opt = vim.opt 
+local opt = vim.opt
 
 -- line numbers
-opt.number = true -- shows absolute line number on cursor line 
+opt.number = true -- shows absolute line number on cursor line
 opt.relativenumber = true -- shows relative line number
-	
+
 -- tabs & indentation
-opt.tabstop = 2 -- 2 spaces for tabs (python default)
-opt.shiftwidth = 2 -- 2 spaces for indent width
+opt.tabstop = 4 -- 2 spaces for tabs (python default)
+opt.shiftwidth = 4 -- 2 spaces for indent width
 opt.expandtab = true -- expand tabs for spaces
 
 --search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitve
 
--- cursor line 
+-- cursor line
 opt.cursorline = true -- highlight cursorline
-    
--- appearance 
+
+-- appearance
+opt.list = true -- show invisible space, tab, eol
+vim.opt.listchars:append("space:⋅") -- show invisible space with .
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- clipboard
