@@ -118,6 +118,15 @@ local plugins = {
   },
 
   {
+    -- treesitter
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    init = function()
+      require("aiken.plugins.lsp.treesitter").init()
+    end
+  },
+
+  {
     -- autocompletion
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -126,7 +135,7 @@ local plugins = {
       "hrsh7th/cmp-path", -- source for file system paths
       "onsails/lspkind-nvim", -- vs-code like icons for autocompletion
       -- snippets
-      {"L3MON4D3/LuaSnip", version = "<CurrentMajor>.*", build = "make install_jsregexp"},
+      "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip", -- for autocompletion
       "rafamadriz/friendly-snippets" -- useful snippets
     },
