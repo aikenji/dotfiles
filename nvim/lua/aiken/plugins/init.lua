@@ -11,6 +11,16 @@ local plugins = {
     },
 
     {
+        -- ehanced vim.notify ui
+        "rcarriga/nvim-notify",
+        config = function()
+            require("notify").setup({
+                background_colour = "#000000",
+            })
+        end,
+    },
+
+    {
         -- file explorer
         "nvim-tree/nvim-tree.lua",
         dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional, for file icons
@@ -173,6 +183,9 @@ local plugins = {
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- 24-bit color is required when using nvim-notify
+vim.opt.termguicolors = true
+
 -- auto install lazy if not installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -193,3 +206,4 @@ require("lazy").setup(plugins)
 
 -- change color for arrows in nvim-tree to light blue
 vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
+require("notify")("My super important message")

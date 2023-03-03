@@ -17,8 +17,8 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 opt.cursorline = true -- highlight cursorline
 
 -- appearance
-opt.list = true -- show invisible space, tab, eol
-vim.opt.listchars:append("space:⋅") -- show invisible space with .
+-- opt.list = true -- show invisible space, tab, eol
+-- vim.opt.listchars:append("space:⋅") -- show invisible space with .
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- clipboard
