@@ -42,9 +42,7 @@ local plugins = {
         -- show indent line
         "lukas-reineke/indent-blankline.nvim",
         config = function()
-            require("indent_blankline").setup({
-                space_char_blackline = " ",
-            })
+            require("indent_blankline").setup({})
         end,
     },
 
@@ -156,6 +154,16 @@ local plugins = {
         config = function()
             require("aiken.plugins.lsp.null-ls").init()
         end,
+    },
+
+    {
+        -- markdown-preview
+        "iamcco/markdown-preview.nvim",
+        build = "cd app && npm install",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
     },
 }
 
