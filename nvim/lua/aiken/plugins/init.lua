@@ -11,12 +11,20 @@ local plugins = {
     },
 
     {
+        -- start ui of nvim
+        "glepnir/dashboard-nvim",
+        event = "VimEnter",
+        init = function()
+            require("aiken.plugins.dashboard").init()
+        end,
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+
+    {
         -- ehanced vim.notify ui
         "rcarriga/nvim-notify",
         config = function()
-            require("notify").setup({
-                background_colour = "#000000",
-            })
+            require("aiken.plugins.notify").init()
         end,
     },
 
@@ -67,7 +75,8 @@ local plugins = {
     {
         -- auto closing
         "windwp/nvim-autopairs",
-        init = function()
+        event = "BufRead",
+        config = function()
             require("aiken.plugins.autopairs").init()
         end,
     },
@@ -152,6 +161,7 @@ local plugins = {
             "saadparwaiz1/cmp_luasnip", -- for autocompletion
             "rafamadriz/friendly-snippets", -- useful snippets
         },
+        event = "BufRead",
         config = function()
             require("aiken.plugins.lsp.completion").init()
         end,
@@ -206,4 +216,3 @@ require("lazy").setup(plugins)
 
 -- change color for arrows in nvim-tree to light blue
 vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
-require("notify")("My super important message")
