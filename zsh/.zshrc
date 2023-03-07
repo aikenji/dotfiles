@@ -145,4 +145,4 @@ export LIBRARY_PATH=/opt/homebrew/lib
 
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_COMPLETION_TRIGGER=\
