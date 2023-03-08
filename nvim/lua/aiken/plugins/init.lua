@@ -11,13 +11,12 @@ local plugins = {
     },
 
     {
-        -- start ui of nvim
-        "glepnir/dashboard-nvim",
+        -- dashboard of nvim
+        "goolord/alpha-nvim",
         event = "VimEnter",
-        init = function()
-            require("aiken.plugins.dashboard").init()
+        config = function()
+            require("aiken.plugins.alpha").init()
         end,
-        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
     {
@@ -59,11 +58,39 @@ local plugins = {
     {
         -- show indent line
         "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require("indent_blankline").setup({})
+        event = { "BufReadPost", "BufNewFile" },
+        opts = {
+            char = "|",
+            filetype_exclude = { "help", "alpha", "dashboard", "Trouble", "lazy" },
+            show_trailing_blankline_indent = false,
+            show_current_context = false,
+        },
+        config = function(_, opts)
+            require("indent_blankline").setup(opts)
         end,
     },
 
+    {
+        -- show indent range
+        "echasnovski/mini.indentscope",
+        event = { "BufReadPre", "BufNewFile" },
+        opts = {
+            -- symbol = "▏",
+            symbol = "│",
+            options = { try_as_border = true },
+        },
+        init = function()
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = { "help", "alpha", "dashboard", "Trouble", "lazy", "mason" },
+                callback = function()
+                    vim.b.miniindentscope_disable = true
+                end,
+            })
+        end,
+        config = function(_, opts)
+            require("mini.indentscope").setup(opts)
+        end,
+    },
     {
         -- commenting with gc
         "numToStr/Comment.nvim",
