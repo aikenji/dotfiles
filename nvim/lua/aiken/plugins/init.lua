@@ -211,6 +211,9 @@ local plugins = {
             vim.g.mkdp_filetypes = { "markdown" }
         end,
         ft = { "markdown" },
+        keys = {
+            { "<leader>pd", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown preview toggle" },
+        },
     },
 }
 
