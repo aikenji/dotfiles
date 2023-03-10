@@ -37,6 +37,7 @@ function M.init()
             --  to disable file types use
             --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
             formatting.stylua, -- lua formatter
+            formatting.markdownlint, -- markdown formatter
             formatting.black, -- python formatter
         },
         -- configure format on save

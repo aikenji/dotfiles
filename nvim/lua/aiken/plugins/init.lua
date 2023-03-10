@@ -21,9 +21,14 @@ local plugins = {
 
     {
         -- ehanced vim.notify ui
-        "rcarriga/nvim-notify",
+        "folke/noice.nvim",
+        dependencies = {
+            "rcarriga/nvim-notify",
+            "MunifTanjim/nui.nvim",
+        },
+        event = "VeryLazy",
         config = function()
-            require("aiken.plugins.notify").init()
+            require("aiken.plugins.noice").init()
         end,
     },
 
@@ -40,7 +45,7 @@ local plugins = {
         -- buffer line
         "akinsho/bufferline.nvim",
         version = "v3.*",
-        enabled = false,
+        enabled = true,
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("aiken.plugins.bufferline").init()
@@ -161,7 +166,9 @@ local plugins = {
     {
         -- some extections on lsp
         "glepnir/lspsaga.nvim",
-        config = true,
+        config = function()
+            require("aiken.plugins.lsp.lspsaga").init()
+        end,
         dependencies = { "nvim-tree/nvim-web-devicons", "nvim-treesitter/nvim-treesitter" },
         event = "BufRead",
     },
@@ -184,7 +191,7 @@ local plugins = {
             "hrsh7th/cmp-path", -- source for file system paths
             "onsails/lspkind-nvim", -- vs-code like icons for autocompletion
             -- snippets
-            "L3MON4D3/LuaSnip",
+            { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
             "saadparwaiz1/cmp_luasnip", -- for autocompletion
             "rafamadriz/friendly-snippets", -- useful snippets
         },
@@ -211,9 +218,6 @@ local plugins = {
             vim.g.mkdp_filetypes = { "markdown" }
         end,
         ft = { "markdown" },
-        keys = {
-            { "<leader>pd", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown preview toggle" },
-        },
     },
 }
 
