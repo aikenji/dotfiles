@@ -33,11 +33,29 @@ local plugins = {
     },
 
     {
-        -- file explorer
-        "nvim-tree/nvim-tree.lua",
-        dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional, for file icons
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim", -- file explorer
+        },
+        cmd = "NeoTree",
         init = function()
-            require("aiken.plugins.nvim-tree").init()
+            require("aiken.plugins.neo-tree").init()
+        end,
+    },
+
+    {
+        -- better terminal
+        "akinsho/toggleterm.nvim",
+        version = "*",
+        opts = {
+            terminal_mappings = true,
+            direction = "float",
+        },
+        config = function(_, opts)
+            require("toggleterm").setup(opts)
         end,
     },
 
@@ -66,7 +84,7 @@ local plugins = {
         event = { "BufReadPost", "BufNewFile" },
         opts = {
             char = "|",
-            filetype_exclude = { "help", "alpha", "dashboard", "Trouble", "lazy" },
+            filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
             show_trailing_blankline_indent = false,
             show_current_context = false,
         },
@@ -86,7 +104,7 @@ local plugins = {
         },
         init = function()
             vim.api.nvim_create_autocmd("FileType", {
-                pattern = { "help", "alpha", "dashboard", "Trouble", "lazy", "mason" },
+                pattern = { "help", "alpha", "neo-tree", "dashboard", "Trouble", "lazy", "mason" },
                 callback = function()
                     vim.b.miniindentscope_disable = true
                 end,
@@ -247,6 +265,3 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(plugins)
 
 -- afterload of lazy plugins
-
--- change color for arrows in nvim-tree to light blue
-vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])

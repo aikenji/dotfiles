@@ -30,9 +30,11 @@ function M.init()
     keymap.set("i", "<tab>", function() -- expand sippets
         return luasnip.jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
     end, { expr = true, silent = true, noremap = true })
+
     keymap.set("s", "<tab>", function() -- jump to next sippets node
         luasnip.jump(1)
     end)
+
     keymap.set({ "i", "s" }, "<s-tab>", function() -- jump to previous sippets node
         luasnip.jump(-1)
     end)

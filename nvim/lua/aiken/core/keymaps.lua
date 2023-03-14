@@ -44,8 +44,10 @@ keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 -- Plugin Keybinds
 ----------------------
 
--- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+-- neo-tree
+keymap.set("n", "<leader>e", function()
+    require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+end, { desc = "Explorer NeoTree (cwd)" })
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore

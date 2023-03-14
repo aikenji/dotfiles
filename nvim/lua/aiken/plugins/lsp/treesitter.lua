@@ -25,6 +25,7 @@ function M.init()
             "markdown_inline",
             "bash",
             "lua",
+            "json",
             "vim",
             "gitignore",
         },

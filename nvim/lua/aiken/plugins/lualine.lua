@@ -37,6 +37,22 @@ function M.init()
     lualine.setup({
         options = {
             theme = lualine_nightfly,
+            disabled_filetypes = {
+                statusline = { "neo-tree", "alpha", "dashboard", "lspsagaoutline" },
+            },
+        },
+        sections = {
+            lualine_c = {
+                {
+                    "filename",
+                    path = 1, -- show relative path
+                    color = { fg = new_colors.blue },
+                    -- show lspsaga symbolwinbar
+                    -- function()
+                    --     return require("lspsaga.symbolwinbar"):get_winbar()
+                    -- end,
+                },
+            },
         },
     })
 end

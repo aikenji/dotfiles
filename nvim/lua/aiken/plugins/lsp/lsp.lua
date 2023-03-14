@@ -58,7 +58,6 @@ function M.init()
         keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
         keymap.set("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>", { noremap = true, desc = "Show documentation" }) -- show documentation for what is under cursor
         keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { noremap = true, desc = "Outline" }) -- see outline on right hand side
-        keymap.set("n", "<leader>t", "<cmd>Lspsaga term_toggle<CR>", { noremap = true, desc = "Terminal toggle" }) -- toggle terminal
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
