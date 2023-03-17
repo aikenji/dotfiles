@@ -13,8 +13,11 @@ function M.init()
         window = {
             mappings = {
                 ["<tab>"] = { "toggle_preview", config = { use_float = true } },
-                ["P"] = nil,
-                ["<space>"] = nil,
+                ["v"] = "open_vsplit",
+                ["s"] = "open_split",
+                ["S"] = "",
+                ["P"] = "",
+                ["<space>"] = "",
             },
         },
     })

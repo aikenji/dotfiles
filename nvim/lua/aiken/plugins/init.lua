@@ -50,12 +50,8 @@ local plugins = {
         -- better terminal
         "akinsho/toggleterm.nvim",
         version = "*",
-        opts = {
-            terminal_mappings = true,
-            direction = "float",
-        },
-        config = function(_, opts)
-            require("toggleterm").setup(opts)
+        config = function()
+            require("aiken.plugins.toggleterm").init()
         end,
     },
 

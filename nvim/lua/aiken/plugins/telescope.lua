@@ -14,7 +14,21 @@ function M.init()
     end
 
     -- configure telescope
-    telescope.setup({})
+    telescope.setup({
+        defaults = {
+            mappings = {
+                i = {
+                    ["<C-q>"] = "close",
+                    ["<tab>"] = "move_selection_previous",
+                    ["<S-tab>"] = "move_selection_next",
+                },
+                n = {
+                    ["q"] = "close",
+                    ["v"] = "select_vertical",
+                },
+            },
+        },
+    })
 
     telescope.load_extension("fzf")
 end

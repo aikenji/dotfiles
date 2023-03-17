@@ -27,10 +27,10 @@ keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
 keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 
 -- Resize window using arrow keys
-keymap.set("n", "<leader><Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
-keymap.set("n", "<leader><Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
-keymap.set("n", "<leader><Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
-keymap.set("n", "<leader><Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+keymap.set("n", "<A-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+keymap.set("n", "<A-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+keymap.set("n", "<A-Left>", "<cmd>vertical resize -1<cr>", { desc = "Decrease window width" })
+keymap.set("n", "<A-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- change number quickly
 keymap.set("n", "<Up>", "<C-a>", { desc = "Increase number" })
@@ -52,7 +52,7 @@ keymap.set("n", "<leader>e", "<cmd>Neotree toggle <cr>", { desc = "Explorer NeoT
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
+keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Fuzzy Find" }) -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 keymap.set("n", "<leader>ft", "<cmd>Telescope lsp_document_symbols<cr>") -- list all functions/structs/classes/modules in the current buffer
 
@@ -62,8 +62,8 @@ keymap.set("n", "<leader>ft", "<cmd>Telescope lsp_document_symbols<cr>") -- list
 -- keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
 -- keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
--- lazygit
-keymap.set("n", "<leader>lg", "<cmd>term lazygit<cr>", { desc = "lauch lazygit" })
+-- toggleterm
+keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "Launch Terminal" })
 
 -- markdown
-keymap.set("n", "<leader>md", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown preview toggle" })
+keymap.set("n", "<leader>pd", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown Preview Toggle" })
