@@ -37,17 +37,16 @@ keymap.set("n", "<Up>", "<C-a>", { desc = "Increase number" })
 keymap.set("n", "<Down>", "<C-x>", { desc = "Decrease number" })
 
 -- save and quit
-keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
-keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
+keymap.set("n", "<C-w>", "<cmd>w<cr>", { desc = "Save" })
+keymap.set("n", "<C-q>", "<cmd>q<cr>", { desc = "Quit" })
 
 ----------------------
 -- Plugin Keybinds
 ----------------------
 
 -- neo-tree
-keymap.set("n", "<leader>e", function()
-    require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-end, { desc = "Explorer NeoTree (cwd)" })
+keymap.set("n", "<leader>E", "<cmd>Neotree toggle %:p:h reveal_force_cwd<cr>", { desc = "Explorer NeoTree (cwd)" })
+keymap.set("n", "<leader>e", "<cmd>Neotree toggle <cr>", { desc = "Explorer NeoTree" })
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
