@@ -148,6 +148,11 @@ local plugins = {
             vim.o.timeout = true
             vim.o.timeoutlen = 300
             require("which-key").setup()
+            require("which-key").register({
+                mode = { "n", "v" },
+                ["<leader>f"] = { name = "+file/find" },
+                ["<leader>p"] = { name = "+preview" },
+            })
         end,
     },
 

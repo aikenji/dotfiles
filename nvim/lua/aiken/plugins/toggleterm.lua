@@ -20,6 +20,14 @@ function M.init()
         "<cmd>lua _lazygit_toggle()<CR>",
         { noremap = true, silent = true, desc = "Lazygit" }
     )
+
+    function _G.set_terminal_keymaps()
+        local opts = { buffer = 0 }
+        vim.keymap.set("t", "<C-q>", [[<C-\><C-n><cmd>q<cr>]], opts)
+    end
+
+    -- if you only want these mappings for toggle term use term://*toggleterm#* instead
+    vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 end
 
 return M
