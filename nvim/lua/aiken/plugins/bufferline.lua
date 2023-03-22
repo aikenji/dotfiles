@@ -11,7 +11,7 @@ function M.init()
             max_name_length = 30,
             max_prefix_length = 30,
             tab_size = 21,
-            offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+            offsets = { { filetype = "neo-tree", text = "", padding = 1 } },
             show_buffer_close_icons = false,
             show_close_icon = false,
             enforce_regular_tabs = true,

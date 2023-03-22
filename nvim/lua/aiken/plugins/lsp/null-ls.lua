@@ -39,6 +39,8 @@ function M.init()
             formatting.stylua, -- lua formatter
             formatting.markdownlint, -- markdown formatter
             formatting.black, -- python formatter
+            diagnostics.cpplint,
+            diagnostics.markdownlint,
         },
         -- configure format on save
         on_attach = function(current_client, bufnr)

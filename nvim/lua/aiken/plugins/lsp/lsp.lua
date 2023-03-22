@@ -70,6 +70,9 @@ function M.init()
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    -- configure null-ls
+    lspconfig["null-ls"].setup({})
+
     -- configure cpp clangd
     lspconfig["clangd"].setup({
         capabilities = capabilities,

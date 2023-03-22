@@ -6,10 +6,11 @@ local keymap = vim.keymap
 
 vim.g.mapleader = " " -- set leader key to space
 
--- clear search highlights
-keymap.set("n", "<ESC><ESC>", ":noh<CR><ESC>")
+-- built-in search and subsitution
+keymap.set("n", "<ESC><ESC>", ":noh<CR><ESC>") -- clear search highlights
+keymap.set("n", "D", "*N") -- quick search and highlight same word
 
--- deltet single char without copying into register
+-- delete single char without copying into register
 keymap.set("n", "x", '"_x')
 
 -- line movement

@@ -7,8 +7,8 @@ function M.init()
         return
     end
 
-    -- get lualine nightfly theme
-    local lualine_nightfly = require("lualine.themes.nightfly")
+    -- get lualine material theme
+    local lualine_material = require("lualine.themes.material")
 
     -- new colors for theme
     local new_colors = {
@@ -22,10 +22,10 @@ function M.init()
     }
 
     -- change nightlfy theme colors
-    lualine_nightfly.normal.a.bg = new_colors.blue
-    lualine_nightfly.insert.a.bg = new_colors.uiuc_orange
-    lualine_nightfly.visual.a.bg = new_colors.violet
-    lualine_nightfly.command = {
+    lualine_material.normal.a.bg = new_colors.blue
+    lualine_material.insert.a.bg = new_colors.uiuc_orange
+    lualine_material.visual.a.bg = new_colors.violet
+    lualine_material.command = {
         a = {
             gui = "bold",
             bg = new_colors.yellow,
@@ -36,7 +36,7 @@ function M.init()
     -- configure lualine with modified theme
     lualine.setup({
         options = {
-            theme = lualine_nightfly,
+            theme = lualine_material,
             disabled_filetypes = {
                 statusline = { "neo-tree", "alpha", "dashboard", "lspsagaoutline" },
             },
