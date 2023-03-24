@@ -5,3 +5,7 @@ iterm2
 ranger/plugins
 
 nvim/plugin 
+
+raycast
+
+nvim/lazy-lock.json
