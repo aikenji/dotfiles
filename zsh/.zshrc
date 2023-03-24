@@ -109,10 +109,11 @@ fi
 # colorize some commands such as tree
 export CLICOLOR=1
 
-# aliasing and keybinding
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+# >>> keybinding and aliasing >>>
+alias l='colorls -l'
 alias vim='nvim'
 alias ra='ranger'
+# <<< keybinding and aliasing <<<
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -145,4 +146,3 @@ export LIBRARY_PATH=/opt/homebrew/lib
 
 
 
-export FZF_COMPLETION_TRIGGER=\
