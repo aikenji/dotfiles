@@ -1,5 +1,11 @@
 # MY CONFIG FILES
 
+<!--toc:start-->
+- [MY CONFIG FILES](#my-config-files)
+  - [Nvim config](#nvim-config)
+  - [File Structure](#file-structure)
+<!--toc:end-->
+
 ## Nvim config
 
 This is some **bold text.**

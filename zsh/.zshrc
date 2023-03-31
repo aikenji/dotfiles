@@ -76,7 +76,7 @@ plugins=(git
 	autojump
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	vi-mode)
+	vi-mode web-search)
 	
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
@@ -110,6 +110,7 @@ fi
 export CLICOLOR=1
 
 # >>> keybinding and aliasing >>>
+alias ls=colorls
 alias l='colorls -l'
 alias vim='nvim'
 alias ra='ranger'
@@ -137,6 +138,7 @@ export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
 export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
 export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
 # <<< homebrew initialize <<<

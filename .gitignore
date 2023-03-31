@@ -1,10 +1,6 @@
 .DS_Store
 
-iterm2
-
 ranger/plugins
-
-nvim/plugin 
 
 raycast
 
