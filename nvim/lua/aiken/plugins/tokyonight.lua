@@ -11,7 +11,7 @@ function M.init()
 
     tn.setup({
         style = "storm",
-        transparent = true,
+        transparent = false,
         dim_inactive = true, -- dims inactive windows
         lualine_bold = true, -- section headers in lualine theme will be bold
         styles = {
