@@ -76,7 +76,7 @@ plugins=(git
 	autojump
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	vi-mode web-search)
+	vi-mode )
 	
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh

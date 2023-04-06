@@ -15,6 +15,7 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 
 -- cursor line
 opt.cursorline = true -- highlight cursorline
+opt.scrolloff = 8 -- get 8 line margins when scroll over the file
 
 -- appearance
 -- opt.list = true -- show invisible space, tab, eol

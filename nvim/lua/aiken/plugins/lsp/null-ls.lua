@@ -39,6 +39,7 @@ function M.init()
             formatting.stylua, -- lua formatter
             formatting.markdownlint, -- markdown formatter
             formatting.black, -- python formatter
+            formatting.clang_format,
             diagnostics.cpplint,
             diagnostics.markdownlint,
         },

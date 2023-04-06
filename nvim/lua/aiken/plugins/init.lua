@@ -59,7 +59,6 @@ local plugins = {
         -- buffer line
         "akinsho/bufferline.nvim",
         version = "v3.*",
-        enabled = true,
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("aiken.plugins.bufferline").init()
