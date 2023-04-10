@@ -16,11 +16,19 @@ function M.init()
     -- configure telescope
     telescope.setup({
         defaults = {
+            sorting_strategy = "ascending",
+            layout_config = {
+                prompt_position = "top",
+                width = { padding = 0.05 },
+                height = { padding = 0.05 },
+                preview_width = 0.5,
+            },
             mappings = {
                 i = {
-                    ["<C-q>"] = "close",
-                    ["<tab>"] = "move_selection_previous",
-                    ["<S-tab>"] = "move_selection_next",
+                    ["<C-c>"] = "close",
+                    ["<C-h>"] = "which_key",
+                    ["<C-k>"] = "move_selection_previous",
+                    ["<C-j>"] = "move_selection_next",
                 },
                 n = {
                     ["q"] = "close",

@@ -61,7 +61,7 @@ class fzf_select(Command):
 
         env = os.environ.copy()
         env["FZF_DEFAULT_COMMAND"] = fzf_default_command
-        env["FZF_DEFAULT_OPTS"] = "--height=40% --layout=reverse --ansi --border"
+        env["FZF_DEFAULT_OPTS"] = "--height=60% --layout=reverse --ansi --border"
 
         fzf = self.fm.execute_command(
             "fzf --no-multi", env=env, universal_newlines=True, stdout=subprocess.PIPE
