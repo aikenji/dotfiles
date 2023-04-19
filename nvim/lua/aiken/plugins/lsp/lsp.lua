@@ -25,25 +25,26 @@ function M.init()
         return
     end
 
-    -- enable mason
+    -- setup mason
     mason.setup()
 
+    -- setup mason_lspconfig
     mason_lspconfig.setup({
         -- list of servers for mason to install
         ensure_installed = {
+            "lua_ls",
             "clangd",
             "pyright",
             "marksman",
         },
-        -- auto-install configured servers (with lspconfig)
-        automatic_installation = true, -- not the same as ensure_installed
     })
 
-    local keymap = vim.keymap -- for conciseness
-
+    -- used to enable autocompletion (assign to every lsp server config)
+    local capabilities = cmp_nvim_lsp.default_capabilities()
     -- enable keybinds only for when lsp server available
     local on_attach = function(client, bufnr)
         -- keybind options
+        local keymap = vim.keymap -- for conciseness
         local opts = { noremap = true, silent = true, buffer = bufnr }
 
         -- set keybinds
@@ -58,12 +59,7 @@ function M.init()
         keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { noremap = true, desc = "Outline" }) -- see outline on right hand side
         keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", { noremap = true, desc = "Diagnostics" }) -- show diagnostics
     end
-
-    -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
-
     -- Change the Diagnostic symbols in the sign column (gutter)
-    -- (not in youtube nvim video)
     local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
     for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type

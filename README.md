@@ -12,7 +12,7 @@ This is some **bold text.**
 
 This is some *italic text.*
 
-This is some code
+This is some ***bold and italic text***
 
 ```c
 #include <stdio.h>
