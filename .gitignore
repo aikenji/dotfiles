@@ -1,7 +1,7 @@
 .DS_Store
 
 ranger/plugins
-raycast
+raycast/extensions
 nvim/lazy-lock.json
 BaiduPCS-Go 
 iterm2

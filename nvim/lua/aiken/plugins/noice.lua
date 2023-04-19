@@ -23,7 +23,7 @@ function M.init()
     })
 
     require("notify").setup({
-        -- background_colour = "#000000", -- notify bug when using background transparent
+        background_colour = "#000000", -- notify bug when using background transparent
     })
 end
 

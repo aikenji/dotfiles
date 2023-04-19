@@ -19,6 +19,11 @@ function M.init()
         return
     end
 
+    local lsputil_status, util = pcall(require, "lspconfig/util")
+    if not lsputil_status then
+        return
+    end
+
     -- import cmp-nvim-lsp plugin safely
     local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
     if not cmp_nvim_lsp_status then
@@ -41,6 +46,8 @@ function M.init()
 
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
+    capabilities.offsetEncoding = "utf-16"
+
     -- enable keybinds only for when lsp server available
     local on_attach = function(client, bufnr)
         -- keybind options
@@ -59,6 +66,7 @@ function M.init()
         keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { noremap = true, desc = "Outline" }) -- see outline on right hand side
         keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", { noremap = true, desc = "Diagnostics" }) -- show diagnostics
     end
+
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
     for type, icon in pairs(signs) do
@@ -70,20 +78,33 @@ function M.init()
     lspconfig["clangd"].setup({
         capabilities = capabilities,
         on_attach = on_attach,
+        cmd = { "clangd" },
+        filetype = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+        root_dir = util.root_pattern(
+            ".clangd",
+            ".clang-tidy",
+            ".clang-format",
+            "compile_commands.json",
+            "compile_flags.txt",
+            "configure.ac",
+            ".git"
+        ),
+        single_file_support = true,
     })
 
     -- configure pyright server
     lspconfig["pyright"].setup({
         capabilities = capabilities,
         on_attach = on_attach,
+        cmd = { "pyright-langserver", "--stdio" },
+        filetype = { "python" },
+        single_file_support = true,
         settings = {
-            pyright = {
-                autoImportCompletion = true,
-                python = {
-                    analysis = {
-                        autoSearchPaths = true,
-                        useLibraryCodeForTypes = true,
-                    },
+            python = {
+                analysis = {
+                    autoSearchPaths = true,
+                    diagnosticsMode = "workspace",
+                    useLibraryCodeForTypes = true,
                 },
             },
         },

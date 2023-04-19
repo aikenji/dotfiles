@@ -41,6 +41,7 @@ function M.init()
             formatting.black, -- python formatter
             formatting.clang_format,
             diagnostics.cpplint,
+            diagnostics.pyright,
             diagnostics.markdownlint,
         },
         -- configure format on save

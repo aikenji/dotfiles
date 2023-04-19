@@ -12,9 +12,9 @@ function M.init()
         -- enable syntax highlighting
         highlight = {
             enable = true,
+            additional_vim_regex_highlighting = true,
         },
-        -- enable autotagging (w/ nvim-ts-autotag plugin)
-        -- autotag = { enable = true },
+
         -- ensure these language parsers are installed
         ensure_installed = {
             "c",
@@ -29,7 +29,7 @@ function M.init()
             "vim",
             "gitignore",
         },
-        -- auto install above language parsers
+        --Automatically install missing parsers
         auto_install = true,
     })
 end
