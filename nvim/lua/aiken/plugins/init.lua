@@ -143,14 +143,7 @@ local plugins = {
         -- show keymap list
         "folke/which-key.nvim",
         config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup()
-            require("which-key").register({
-                mode = { "n", "v" },
-                ["<leader>f"] = { name = "+file/find" },
-                ["<leader>p"] = { name = "+preview" },
-            })
+            require("aiken.plugins.whichkey").init()
         end,
     },
 
@@ -188,6 +181,12 @@ local plugins = {
         end,
         dependencies = { "nvim-tree/nvim-web-devicons", "nvim-treesitter/nvim-treesitter" },
         event = "BufRead",
+    },
+
+    {
+        -- rainbow parentheses
+        "HiPhish/nvim-ts-rainbow2",
+        dependencies = "nvim-treesitter/nvim-treesitter",
     },
 
     {

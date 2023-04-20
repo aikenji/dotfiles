@@ -10,17 +10,20 @@ function M.init()
     end
 
     tn.setup({
-        style = "storm",
+        style = "night",
         transparent = true,
         dim_inactive = true, -- dims inactive windows
         lualine_bold = true, -- section headers in lualine theme will be bold
         styles = {
             comments = { italic = true },
             keywords = { italic = true },
+            -- background styles. Can be "dark", "transparent", "normal"
+            sidebars = "transparent",
+            floats = "transparent",
         },
     })
 
-    vim.cmd("colorscheme tokyonight-storm")
+    vim.cmd("colorscheme tokyonight-night")
 end
 
 return M

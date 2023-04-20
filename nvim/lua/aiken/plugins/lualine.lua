@@ -36,7 +36,7 @@ function M.init()
     -- configure lualine with modified theme
     lualine.setup({
         options = {
-            theme = lualine_material,
+            theme = "tokyonight",
             disabled_filetypes = {
                 statusline = { "neo-tree", "alpha", "dashboard", "lspsagaoutline" },
             },

@@ -2,8 +2,8 @@ local M = {}
 
 function M.init()
     -- import nvim-treesitter plugin safely
-    local status, treesitter = pcall(require, "nvim-treesitter.configs")
-    if not status then
+    local ts_status, treesitter = pcall(require, "nvim-treesitter.configs")
+    if not ts_status then
         return
     end
 
@@ -31,6 +31,17 @@ function M.init()
         },
         --Automatically install missing parsers
         auto_install = true,
+
+        -- rainbow setup
+        rainbow = {
+            enable = true,
+            -- list of languages you want to disable the plugin for
+            -- disable = { 'jsx', 'cpp' },
+            -- Which query to use for finding delimiters
+            query = "rainbow-parens",
+            -- Highlight the entire buffer all at once
+            strategy = require("ts-rainbow").strategy.global,
+        },
     })
 end
 

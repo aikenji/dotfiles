@@ -58,6 +58,9 @@ export CLICOLOR=1
 # >>> keybinding and aliasing >>>
 alias ls='colorls'
 alias l='colorls -l'
+alias cat='bat'
+alias ma='tldr'
+alias grep='rg'
 alias vim='nvim'
 alias ra='ranger'
 alias fzf='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
