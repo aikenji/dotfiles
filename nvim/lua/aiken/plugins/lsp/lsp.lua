@@ -31,7 +31,11 @@ function M.init()
     end
 
     -- setup mason
-    mason.setup()
+    mason.setup({
+        ui = {
+            border = "rounded",
+        },
+    })
 
     -- setup mason_lspconfig
     mason_lspconfig.setup({
@@ -56,7 +60,7 @@ function M.init()
 
         -- set keybinds
         keymap.set("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
-        keymap.set("n", "gD", "<Cmd>Lspsaga goto_definition<CR>", opts) -- got to declaration
+        keymap.set("n", "gD", "<cmd>Lspsaga goto_definition<CR>", opts) -- got to declaration
         keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
         keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
         keymap.set("n", "gR", "<cmd>Lspsaga rename<CR>", opts) -- smart rename

@@ -17,6 +17,8 @@ function M.init()
         styles = {
             comments = { italic = true },
             keywords = { italic = true },
+            functions = {},
+            variables = {},
             -- background styles. Can be "dark", "transparent", "normal"
             sidebars = "transparent",
             floats = "transparent",

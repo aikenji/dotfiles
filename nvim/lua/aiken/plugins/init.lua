@@ -176,11 +176,11 @@ local plugins = {
     {
         -- some extections on lsp
         "glepnir/lspsaga.nvim",
+        event = "BufRead",
+        dependencies = { "nvim-tree/nvim-web-devicons", "nvim-treesitter/nvim-treesitter" },
         config = function()
             require("aiken.plugins.lsp.lspsaga").init()
         end,
-        dependencies = { "nvim-tree/nvim-web-devicons", "nvim-treesitter/nvim-treesitter" },
-        event = "BufRead",
     },
 
     {

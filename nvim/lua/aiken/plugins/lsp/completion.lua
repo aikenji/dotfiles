@@ -47,24 +47,30 @@ function M.init()
                 luasnip.lsp_expand(args.body)
             end,
         },
+        window = {
+            completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
+        },
         mapping = cmp.mapping.preset.insert({
             ["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
             ["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
             ["<C-b>"] = cmp.mapping.scroll_docs(-4),
             ["<C-f>"] = cmp.mapping.scroll_docs(4),
             ["<C-e>"] = cmp.mapping.abort(), -- close completion window
-            ["<CR>"] = cmp.mapping.confirm({ select = false }),
+            ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
         -- sources for autocompletion
         sources = cmp.config.sources({
             { name = "nvim_lsp" }, -- lsp
             { name = "luasnip" }, -- snippets
-            { name = "buffer" }, -- text within current buffer
-            { name = "path" }, -- file system paths
+            { name = "buffer", keyword_length = 3 }, -- text within current buffer
+            { name = "path", keyword_length = 2 }, -- file system paths
         }),
         -- configure lspkind for vs-code like icons
         formatting = {
+            fields = { "abbr", "kind", "menu" },
             format = lspkind.cmp_format({
+                -- mode = "symbol",
                 maxwidth = 50,
                 ellipsis_char = "...",
             }),
