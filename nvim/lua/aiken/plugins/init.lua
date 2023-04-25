@@ -184,18 +184,24 @@ local plugins = {
     },
 
     {
-        -- rainbow parentheses
-        "HiPhish/nvim-ts-rainbow2",
-        dependencies = "nvim-treesitter/nvim-treesitter",
-    },
-
-    {
         -- treesitter
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         init = function()
             require("aiken.plugins.lsp.treesitter").init()
         end,
+    },
+
+    {
+        -- treesitter context
+        "nvim-treesitter/nvim-treesitter-context",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+    },
+
+    {
+        -- rainbow parentheses
+        "HiPhish/nvim-ts-rainbow2",
+        dependencies = "nvim-treesitter/nvim-treesitter",
     },
 
     {

@@ -6,6 +6,11 @@ function M.init()
     if not ts_status then
         return
     end
+    -- import treesitter-context plugin safely
+    local tscontext_status, ts_context = pcall(require, "treesitter-context")
+    if not tscontext_status then
+        return
+    end
 
     -- configure treesitter
     treesitter.setup({
@@ -42,6 +47,11 @@ function M.init()
             -- Highlight the entire buffer all at once
             strategy = require("ts-rainbow").strategy.global,
         },
+    })
+
+    ts_context.setup({
+        separator = "_",
+        line_numbers = false,
     })
 end
 

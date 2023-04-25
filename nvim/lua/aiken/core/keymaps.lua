@@ -18,8 +18,8 @@ keymap.set({ "n", "v", "o" }, "H", "^", { desc = "Use 'H' as '^'" }) -- replace 
 keymap.set({ "n", "v", "o" }, "L", "$", { desc = "Use 'L' as '$'" }) -- replace $ by L to move line end
 
 -- buffers movement
-keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-keymap.set("n", "<A-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+keymap.set("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 
 -- Move the window using the <ctrl> hjkl
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
