@@ -18,6 +18,7 @@ function M.init()
         ensure_installed = {
             "stylua", -- lua formatter
             "black", -- python formatter
+            "flake8", -- python linter
         },
         -- auto-install configured formatters & linters (with null-ls)
         automatic_installation = true,
@@ -37,11 +38,10 @@ function M.init()
             --  to disable file types use
             --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
             formatting.stylua, -- lua formatter
-            formatting.markdownlint, -- markdown formatter
             formatting.black, -- python formatter
+            diagnostics.flake8, -- python linter
             formatting.clang_format,
             diagnostics.cpplint,
-            diagnostics.pyright,
             diagnostics.markdownlint,
         },
         -- configure format on save
