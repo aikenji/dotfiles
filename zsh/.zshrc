@@ -59,12 +59,13 @@ export CLICOLOR=1
 alias ls='colorls'
 alias l='colorls -l'
 alias cat='bat'
-alias ma='tldr'
 alias grep='rg'
 alias vim='nvim'
 alias ra='ranger'
 alias top='vtop'
-alias fzf='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
+alias ff='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs cd'
+alias ffv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
+alias ma='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 # <<< keybinding and aliasing <<<
 
 # >>> conda initialize >>>
@@ -87,6 +88,7 @@ export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
 export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+export HOMEBREW_NO_AUTO_UPDATE
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
@@ -124,3 +126,6 @@ function ranger {
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+# path setup
+export PATH=".local/bin:$PATH"
