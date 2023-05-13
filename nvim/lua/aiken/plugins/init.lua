@@ -1,4 +1,10 @@
 local plugins = {
+
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
+    },
+
     -- preferred colortheme
     {
         "folke/tokyonight.nvim",

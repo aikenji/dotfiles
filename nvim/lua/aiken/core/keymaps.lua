@@ -6,6 +6,8 @@ local keymap = vim.keymap
 
 vim.g.mapleader = " " -- set leader key to space
 
+-- auto source lua config file after saving
+keymap.set("n", "<leader>s", "<cmd> luafile $MYVIMRC<CR>", { desc = "Source lua config file" })
 -- built-in search and subsitution
 keymap.set("n", "<ESC><ESC>", ":noh<CR><ESC>") -- clear search highlights
 keymap.set("n", "D", "*N") -- quick search and highlight same word
@@ -13,19 +15,25 @@ keymap.set("n", "D", "*N") -- quick search and highlight same word
 -- delete single char without copying into register
 keymap.set("n", "x", '"_x')
 
--- line movement
-keymap.set({ "n", "v", "o" }, "H", "^", { desc = "Use 'H' as '^'" }) -- replace ^ by H to move line head
-keymap.set({ "n", "v", "o" }, "L", "$", { desc = "Use 'L' as '$'" }) -- replace $ by L to move line end
+-- cursor movement
+keymap.set("i", "<C-h>", "<Left>", { desc = "move left" }) -- navi in insert mode
+keymap.set("i", "<C-l>", "<Right>", { desc = "move right" })
+keymap.set("i", "<C-j>", "<Down>", { desc = "move down" })
+keymap.set("i", "<C-k>", "<Up>", { desc = "move up" })
+keymap.set("i", "<C-b>", "<ESC>^i", { desc = "beginning of line" })
+keymap.set("i", "<C-e>", "<End>", { desc = "end of line" })
+keymap.set({ "n", "v" }, "<C-b>", "^", { desc = "beginning of line" })
+keymap.set({ "n", "v" }, "<C-e>", "$", { desc = "end of line" })
 
 -- buffers movement
 keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
 keymap.set("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 
 -- Move the window using the <ctrl> hjkl
-keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
-keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
-keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
-keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
+keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "Go to left window" })
+keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", { desc = "Go to lower window" })
+keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", { desc = "Go to upper window" })
+keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "Go to right window" })
 
 -- Resize window using arrow keys
 keymap.set("n", "<A-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
@@ -53,7 +61,7 @@ keymap.set("n", "<leader>e", "<cmd>Neotree toggle <cr>", { desc = "Explorer NeoT
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Fuzzy Find" }) -- list open buffers in current neovim instance
+keymap.set("n", "<leader>fg", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Fuzzy Find" }) -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 keymap.set("n", "<leader>ft", "<cmd>Telescope lsp_document_symbols<cr>") -- list all functions/structs/classes/modules in the current buffer
 
@@ -68,3 +76,14 @@ keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "Launch Terminal" }
 
 -- markdown
 keymap.set("n", "<leader>pd", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown Preview Toggle" })
+
+-- comments
+keymap.set("n", "<leader>/", function()
+    require("Comment.api").toggle.linewise.current()
+end, { desc = "Toggle comments" })
+keymap.set(
+    "v",
+    "<leader>/",
+    "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+    { desc = "Toggle comments" }
+)

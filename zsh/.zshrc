@@ -63,7 +63,7 @@ alias grep='rg'
 alias vim='nvim'
 alias ra='ranger'
 alias top='vtop'
-alias ff='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs cd'
+alias ff='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
 alias ffv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
 alias ma='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 # <<< keybinding and aliasing <<<
