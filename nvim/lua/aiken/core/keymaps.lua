@@ -7,7 +7,7 @@ local keymap = vim.keymap
 vim.g.mapleader = " " -- set leader key to space
 
 -- auto source lua config file after saving
-keymap.set("n", "<leader>s", "<cmd> luafile $MYVIMRC<CR>", { desc = "Source lua config file" })
+keymap.set("n", "<leader>s", "<cmd> luafile ~/.config/nvim/init.lua<CR>", { desc = "Source lua config file" })
 -- built-in search and subsitution
 keymap.set("n", "<ESC><ESC>", ":noh<CR><ESC>") -- clear search highlights
 keymap.set("n", "D", "*N") -- quick search and highlight same word

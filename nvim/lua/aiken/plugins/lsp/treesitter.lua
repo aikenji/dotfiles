@@ -20,6 +20,7 @@ function M.init()
             use_languagetree = true,
             additional_vim_regex_highlighting = true,
         },
+        indent = { enable = true, disable = { "yaml", "python" } },
 
         -- ensure these language parsers are installed
         ensure_installed = {

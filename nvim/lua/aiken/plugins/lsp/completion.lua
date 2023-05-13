@@ -52,8 +52,8 @@ function M.init()
             documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
-            ["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-            ["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
+            ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+            ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
             ["<C-b>"] = cmp.mapping.scroll_docs(-4),
             ["<C-f>"] = cmp.mapping.scroll_docs(4),
             ["<C-e>"] = cmp.mapping.abort(), -- close completion window
@@ -68,12 +68,25 @@ function M.init()
         }),
         -- configure lspkind for vs-code like icons
         formatting = {
-            fields = { "abbr", "kind", "menu" },
+            fields = { "kind", "abbr", "menu" },
             format = lspkind.cmp_format({
                 -- mode = "symbol",
                 maxwidth = 50,
                 ellipsis_char = "...",
             }),
+            source_names = {
+                nvim_lsp = "(LSP)",
+                emoji = "(Emoji)",
+                path = "(Path)",
+                calc = "(Calc)",
+                cmp_tabnine = "(Tabnine)",
+                vsnip = "(Snippet)",
+                luasnip = "(Snippet)",
+                buffer = "(Buffer)",
+                tmux = "(TMUX)",
+                copilot = "(Copilot)",
+                treesitter = "(TreeSitter)",
+            },
         },
     })
 end
