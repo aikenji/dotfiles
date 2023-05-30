@@ -26,6 +26,7 @@ function M.init()
         delete_check_events = "TextChanged",
     })
 
+    -- keybinding for luasnip
     local keymap = vim.keymap
     keymap.set("i", "<tab>", function() -- expand sippets
         return luasnip.jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
@@ -38,8 +39,6 @@ function M.init()
     keymap.set({ "i", "s" }, "<s-tab>", function() -- jump to previous sippets node
         luasnip.jump(-1)
     end)
-
-    vim.opt.completeopt = "menu,menuone,noselect"
 
     cmp.setup({
         snippet = {
@@ -68,25 +67,21 @@ function M.init()
         }),
         -- configure lspkind for vs-code like icons
         formatting = {
-            fields = { "kind", "abbr", "menu" },
+            fields = { "abbr", "kind", "menu" },
             format = lspkind.cmp_format({
-                -- mode = "symbol",
-                maxwidth = 50,
+                mode = "symbol_text",
+                maxwidth = 40,
                 ellipsis_char = "...",
+                menu = {
+                    nvim_lsp = "[LSP]",
+                    path = "[Path]",
+                    luasnip = "[Luasnip]",
+                    buffer = "[Buffer]",
+                    tmux = "[TMUX]",
+                    copilot = "[Copilot]",
+                    treesitter = "[TreeSitter]",
+                },
             }),
-            source_names = {
-                nvim_lsp = "(LSP)",
-                emoji = "(Emoji)",
-                path = "(Path)",
-                calc = "(Calc)",
-                cmp_tabnine = "(Tabnine)",
-                vsnip = "(Snippet)",
-                luasnip = "(Snippet)",
-                buffer = "(Buffer)",
-                tmux = "(TMUX)",
-                copilot = "(Copilot)",
-                treesitter = "(TreeSitter)",
-            },
         },
     })
 end

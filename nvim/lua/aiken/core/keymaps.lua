@@ -16,14 +16,18 @@ keymap.set("n", "D", "*N") -- quick search and highlight same word
 keymap.set("n", "x", '"_x')
 
 -- cursor movement
+keymap.set("n", "L", "5l", { desc = "move left *5" }) -- navi in insert mode
+keymap.set("n", "H", "5h", { desc = "move right *5" })
+keymap.set("n", "J", "5j", { desc = "move down *5" })
+keymap.set("n", "K", "5k", { desc = "move up *5" })
+keymap.set({ "n", "v" }, "<C-b>", "^", { desc = "beginning of line" })
+keymap.set({ "n", "v" }, "<C-e>", "$", { desc = "end of line" })
 keymap.set("i", "<C-h>", "<Left>", { desc = "move left" }) -- navi in insert mode
 keymap.set("i", "<C-l>", "<Right>", { desc = "move right" })
 keymap.set("i", "<C-j>", "<Down>", { desc = "move down" })
 keymap.set("i", "<C-k>", "<Up>", { desc = "move up" })
 keymap.set("i", "<C-b>", "<ESC>^i", { desc = "beginning of line" })
 keymap.set("i", "<C-e>", "<End>", { desc = "end of line" })
-keymap.set({ "n", "v" }, "<C-b>", "^", { desc = "beginning of line" })
-keymap.set({ "n", "v" }, "<C-e>", "$", { desc = "end of line" })
 
 -- buffers movement
 keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
@@ -46,7 +50,7 @@ keymap.set("n", "<Up>", "<C-a>", { desc = "Increase number" })
 keymap.set("n", "<Down>", "<C-x>", { desc = "Decrease number" })
 
 -- save and quit
-keymap.set("n", "<C-w>", "<cmd>w<cr>", { desc = "Save" })
+-- keymap.set("n", "<C-w>", "<cmd>w<cr>", { desc = "Save" })
 keymap.set("n", "<C-q>", "<cmd>q<cr>", { desc = "Quit" })
 
 ----------------------

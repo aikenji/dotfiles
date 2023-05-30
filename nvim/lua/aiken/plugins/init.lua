@@ -87,7 +87,8 @@ local plugins = {
             char = "|",
             filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
             show_trailing_blankline_indent = false,
-            show_current_context = false,
+            -- show_current_context = true,
+            -- show_current_context_start = true,
         },
         config = function(_, opts)
             require("indent_blankline").setup(opts)
@@ -97,6 +98,7 @@ local plugins = {
     {
         -- show indent range
         "echasnovski/mini.indentscope",
+        version = "*",
         event = { "BufReadPre", "BufNewFile" },
         opts = {
             symbol = "│",
@@ -114,6 +116,16 @@ local plugins = {
             require("mini.indentscope").setup(opts)
         end,
     },
+
+    -- highlight word under cursor
+    {
+        "echasnovski/mini.cursorword",
+        version = "*",
+        config = function()
+            require("mini.cursorword").setup({})
+        end,
+    },
+
     {
         -- commenting with gc
         "numToStr/Comment.nvim",

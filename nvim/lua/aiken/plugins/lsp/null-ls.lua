@@ -19,6 +19,8 @@ function M.init()
             "stylua", -- lua formatter
             "black", -- python formatter
             "flake8", -- python linter
+            "clang_format", -- c/cpp formatter
+            "markdownlint", -- markdown linter
         },
         -- auto-install configured formatters & linters (with null-ls)
         automatic_installation = true,
@@ -41,7 +43,6 @@ function M.init()
             formatting.black, -- python formatter
             diagnostics.flake8, -- python linter
             formatting.clang_format,
-            diagnostics.cpplint,
             diagnostics.markdownlint,
         },
         -- configure format on save

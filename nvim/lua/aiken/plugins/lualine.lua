@@ -8,14 +8,37 @@ function M.init()
     end
 
     -- new colors for theme
-    local new_colors = {
-        blue = "#65D1FF",
-        green = "#3EFFDC",
-        violet = "#FF61EF",
-        yellow = "#FFDA7B",
-        black = "#000000",
-        uiuc_blue = "#13294B",
-        uiuc_orange = "#E84A27",
+    local tn_color = {
+        none = "NONE",
+        bg_dark = "#1f2335",
+        bg = "#24283b",
+        bg_highlight = "#292e42",
+        terminal_black = "#414868",
+        fg = "#c0caf5",
+        fg_dark = "#a9b1d6",
+        fg_gutter = "#3b4261",
+        dark3 = "#545c7e",
+        comment = "#565f89",
+        dark5 = "#737aa2",
+        blue0 = "#3d59a1",
+        blue = "#7aa2f7",
+        cyan = "#7dcfff",
+        blue1 = "#2ac3de",
+        blue2 = "#0db9d7",
+        blue5 = "#89ddff",
+        blue6 = "#b4f9f8",
+        blue7 = "#394b70",
+        magenta = "#bb9af7",
+        magenta2 = "#ff007c",
+        purple = "#9d7cd8",
+        orange = "#ff9e64",
+        yellow = "#e0af68",
+        green = "#9ece6a",
+        green1 = "#73daca",
+        green2 = "#41a6b5",
+        teal = "#1abc9c",
+        red = "#f7768e",
+        red1 = "#db4b4b",
     }
 
     -- tab component
@@ -34,7 +57,7 @@ function M.init()
         color = function()
             local buf = vim.api.nvim_get_current_buf()
             local ts = vim.treesitter.highlighter.active[buf]
-            return { fg = ts and not vim.tbl_isempty(ts) and new_colors.green or new_colors.red }
+            return { fg = ts and not vim.tbl_isempty(ts) and tn_color.green or tn_color.red }
         end,
     }
 
@@ -80,7 +103,7 @@ function M.init()
 
             return language_servers
         end,
-        color = { gui = "bold", fg = new_colors.green, bg = "black" },
+        color = { gui = "bold", fg = tn_color.green, bg = tn_color.bg },
     }
 
     -- configure lualine with modified theme
@@ -97,7 +120,7 @@ function M.init()
             lualine_b = {
                 {
                     "branch",
-                    icon = { "", color = { fg = new_colors.yellow } },
+                    icon = { "", color = { fg = tn_color.yellow } },
                 },
                 "diff",
                 "diagnostics",
@@ -108,7 +131,7 @@ function M.init()
                     "filename",
                     path = 1, -- show relative path
                     shrting_target = 50,
-                    color = { fg = new_colors.blue },
+                    color = { fg = tn_color.blue },
                     -- show lspsaga symbolwinbar
                     -- function()
                     --     return require("lspsaga.symbolwinbar"):get_winbar()
@@ -117,8 +140,8 @@ function M.init()
             },
             lualine_x = {
                 indent,
-                lsp,
                 "filetype",
+                lsp,
             },
         },
     })
