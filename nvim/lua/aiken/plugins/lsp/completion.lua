@@ -47,7 +47,7 @@ function M.init()
             end,
         },
         window = {
-            completion = cmp.config.window.bordered(),
+            completion = cmp.config.window.bordered("rounded"),
             documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({

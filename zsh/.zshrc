@@ -56,6 +56,7 @@ fi
 export CLICOLOR=1
 
 # >>> keybinding and aliasing >>>
+alias sshk='env TERM=xterm-256color ssh'
 alias ls='colorls'
 alias l='colorls -l'
 alias cat='bat'
