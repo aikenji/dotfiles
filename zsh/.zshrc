@@ -5,69 +5,28 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Created by Zap installer
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+plug "zsh-users/zsh-autosuggestions"
+plug "zsh-users/zsh-syntax-highlighting"
+plug "zap-zsh/vim"
+plug "chivalryq/zsh-autojump"
+plug "romkatv/powerlevel10k"
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-zstyle ':completion:*' list-prompt   ''
-zstyle ':completion:*' select-prompt ''
+# Load and initialise completion system
+autoload -Uz compinit
+compinit
 
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+#==================================================================================================
+# usr export setup
 
-plugins=(git
-	autojump
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-	vi-mode )
-	
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-source $ZSH/oh-my-zsh.sh
-
-# User configuration ###########################################################
-#
-# default editor, pager
-if [[ -z "$EDITOR" ]]; then
-  export EDITOR='nvim'
-fi
-if [[ -z "$VISUAL" ]]; then
-  export VISUAL='nvim'
-fi
-if [[ -z "$PAGER" ]]; then
-  export PAGER='less'
-fi
-
-# default ssh editor
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
-  export EDITOR='nvim'
-fi
-
-# Language
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
-fi
-
+export EDITOR='nvim'
+export VISUAL='nvim'
+export PAGER='less'
+export LANG='en_US.UTF-8'
 # colorize some commands such as tree
 export CLICOLOR=1
-
-# >>> keybinding and aliasing >>>
-alias sshk='env TERM=xterm-256color ssh'
-alias ls='colorls'
-alias l='colorls -l'
-alias cat='bat'
-alias grep='rg'
-alias vim='nvim'
-alias ra='ranger'
-alias top='vtop'
-alias ff='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
-alias ffv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
-alias ma='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
-# <<< keybinding and aliasing <<<
+export PATH=".local/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -97,16 +56,22 @@ export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
 # <<< homebrew initialize <<<
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#==================================================================================================
+# usr alias setup
 
-# # make kitty background blured 
-# # Blur {{{
-# if [[ $(ps --no-header -p $PPID -o comm) =~ '^yakuake|kitty$' ]]; then
-#         for wid in $(xdotool search --pid $PPID); do
-#             xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $wid; done
-# fi
-# # }}}
+alias ls='colorls'
+alias l='colorls -l'
+alias cat='bat'
+alias grep='rg'
+alias vim='nvim'
+alias ra='ranger'
+alias top='vtop'
+alias ff='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
+alias ffv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
+alias ma='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
+
+#==================================================================================================
+# usr function setup
 
 # If you want to change the dir on demand when you exit ranger, use the following wrapper function. With this, your shell changes the directory only when you quit ranger with keybinding capital Q.
 function ranger {
@@ -125,8 +90,5 @@ function ranger {
     command rm -f -- "$tempfile" 2>/dev/null
 }
 
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
-# path setup
-export PATH=".local/bin:$PATH"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

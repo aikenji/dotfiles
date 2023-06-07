@@ -2,6 +2,5 @@
 
 ranger/plugins
 raycast/extensions
-nvim/lazy-lock.json
-BaiduPCS-Go 
+lazy-lock.json
 iterm2
