@@ -12,6 +12,9 @@ plug "zsh-users/zsh-syntax-highlighting"
 plug "zap-zsh/vim"
 plug "chivalryq/zsh-autojump"
 plug "romkatv/powerlevel10k"
+plug "zap-zsh/fzf"
+plug "Aloxaf/fzf-tab"
+plug "zap-zsh/completions"
 
 # Load and initialise completion system
 autoload -Uz compinit
@@ -66,10 +69,13 @@ alias grep='rg'
 alias vim='nvim'
 alias ra='ranger'
 alias top='vtop'
-alias ff='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
-alias ffv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
+alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
+alias fv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
 alias ma='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 
+if [[ $TERM == "xterm-kitty" ]]; then
+    alias ssh="kitty +kitten ssh"
+fi
 #==================================================================================================
 # usr function setup
 
