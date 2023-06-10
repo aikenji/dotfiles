@@ -13,7 +13,6 @@ plug "zap-zsh/vim"
 plug "chivalryq/zsh-autojump"
 plug "romkatv/powerlevel10k"
 plug "zap-zsh/fzf"
-plug "Aloxaf/fzf-tab"
 plug "zap-zsh/completions"
 
 # Load and initialise completion system
