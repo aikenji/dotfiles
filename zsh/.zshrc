@@ -5,20 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Created by Zap installer
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
-plug "zsh-users/zsh-autosuggestions"
-plug "zsh-users/zsh-syntax-highlighting"
-plug "zap-zsh/vim"
-plug "chivalryq/zsh-autojump"
-plug "romkatv/powerlevel10k"
-plug "zap-zsh/fzf"
-plug "zap-zsh/completions"
-
-# Load and initialise completion system
-autoload -Uz compinit
-compinit
-
 #==================================================================================================
 # usr export setup
 
@@ -75,6 +61,7 @@ alias ma='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always
 if [[ $TERM == "xterm-kitty" ]]; then
     alias ssh="kitty +kitten ssh"
 fi
+
 #==================================================================================================
 # usr function setup
 
@@ -94,6 +81,18 @@ function ranger {
     fi
     command rm -f -- "$tempfile" 2>/dev/null
 }
+
+#==================================================================================================
+# Created by Zap installer
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+
+# dont change the order of plugins
+plug "zsh-users/zsh-autosuggestions"
+plug "zsh-users/zsh-syntax-highlighting"
+plug "zap-zsh/completions" 
+plug "zap-zsh/vim"
+plug "romkatv/powerlevel10k"
+plug "zap-zsh/fzf"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
