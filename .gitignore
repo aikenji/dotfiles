@@ -1,6 +1,4 @@
 .DS_Store
-
-ranger/plugins
-raycast/extensions
 lazy-lock.json
-iterm2
+*.pyc
+__pycache__/

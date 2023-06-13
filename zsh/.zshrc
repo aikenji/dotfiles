@@ -47,13 +47,13 @@ export LIBRARY_PATH=/opt/homebrew/lib
 #==================================================================================================
 # usr alias setup
 
-alias ls='colorls'
-alias l='colorls -l'
+alias ls='ls -lG'
+alias ll='colorls -l'
 alias cat='bat'
-alias grep='rg'
 alias vim='nvim'
 alias ra='ranger'
-alias top='vtop'
+alias lg='lazygit'
+alias top='btop'
 alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
 alias fv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
 alias ma='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
