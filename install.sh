@@ -1,10 +1,19 @@
-#!/bin/zsh
+#!/bin/sh
 
 # synchronize homebrew
-brew bundle
+# brew bundle
 
-# links to rc files
-ln -sF $HOME/.config/git/.gitconfig $HOME/.gitconfig 
-ln -sF $HOME/.config/conda/.condarc $HOME/.condarc
-ln -sF $HOME/.config/zsh/.zshrc $HOME/.zshrc
-ln -sF $HOME/.config/zsh/.p10k.zsh $HOME/.p10k.zsh
+# rm the old rc files
+rm -f $HOME/.config/kitty # make sure just link file not dirs
+rm -f $HOME/.config/alacritty
+rm -f $HOME/.config/tmux
+rm -f $HOME/.config/nvim
+rm -f $HOME/.config/ranger
+rm -f $HOME/.zshrc 
+rm -f $HOME/.p10k.zsh 
+rm -f $HOME/.gitconfig 
+rm -f $HOME/.condarc 
+
+# use stow to manager all config files
+stow kitty/ alacritty/ tmux/ nvim/ ranger/
+stow git/ zsh/ conda/
