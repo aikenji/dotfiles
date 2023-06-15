@@ -22,12 +22,12 @@ keymap.set("n", "J", "5j", { desc = "move down *5" })
 keymap.set("n", "K", "5k", { desc = "move up *5" })
 keymap.set({ "n", "v" }, "<C-b>", "^", { desc = "beginning of line" })
 keymap.set({ "n", "v" }, "<C-e>", "$", { desc = "end of line" })
+keymap.set("i", "<C-b>", "<ESC>^i", { desc = "beginning of line" })
+keymap.set("i", "<C-e>", "<End>", { desc = "end of line" })
 keymap.set("i", "<C-h>", "<Left>", { desc = "move left" }) -- navi in insert mode
 keymap.set("i", "<C-l>", "<Right>", { desc = "move right" })
 keymap.set("i", "<C-j>", "<Down>", { desc = "move down" })
 keymap.set("i", "<C-k>", "<Up>", { desc = "move up" })
-keymap.set("i", "<C-b>", "<ESC>^i", { desc = "beginning of line" })
-keymap.set("i", "<C-e>", "<End>", { desc = "end of line" })
 
 -- buffers movement
 keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })

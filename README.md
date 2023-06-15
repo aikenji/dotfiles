@@ -1,28 +1,21 @@
 # MY CONFIG FILES
 
-<!--toc:start-->
-- [MY CONFIG FILES](#my-config-files)
-  - [Nvim config](#nvim-config)
-  - [File Structure](#file-structure)
-<!--toc:end-->
+![my dotfils](./my_dotfiles.png)
 
-## Nvim config
+## Installation
 
-This is some **bold text.**
+You will need `git` and GNU `stow`. Clone into your `$HOME` directory.
+(There are some submodules, you need to use --recurse-submodules flag )
 
-This is some *italic text.*
+```shell
+git clone --recurse-submodules https://github.com/aikenji/dotfiles.git 
+```
 
-This is some ***bold and italic text***
+Run `sh install.sh` to symlink all config files into `$HOME` directory,
+or just what you want by running
 
-```c
-#include <stdio.h>
-
-int main(void)
-{
-    printf("Hello world!");
-    return 0;
-}
-
+```shell
+stow zsh/ # just my zsh config
 ```
 
 ## File Structure
@@ -56,7 +49,3 @@ int main(void)
             ├── toggleterm.lua
             └── tokyonight.lua
 ```
-
-![picture alt](http://via.placeholder.com/198x150 "Title is optional")
-
-the quick brown fox jumps over the lazy dog.
