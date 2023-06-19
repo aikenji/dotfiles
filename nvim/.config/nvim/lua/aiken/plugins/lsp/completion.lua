@@ -53,8 +53,8 @@ function M.init()
         mapping = cmp.mapping.preset.insert({
             ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
             ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-            ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-            ["<C-f>"] = cmp.mapping.scroll_docs(4),
+            ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+            ["<C-d>"] = cmp.mapping.scroll_docs(4),
             ["<C-e>"] = cmp.mapping.abort(), -- close completion window
             ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
@@ -72,15 +72,6 @@ function M.init()
                 mode = "symbol_text",
                 maxwidth = 40,
                 ellipsis_char = "...",
-                menu = {
-                    nvim_lsp = "[LSP]",
-                    path = "[Path]",
-                    luasnip = "[Luasnip]",
-                    buffer = "[Buffer]",
-                    tmux = "[TMUX]",
-                    copilot = "[Copilot]",
-                    treesitter = "[TreeSitter]",
-                },
             }),
         },
     })

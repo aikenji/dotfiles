@@ -1,5 +1,6 @@
 local plugins = {
 
+    -- navigate between tmux and vim
     {
         "christoomey/vim-tmux-navigator",
         lazy = false,
