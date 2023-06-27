@@ -7,7 +7,7 @@ local keymap = vim.keymap
 vim.g.mapleader = " " -- set leader key to space
 
 -- auto source lua config file after saving
-keymap.set("n", "<leader>s", "<cmd> luafile ~/.config/nvim/init.lua<CR>", { desc = "Source lua config file" })
+keymap.set("n", "<leader>s", "<cmd>luafile $HOME/.config/nvim/init.lua<CR>", { desc = "Source lua config file" })
 -- built-in search and subsitution
 keymap.set("n", "<ESC><ESC>", ":noh<CR><ESC>") -- clear search highlights
 keymap.set("n", "D", "*N") -- quick search and highlight same word
@@ -63,9 +63,10 @@ keymap.set("n", "<leader>e", "<cmd>Neotree toggle <cr>", { desc = "Explorer NeoT
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>fg", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- find files in current buffer
+keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>") -- find files in recent files
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>fg", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Fuzzy Find" }) -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 keymap.set("n", "<leader>ft", "<cmd>Telescope lsp_document_symbols<cr>") -- list all functions/structs/classes/modules in the current buffer
 

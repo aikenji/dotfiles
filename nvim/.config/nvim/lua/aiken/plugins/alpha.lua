@@ -10,7 +10,7 @@ function M.init()
     ██║ ╚████║  ███████╗  ╚██████╔╝   ╚████╔╝   ██║  ██║ ╚═╝ ██║  
     ╚═╝  ╚═══╝  ╚══════╝   ╚═════╝     ╚═══╝    ╚═╝  ╚═╝     ╚═╝  
 
-                     ⟦   a i k e n   ver ⟧                      
+                     ⟦ 𝔸 𝕚 𝕜 𝕖 𝕟 🚀 𝕍𝔼ℝ 1.0 ⟧                      
     ]]
 
     dashboard.section.header.val = vim.split(logo, "\n")
@@ -18,9 +18,10 @@ function M.init()
         dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
         dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
         dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-        dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
+        -- dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
         dashboard.button("c", " " .. " Config", ":e $HOME/.config/nvim/lua/aiken/plugins/init.lua<CR>"),
         dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
+        dashboard.button("s", "󰰌 " .. " Mason", ":Mason<CR>"),
         dashboard.button("m", " " .. " Bookmarks", ":Telescope marks<CR>"),
         dashboard.button("q", " " .. " Quit", ":qa<CR>"),
     }
