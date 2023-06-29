@@ -16,7 +16,7 @@ function M.init()
         lualine_bold = true, -- section headers in lualine theme will be bold
         styles = {
             comments = { italic = true },
-            keywords = { italic = true, bold = true },
+            keywords = { bold = true, italic = false },
             functions = {},
             variables = {},
             -- background styles. Can be "dark", "transparent", "normal"

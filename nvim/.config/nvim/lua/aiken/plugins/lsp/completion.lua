@@ -40,6 +40,12 @@ function M.init()
         luasnip.jump(-1)
     end)
 
+    -- color setup for cmp
+    local colors = require("tokyonight.colors").setup()
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#dcd8a3", bold = true })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = colors.blue, bold = true })
+    vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = colors.red1 })
+    -- cmp setup
     cmp.setup({
         snippet = {
             expand = function(args)
@@ -47,10 +53,16 @@ function M.init()
             end,
         },
         window = {
-            completion = cmp.config.window.bordered({ border = "rounded" }),
+            completion = cmp.config.window.bordered({
+                border = "rounded",
+                -- winhighlight = "Cursorline:Tablinesel",
+            }),
             documentation = cmp.config.window.bordered({
                 border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
             }),
+        },
+        performance = {
+            max_view_entries = 12,
         },
         mapping = cmp.mapping.preset.insert({
             ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
@@ -63,7 +75,7 @@ function M.init()
         -- sources for autocompletion
         sources = cmp.config.sources({
             { name = "nvim_lsp" }, -- lsp
-            { name = "luasnip" }, -- snippets
+            { name = "luasnip", priority = 9 }, -- snippets
             { name = "buffer", keyword_length = 3 }, -- text within current buffer
             { name = "path", keyword_length = 2 }, -- file system paths
         }),
@@ -74,6 +86,12 @@ function M.init()
                 mode = "symbol_text",
                 maxwidth = 40,
                 ellipsis_char = "...",
+                menu = {
+                    buffer = "󱞶 Buf",
+                    nvim_lsp = "󱞶 LSP",
+                    luasnip = "󱞶 Snip",
+                    path = "󱞶 Path",
+                },
             }),
         },
     })

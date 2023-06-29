@@ -21,7 +21,7 @@ function M.init()
         -- dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
         dashboard.button("c", " " .. " Config", ":e $HOME/.config/nvim/lua/aiken/plugins/init.lua<CR>"),
         dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
-        dashboard.button("s", "󰰌 " .. " Mason", ":Mason<CR>"),
+        dashboard.button("s", " " .. " Mason", ":Mason<CR>"),
         dashboard.button("m", " " .. " Bookmarks", ":Telescope marks<CR>"),
         dashboard.button("q", " " .. " Quit", ":qa<CR>"),
     }
@@ -33,6 +33,8 @@ function M.init()
     dashboard.section.header.opts.hl = "AlphaHeader"
     dashboard.section.buttons.opts.hl = "AlphaButtons"
     dashboard.opts.layout[1].val = 8
+
+    -- vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#9887c9" })
 
     -- close Lazy and re-open when the dashboard is ready
     if vim.o.filetype == "lazy" then

@@ -1,13 +1,13 @@
 local plugins = {
 
-    -- navigate between tmux and vim
     {
+        -- navigate between tmux and vim
         "christoomey/vim-tmux-navigator",
         lazy = false,
     },
 
-    -- preferred colortheme
     {
+        -- preferred colortheme
         "folke/tokyonight.nvim",
         config = function()
             require("aiken.plugins.tokyonight").init()
@@ -15,6 +15,14 @@ local plugins = {
         lazy = false,
         -- colorschemes need high priority
         priority = 1000,
+    },
+
+    {
+        -- colorizer
+        "NvChad/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup() -- code
+        end,
     },
 
     {
@@ -56,6 +64,7 @@ local plugins = {
     {
         -- better terminal
         "akinsho/toggleterm.nvim",
+        enabled = false,
         version = "*",
         config = function()
             require("aiken.plugins.toggleterm").init()
@@ -259,6 +268,12 @@ local plugins = {
             vim.g.mkdp_filetypes = { "markdown" }
         end,
         ft = { "markdown" },
+    },
+
+    {
+        -- latex setup
+        "lervag/vimtex",
+        lazy = false,
     },
 }
 
