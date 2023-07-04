@@ -21,7 +21,7 @@ local plugins = {
         -- colorizer
         "NvChad/nvim-colorizer.lua",
         config = function()
-            require("colorizer").setup() -- code
+            require("colorizer").setup()
         end,
     },
 
@@ -48,6 +48,7 @@ local plugins = {
     },
 
     {
+        -- file manager
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
         dependencies = {
@@ -127,9 +128,10 @@ local plugins = {
         end,
     },
 
-    -- highlight word under cursor
     {
+        -- highlight word under cursor
         "echasnovski/mini.cursorword",
+        enabled = false,
         version = "*",
         config = function()
             require("mini.cursorword").setup({})
@@ -155,8 +157,11 @@ local plugins = {
 
     {
         -- add, delete, change surroundings
-        "kylechui/nvim-surround",
-        config = true,
+        "echasnovski/mini.surround",
+        version = "*",
+        config = function()
+            require("aiken.plugins.surround").init()
+        end,
     },
 
     {
@@ -271,9 +276,12 @@ local plugins = {
     },
 
     {
-        -- latex setup
+        -- latex-preview setup
         "lervag/vimtex",
         lazy = false,
+        config = function()
+            require("aiken.plugins.vimtex").init()
+        end,
     },
 }
 

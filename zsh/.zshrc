@@ -57,6 +57,7 @@ alias top='btop'
 alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
 alias fv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
 alias ma='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
+alias skim='/Applications/Skim.app/Contents/MacOS/Skim'  # pdf viewer for latex
 
 if [[ $TERM == "xterm-kitty" ]]; then
     alias ssh="kitty +kitten ssh"

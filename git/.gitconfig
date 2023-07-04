@@ -1,6 +1,6 @@
 [user]
 	name = aikenji
-	email = 67273613+aikenji@users.noreply.github.com
+	email = aikenjch@gmail.com
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [init]
