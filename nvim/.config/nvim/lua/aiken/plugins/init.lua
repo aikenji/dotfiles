@@ -7,6 +7,35 @@ local plugins = {
     },
 
     {
+        -- navigate code easily
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        opts = {
+            prompt = {
+                prefix = { { " FLASH ", "FlashPromptIcon" } },
+            }, -- use default configs
+        },
+        keys = {
+            {
+                "s",
+                mode = { "n", "x", "o" },
+                function()
+                    require("flash").jump()
+                end,
+                desc = "Flash",
+            },
+            {
+                "S",
+                mode = { "n", "o", "x" },
+                function()
+                    require("flash").treesitter()
+                end,
+                desc = "Flash Treesitter",
+            },
+        },
+    },
+
+    {
         -- preferred colortheme
         "folke/tokyonight.nvim",
         config = function()
@@ -134,7 +163,7 @@ local plugins = {
         enabled = false,
         version = "*",
         config = function()
-            require("mini.cursorword").setup({})
+            require("mini.cursorword").setup()
         end,
     },
 

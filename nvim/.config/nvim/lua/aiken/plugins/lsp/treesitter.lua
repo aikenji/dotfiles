@@ -18,10 +18,19 @@ function M.init()
         highlight = {
             enable = true,
             use_languagetree = true,
-            additional_vim_regex_highlighting = true,
+            additional_vim_regex_highlighting = false,
         },
         indent = { enable = true, disable = { "yaml", "python" } },
 
+        incremental_selection = {
+            enable = true,
+            keymaps = {
+                init_selection = "<cr>", -- set to `false` to disable one of the mappings
+                node_incremental = "<cr>",
+                scope_incremental = false,
+                node_decremental = "<bs>",
+            },
+        },
         -- ensure these language parsers are installed
         ensure_installed = {
             "c",

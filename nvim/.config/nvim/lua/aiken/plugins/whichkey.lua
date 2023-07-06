@@ -10,6 +10,11 @@ function M.init()
     vim.o.timeout = true
     vim.o.timeoutlen = 300
     whichkey.setup({
+        plugins = {
+            presets = {
+                operators = false,
+            },
+        },
         icons = {
             breadcrumb = ">>", -- symbol used in the command line area that shows your active key combo
             separator = " ", -- symbol used between a key and it's label
