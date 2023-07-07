@@ -8,7 +8,12 @@ function M.init()
     end
 
     -- enable comment
-    comment.setup()
+    comment.setup({
+        mappings = {
+            basic = false,
+            extra = false,
+        },
+    })
 end
 
 return M

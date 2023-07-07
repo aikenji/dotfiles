@@ -44,6 +44,9 @@ export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
 # <<< homebrew initialize <<<
 
+# use tmux-fzf as default fzf
+export FZF_TMUX=1
+export FZF_TMUX_OPTS='-p --reverse'
 #==================================================================================================
 # usr alias setup
 
@@ -95,5 +98,11 @@ plug "zap-zsh/vim"
 plug "romkatv/powerlevel10k"
 plug "zap-zsh/fzf"
 
+autoload -Uz compinit
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#==================================================================================================
+# additional features setup
+eval "$(zoxide init zsh)"
+

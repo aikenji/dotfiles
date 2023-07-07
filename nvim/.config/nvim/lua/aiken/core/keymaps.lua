@@ -51,7 +51,7 @@ keymap.set("n", "<Down>", "<C-x>", { desc = "Decrease number" })
 
 -- save and quit
 -- keymap.set("n", "<C-w>", "<cmd>w<cr>", { desc = "Save" })
-keymap.set("n", "<C-q>", "<cmd>q<cr>", { desc = "Quit" })
+-- keymap.set("n", "<C-q>", "<cmd>q<cr>", { desc = "Quit" })
 
 ----------------------
 -- Plugin Keybinds
@@ -65,16 +65,11 @@ keymap.set("n", "<leader>e", "<cmd>Neotree toggle <cr>", { desc = "Explorer NeoT
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fg", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- find files in current buffer
 keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>") -- find files in recent files
+keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>") -- find keymaps and keybindings
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 keymap.set("n", "<leader>ft", "<cmd>Telescope lsp_document_symbols<cr>") -- list all functions/structs/classes/modules in the current buffer
-
--- telescope git commands
--- keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
--- keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
--- keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
--- keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
 -- toggleterm
 -- keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "Launch Terminal" })
@@ -92,3 +87,18 @@ keymap.set(
     "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
     { desc = "Toggle comments" }
 )
+
+-- noice
+keymap.set("n", "<leader>n", "<cmd>Noice<cr>", { desc = "Noice History" })
+
+-- todo comments
+keymap.set("n", "]t", function()
+    require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+keymap.set("n", "[t", function()
+    require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
+keymap.set("n", "<leader>tt", "<cmd>TodoLocList<cr>", { desc = "Todo Commnets LocList" })
+keymap.set("n", "<leader>tf", "<cmd>TodoTelescope<cr>", { desc = "Todo Commnets Telescope" })

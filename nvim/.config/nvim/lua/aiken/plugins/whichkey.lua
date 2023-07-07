@@ -36,9 +36,10 @@ function M.init()
         },
     })
     whichkey.register({
-        mode = { "n", "v" },
+        mode = { "n" },
         ["<leader>f"] = { name = "+file/find" },
         ["<leader>p"] = { name = "+preview" },
+        ["gz"] = { name = "+surround" },
     })
 end
 

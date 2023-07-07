@@ -18,7 +18,7 @@ function M.init()
         highlight = {
             enable = true,
             use_languagetree = true,
-            additional_vim_regex_highlighting = false,
+            additional_vim_regex_highlighting = { "latex" },
         },
         indent = { enable = true, disable = { "yaml", "python" } },
 
@@ -37,6 +37,7 @@ function M.init()
             "cpp",
             "cmake",
             "python",
+            "latex",
             "markdown",
             "markdown_inline",
             "bash",

@@ -12,7 +12,7 @@ local plugins = {
         event = "VeryLazy",
         opts = {
             prompt = {
-                prefix = { { " FLASH ", "FlashPromptIcon" } },
+                prefix = { { " JUMP", "FlashPromptIcon" } },
             }, -- use default configs
         },
         keys = {
@@ -48,10 +48,18 @@ local plugins = {
 
     {
         -- colorizer
+        -- TODO: some buftypes need disable
         "NvChad/nvim-colorizer.lua",
         config = function()
             require("colorizer").setup()
         end,
+    },
+
+    {
+        -- highlight todo comment
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {},
     },
 
     {
@@ -93,6 +101,7 @@ local plugins = {
 
     {
         -- better terminal
+        -- FIX: disabled
         "akinsho/toggleterm.nvim",
         enabled = false,
         version = "*",
@@ -168,7 +177,7 @@ local plugins = {
     },
 
     {
-        -- commenting with gc
+        -- commenting with <leader>/
         "numToStr/Comment.nvim",
         init = function()
             require("aiken.plugins.comment").init()
@@ -186,6 +195,7 @@ local plugins = {
 
     {
         -- add, delete, change surroundings
+        -- TODO: find some better keymapings
         "echasnovski/mini.surround",
         version = "*",
         config = function()
