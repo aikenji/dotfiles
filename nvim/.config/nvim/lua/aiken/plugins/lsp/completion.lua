@@ -41,10 +41,9 @@ function M.init()
     end)
 
     -- color setup for cmp
-    local colors = require("tokyonight.colors").setup()
     vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#dcd8a3", bold = true })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = colors.blue, bold = true })
-    vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = colors.red1 })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#04a5e5", bold = true })
+    vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = "#ca9ee6" })
     -- cmp setup
     cmp.setup({
         snippet = {

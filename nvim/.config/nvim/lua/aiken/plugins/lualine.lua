@@ -109,7 +109,7 @@ function M.init()
     -- configure lualine with modified theme
     lualine.setup({
         options = {
-            theme = "tokyonight",
+            theme = "catppuccin",
             component_separators = { left = "", right = "" },
             section_separators = { left = "", right = "" },
             disabled_filetypes = {

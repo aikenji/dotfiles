@@ -11,7 +11,7 @@ function M.init()
 
     tn.setup({
         style = "storm",
-        transparent = false,
+        transparent = true,
         dim_inactive = true, -- dims inactive windows
         lualine_bold = true, -- section headers in lualine theme will be bold
         styles = {
@@ -27,6 +27,8 @@ function M.init()
     })
 
     vim.cmd("colorscheme tokyonight-storm")
+    -- setup the color of cursorline
+    -- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#162011" })
 end
 
 return M

@@ -1,6 +1,6 @@
 # MY CONFIG FILES
 
-![my dotfils](./my_dotfiles.png)
+![my dotfils](./my_dotfiles.jpeg)
 
 ## Installation
 

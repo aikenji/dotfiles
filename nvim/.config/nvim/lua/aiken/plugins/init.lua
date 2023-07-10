@@ -36,11 +36,22 @@ local plugins = {
     },
 
     {
-        -- preferred colortheme
+        -- colorscheme catppuccin
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        config = function()
+            require("aiken.plugins.catppuccin").init()
+        end,
+    },
+
+    {
+        -- colorscheme tokyonight
         "folke/tokyonight.nvim",
         config = function()
             require("aiken.plugins.tokyonight").init()
         end,
+        enabled = false,
         lazy = false,
         -- colorschemes need high priority
         priority = 1000,
@@ -114,7 +125,7 @@ local plugins = {
         -- buffer line
         "akinsho/bufferline.nvim",
         version = "v3.*",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = { "nvim-tree/nvim-web-devicons", "catppuccin/nvim" },
         config = function()
             require("aiken.plugins.bufferline").init()
         end,

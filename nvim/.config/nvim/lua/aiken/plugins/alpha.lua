@@ -34,7 +34,8 @@ function M.init()
     dashboard.section.buttons.opts.hl = "AlphaButtons"
     dashboard.opts.layout[1].val = 8
 
-    -- vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#9887c9" })
+    vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#ea76cb" })
+    vim.api.nvim_set_hl(0, "AlphaButtons", { fg = "#f4b8e4" })
 
     -- close Lazy and re-open when the dashboard is ready
     if vim.o.filetype == "lazy" then

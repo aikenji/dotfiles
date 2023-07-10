@@ -1,11 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-#==================================================================================================
 # usr export setup
 
 export EDITOR='nvim'
@@ -44,9 +36,7 @@ export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
 # <<< homebrew initialize <<<
 
-# use tmux-fzf as default fzf
-export FZF_TMUX=1
-export FZF_TMUX_OPTS='-p --reverse'
+
 #==================================================================================================
 # usr alias setup
 
@@ -95,14 +85,18 @@ plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zap-zsh/completions" 
 plug "zap-zsh/vim"
-plug "romkatv/powerlevel10k"
 plug "zap-zsh/fzf"
 
+# completions init
 autoload -Uz compinit
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #==================================================================================================
 # additional features setup
-eval "$(zoxide init zsh)"
 
+# use tmux-fzf as default fzf
+export FZF_TMUX=1
+export FZF_TMUX_OPTS='-p --reverse'
+# zoxide init
+eval "$(zoxide init zsh)"
+# colorscheme setup 
+eval "$(starship init zsh)"

@@ -18,7 +18,6 @@ function M.init()
         highlight = {
             enable = true,
             use_languagetree = true,
-            additional_vim_regex_highlighting = { "latex" },
         },
         indent = { enable = true, disable = { "yaml", "python" } },
 
@@ -46,6 +45,8 @@ function M.init()
             "vim",
             "gitignore",
         },
+        -- use vimtex as syntax highlighting
+        ignore_install = { "latex" },
         --Automatically install missing parsers
         auto_install = true,
 
