@@ -36,7 +36,6 @@ function M.init()
             "cpp",
             "cmake",
             "python",
-            "latex",
             "markdown",
             "markdown_inline",
             "bash",

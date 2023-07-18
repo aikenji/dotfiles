@@ -20,7 +20,9 @@ function M.init()
     end
 
     -- load vs-code like snippets from plugins (e.g. friendly-snippets)
-    require("luasnip/loaders/from_vscode").lazy_load()
+    require("luasnip.loaders.from_vscode").lazy_load()
+    -- load snippets form ~/.config/nvim/snippets/
+    require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
     luasnip.setup({
         history = true,
         delete_check_events = "TextChanged",
@@ -28,9 +30,13 @@ function M.init()
 
     -- keybinding for luasnip
     local keymap = vim.keymap
-    keymap.set("i", "<tab>", function() -- expand sippets
-        return luasnip.jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-    end, { expr = true, silent = true, noremap = true })
+    keymap.set("i", "<C-k>", function()
+        luasnip.expand()
+    end, { silent = true })
+
+    -- keymap.set("i", "<tab>", function() -- expand sippets
+    --     return luasnip.jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+    -- end, { expr = true, silent = true, noremap = true })
 
     keymap.set("s", "<tab>", function() -- jump to next sippets node
         luasnip.jump(1)

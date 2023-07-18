@@ -18,7 +18,6 @@ function M.init()
         ensure_installed = {
             "stylua", -- lua formatter
             "black", -- python formatter
-            "flake8", -- python linter
             "clang_format", -- c/cpp formatter
             "markdownlint", -- markdown linter
         },
@@ -41,7 +40,7 @@ function M.init()
             --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
             formatting.stylua, -- lua formatter
             formatting.black, -- python formatter
-            diagnostics.flake8, -- python linter
+            -- diagnostics.flake8, -- python linter
             formatting.clang_format,
             diagnostics.markdownlint,
         },
