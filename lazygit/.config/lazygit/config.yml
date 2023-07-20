@@ -1,0 +1,4 @@
+gui:
+  # TODO: lazygit can't display icons correctly
+  showIcons: false
+  nerdFontsVersion: "3"

@@ -7,6 +7,10 @@ export LANG='en_US.UTF-8'
 # colorize some commands such as tree
 export CLICOLOR=1
 export PATH=".local/bin:$PATH"
+# change the default config dir in macos
+if [[ "$(uname)" == "Darwin" ]]; then
+    export XDG_CONFIG_HOME="$HOME/.config" 
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

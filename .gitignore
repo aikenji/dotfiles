@@ -3,5 +3,6 @@ lazy-lock.json
 *.pyc
 __pycache__/
 __init__.py
+state.yml
 
 tmux/.config/tmux/plugins
