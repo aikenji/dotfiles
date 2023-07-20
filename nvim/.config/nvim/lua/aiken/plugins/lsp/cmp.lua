@@ -21,6 +21,10 @@ function M.init()
 
     local keymap = vim.keymap
 
+    --------------------
+    -- LUASNIP SETUP
+    --------------------
+
     -- load vs-code like snippets from plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
     -- load snippets form ~/.config/nvim/snippets/
@@ -43,6 +47,10 @@ function M.init()
         luasnip.jump(-1)
     end)
 
+    --------------------
+    -- CMP SETUP
+    --------------------
+
     -- color setup for cmp
     vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#dcd8a3", bold = true })
     vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#04a5e5", bold = true })
@@ -57,7 +65,6 @@ function M.init()
         window = {
             completion = cmp.config.window.bordered({
                 border = "rounded",
-                -- winhighlight = "Cursorline:Tablinesel",
             }),
             documentation = cmp.config.window.bordered({
                 border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },

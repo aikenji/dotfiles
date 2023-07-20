@@ -13,7 +13,7 @@ function M.init()
         flavour = "macchiato", -- latte, frappe, macchiato, mocha
         transparent_background = true,
         dim_inactive = {
-            -- FIX:some display bug in transparent mode if dim is enabled
+            -- FIX:some display bug of noice in transparent mode when dim is enabled
             enabled = false, -- dims the background color of inactive window
             shade = "dark",
             percentage = 0.15, -- percentage of the shade to apply to the inactive window
@@ -30,7 +30,7 @@ function M.init()
             gitsigns = true,
             nvimtree = false,
             treesitter = true,
-            treesitter_context = true,
+            treesitter_context = false,
             notify = true,
             noice = true,
             mini = true,
