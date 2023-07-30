@@ -1,4 +1,3 @@
-require("aiken.core.options")
-require("aiken.core.keymaps")
-require("aiken.plugins")
+require("core")
+require("plugins")
 require("utils.neovide")

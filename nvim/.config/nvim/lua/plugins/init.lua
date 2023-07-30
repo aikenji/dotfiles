@@ -41,7 +41,7 @@ local plugins = {
         name = "catppuccin",
         priority = 1000,
         config = function()
-            require("aiken.plugins.catppuccin").init()
+            require("plugins.catppuccin").init()
         end,
     },
 
@@ -49,7 +49,7 @@ local plugins = {
         -- colorscheme tokyonight
         "folke/tokyonight.nvim",
         config = function()
-            require("aiken.plugins.tokyonight").init()
+            require("plugins.tokyonight").init()
         end,
         enabled = false,
         lazy = false,
@@ -78,7 +78,7 @@ local plugins = {
         "goolord/alpha-nvim",
         event = "VimEnter",
         config = function()
-            require("aiken.plugins.alpha").init()
+            require("plugins.alpha").init()
         end,
     },
 
@@ -91,7 +91,7 @@ local plugins = {
         },
         event = "VeryLazy",
         config = function()
-            require("aiken.plugins.noice").init()
+            require("plugins.noice").init()
         end,
     },
 
@@ -106,7 +106,7 @@ local plugins = {
         },
         cmd = "NeoTree",
         init = function()
-            require("aiken.plugins.neo-tree").init()
+            require("plugins.neo-tree").init()
         end,
     },
 
@@ -117,7 +117,7 @@ local plugins = {
         enabled = false,
         version = "*",
         config = function()
-            require("aiken.plugins.toggleterm").init()
+            require("plugins.toggleterm").init()
         end,
     },
 
@@ -127,7 +127,7 @@ local plugins = {
         version = "v3.*",
         dependencies = { "nvim-tree/nvim-web-devicons", "catppuccin/nvim" },
         config = function()
-            require("aiken.plugins.bufferline").init()
+            require("plugins.bufferline").init()
         end,
     },
 
@@ -135,7 +135,7 @@ local plugins = {
         -- status line
         "nvim-lualine/lualine.nvim",
         init = function()
-            require("aiken.plugins.lualine").init()
+            require("plugins.lualine").init()
         end,
     },
 
@@ -191,7 +191,7 @@ local plugins = {
         -- commenting with <leader>/
         "numToStr/Comment.nvim",
         init = function()
-            require("aiken.plugins.comment").init()
+            require("plugins.comment").init()
         end,
     },
 
@@ -200,7 +200,7 @@ local plugins = {
         "windwp/nvim-autopairs",
         event = "BufRead",
         config = function()
-            require("aiken.plugins.autopairs").init()
+            require("plugins.autopairs").init()
         end,
     },
 
@@ -210,7 +210,7 @@ local plugins = {
         "echasnovski/mini.surround",
         version = "*",
         config = function()
-            require("aiken.plugins.surround").init()
+            require("plugins.surround").init()
         end,
     },
 
@@ -218,7 +218,7 @@ local plugins = {
         -- git integration
         "lewis6991/gitsigns.nvim", -- show line modifications on left hand side
         init = function()
-            require("aiken.plugins.gitsigns").init()
+            require("plugins.gitsigns").init()
         end,
     },
 
@@ -226,7 +226,7 @@ local plugins = {
         -- show keymap list
         "folke/which-key.nvim",
         config = function()
-            require("aiken.plugins.whichkey").init()
+            require("plugins.whichkey").init()
         end,
     },
 
@@ -239,7 +239,7 @@ local plugins = {
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- dependency for better sorting performance
         },
         init = function()
-            require("aiken.plugins.telescope").init()
+            require("plugins.telescope").init()
         end,
     },
 
@@ -252,7 +252,7 @@ local plugins = {
             "hrsh7th/cmp-nvim-lsp", -- for autocompletion
         },
         config = function()
-            require("aiken.plugins.lsp.lsp").init()
+            require("plugins.lsp.lsp").init()
         end,
     },
 
@@ -262,7 +262,7 @@ local plugins = {
         event = "BufRead",
         dependencies = { "nvim-tree/nvim-web-devicons", "nvim-treesitter/nvim-treesitter" },
         config = function()
-            require("aiken.plugins.lsp.lspsaga").init()
+            require("plugins.lsp.lspsaga").init()
         end,
     },
 
@@ -271,7 +271,7 @@ local plugins = {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         init = function()
-            require("aiken.plugins.lsp.treesitter").init()
+            require("plugins.lsp.treesitter").init()
         end,
     },
 
@@ -302,7 +302,7 @@ local plugins = {
         },
         event = "BufRead",
         config = function()
-            require("aiken.plugins.lsp.cmp").init()
+            require("plugins.lsp.cmp").init()
         end,
     },
 
@@ -311,7 +311,7 @@ local plugins = {
         "jose-elias-alvarez/null-ls.nvim",
         dependencies = { "jay-babu/mason-null-ls.nvim" },
         config = function()
-            require("aiken.plugins.lsp.null-ls").init()
+            require("plugins.lsp.null-ls").init()
         end,
     },
 
@@ -330,7 +330,7 @@ local plugins = {
         "lervag/vimtex",
         lazy = false,
         config = function()
-            require("aiken.plugins.vimtex").init()
+            require("plugins.vimtex").init()
         end,
     },
 }

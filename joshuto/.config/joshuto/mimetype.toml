@@ -1,0 +1,70 @@
+[class]
+text_default = [
+  { command = "nvim" },
+  { command = "gedit", fork = true, silent = true },
+  { command = "bat", args = [
+    "--paging=always",
+  ] },
+]
+
+reader_default = [{ command = "evince", fork = true, silent = true }]
+
+[extension]
+
+## text formats
+build.inherit = "text_default"
+c.inherit = "text_default"
+cmake.inherit = "text_default"
+conf.inherit = "text_default"
+cpp.inherit = "text_default"
+css.inherit = "text_default"
+csv.inherit = "text_default"
+cu.inherit = "text_default"
+ebuild.inherit = "text_default"
+eex.inherit = "text_default"
+env.inherit = "text_default"
+ex.inherit = "text_default"
+exs.inherit = "text_default"
+go.inherit = "text_default"
+h.inherit = "text_default"
+hpp.inherit = "text_default"
+hs.inherit = "text_default"
+html.inherit = "text_default"
+ini.inherit = "text_default"
+java.inherit = "text_default"
+js.inherit = "text_default"
+json.inherit = "text_default"
+kt.inherit = "text_default"
+lua.inherit = "text_default"
+log.inherit = "text_default"
+md.inherit = "text_default"
+micro.inherit = "text_default"
+ninja.inherit = "text_default"
+py.inherit = "text_default"
+rkt.inherit = "text_default"
+rs.inherit = "text_default"
+scss.inherit = "text_default"
+sh.inherit = "text_default"
+srt.inherit = "text_default"
+svelte.inherit = "text_default"
+toml.inherit = "text_default"
+tsx.inherit = "text_default"
+txt.inherit = "text_default"
+vim.inherit = "text_default"
+xml.inherit = "text_default"
+yaml.inherit = "text_default"
+yml.inherit = "text_default"
+
+[mimetype]
+
+# application/octet-stream
+[mimetype.application.subtype.octet-stream]
+inherit = "video_default"
+
+# text/*
+[mimetype.text]
+inherit = "text_default"
+
+# text/*
+[mimetype.video]
+inherit = "video_default"
