@@ -46,9 +46,10 @@ export LIBRARY_PATH=/opt/homebrew/lib
 
 alias ls='ls -lG'
 alias ll='colorls -l'
+alias cl='clear'
 alias cat='bat'
 alias vim='nvim'
-alias ra='ranger'
+alias ra='joshuto'
 alias lg='lazygit'
 alias top='btop'
 alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
