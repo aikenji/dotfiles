@@ -1,6 +1,6 @@
 # MY CONFIG FILES
 
-![my dotfils](./my_dotfiles.jpeg)
+<img src="./dotfiles.png" alt="dotfiles" height=size>
 
 ## Installation
 
@@ -52,34 +52,50 @@ tmux source ~/.tmux.conf
 
 Press `prefix + U`.
 
-## File Structure
+## File Structure of neovim
 
 ```pre
 .
+├── ftplugin
+│   ├── markdown.lua
+│   └── tex.lua
 ├── init.lua
 ├── lazy-lock.json
-└── lua
-    └── aiken
-        ├── core
-        │   ├── keymaps.lua
-        │   └── options.lua
-        └── plugins
-            ├── alpha.lua
-            ├── autopairs.lua
-            ├── bufferline.lua
-            ├── comment.lua
-            ├── gitsigns.lua
-            ├── init.lua
-            ├── lsp
-            │   ├── completion.lua
-            │   ├── lsp.lua
-            │   ├── lspsaga.lua
-            │   ├── null-ls.lua
-            │   └── treesitter.lua
-            ├── lualine.lua
-            ├── neo-tree.lua
-            ├── noice.lua
-            ├── telescope.lua
-            ├── toggleterm.lua
-            └── tokyonight.lua
+├── lua
+│   ├── core
+│   │   ├── init.lua
+│   │   ├── keymaps.lua
+│   │   └── options.lua
+│   ├── plugins
+│   │   ├── alpha.lua
+│   │   ├── autopairs.lua
+│   │   ├── bufferline.lua
+│   │   ├── catppuccin.lua
+│   │   ├── comment.lua
+│   │   ├── gitsigns.lua
+│   │   ├── init.lua
+│   │   ├── lsp
+│   │   │   ├── cmp.lua
+│   │   │   ├── lsp.lua
+│   │   │   ├── lspsaga.lua
+│   │   │   ├── null-ls.lua
+│   │   │   └── treesitter.lua
+│   │   ├── lualine.lua
+│   │   ├── neo-tree.lua
+│   │   ├── noice.lua
+│   │   ├── surround.lua
+│   │   ├── telescope.lua
+│   │   ├── toggleterm.lua
+│   │   ├── tokyonight.lua
+│   │   ├── vimtex.lua
+│   │   └── whichkey.lua
+│   └── utils
+│       ├── imselect.lua
+│       └── neovide.lua
+├── snippets
+│   ├── all.lua
+│   └── markdown.lua
+└── spell
+    ├── en.utf-8.add
+    └── en.utf-8.add.spl
 ```
