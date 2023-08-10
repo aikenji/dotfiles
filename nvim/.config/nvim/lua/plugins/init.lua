@@ -144,11 +144,8 @@ local plugins = {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufReadPost", "BufNewFile" },
         opts = {
-            char = "|",
             filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
             show_trailing_blankline_indent = false,
-            -- show_current_context = true,
-            -- show_current_context_start = true,
         },
         config = function(_, opts)
             require("indent_blankline").setup(opts)
@@ -273,12 +270,6 @@ local plugins = {
         init = function()
             require("plugins.lsp.treesitter").init()
         end,
-    },
-
-    {
-        -- treesitter context
-        "nvim-treesitter/nvim-treesitter-context",
-        dependencies = "nvim-treesitter/nvim-treesitter",
     },
 
     {
