@@ -44,7 +44,7 @@ export LIBRARY_PATH=/opt/homebrew/lib
 #==================================================================================================
 # usr alias setup
 
-alias ls='ls -lG'
+alias ls='ls -l --color'
 alias ll='colorls -l'
 alias cl='clear'
 alias cat='bat'

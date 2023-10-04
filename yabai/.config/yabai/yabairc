@@ -18,4 +18,6 @@ yabai -m config mouse_drop_action swap
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^NoMachine$" manage=off
+yabai -m rule --add app="^TigerVNC Viewer$" manage=off
 
