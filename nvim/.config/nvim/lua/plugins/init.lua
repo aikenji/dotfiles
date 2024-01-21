@@ -111,17 +111,6 @@ local plugins = {
     },
 
     {
-        -- better terminal
-        -- FIX: disabled
-        "akinsho/toggleterm.nvim",
-        enabled = false,
-        version = "*",
-        config = function()
-            require("plugins.toggleterm").init()
-        end,
-    },
-
-    {
         -- buffer line
         "akinsho/bufferline.nvim",
         version = "v3.*",
@@ -156,6 +145,7 @@ local plugins = {
     {
         -- show indent range
         "echasnovski/mini.indentscope",
+        enabled = false,
         version = "*",
         event = { "BufReadPre", "BufNewFile" },
         opts = {
