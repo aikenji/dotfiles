@@ -278,7 +278,7 @@ local plugins = {
             "hrsh7th/cmp-path", -- source for file system paths
             "onsails/lspkind-nvim", -- vs-code like icons for autocompletion
             -- snippets
-            { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+            { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
             "saadparwaiz1/cmp_luasnip", -- for autocompletion
             "rafamadriz/friendly-snippets", -- useful snippets
         },

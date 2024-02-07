@@ -62,26 +62,6 @@ if [[ $TERM == "xterm-kitty" ]]; then
 fi
 
 #==================================================================================================
-# usr function setup
-
-# If you want to change the dir on demand when you exit ranger, use the following wrapper function. With this, your shell changes the directory only when you quit ranger with keybinding capital Q.
-function ranger {
-    local IFS=$'\t\n'
-    local tempfile="$(mktemp -t tmp.XXXXXX)"
-    local ranger_cmd=(
-        command
-        ranger
-        --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
-    )
-    
-    ${ranger_cmd[@]} "$@"
-    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
-        cd -- "$(cat "$tempfile")" || return
-    fi
-    command rm -f -- "$tempfile" 2>/dev/null
-}
-
-#==================================================================================================
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 
