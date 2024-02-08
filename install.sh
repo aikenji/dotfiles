@@ -1,24 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 
-# synchronize homebrew
-# brew bundle
+# any commands fails will cause script to exit
+set -e
 
-# rm the old rc files
-rm -f $HOME/.config/kitty # make sure just link file not dirs
-rm -f $HOME/.config/alacritty
-rm -f $HOME/.config/tmux
-rm -f $HOME/.config/nvim
-rm -f $HOME/.config/ranger
-rm -f $HOME/.config/lazygit
-rm -f $HOME/.config/joshuto
-rm -f $HOME/.zshrc 
-rm -f $HOME/.gitconfig 
-rm -f $HOME/.condarc 
+TERMINALS="kitty/ alacritty/"
+BASICS="git/ zsh/ conda/"
+TOOLS="tmux/ nvim/ lazygit/ joshuto/"
 
-# use stow to manager all config files
-# terminals 
-stow kitty/ alacritty/ 
-# tools 
-stow tmux/ nvim/ lazygit/ joshuto/  
-# basics
-stow git/ zsh/ conda/
+DOT_FOLDERS="$TERMINALS $BASICS $TOOLS"
+
+for folder in $DOT_FOLDERS
+do
+    echo "[+] $folder"
+        stow -v -t $HOME $folder
+done
+
+echo "INSTALL SUCESSFULL"
