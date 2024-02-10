@@ -24,34 +24,29 @@ function M.init()
     --------------------
     -- LUASNIP SETUP
     --------------------
-    require("luasnip").config.set_config({
+    luasnip.setup({
         -- Enable autotriggered snippets
         enable_autosnippets = true,
         -- Use Tab (or some other key if you prefer) to trigger visual selection
         store_selection_keys = "<Tab>",
+        history = true,
+        update_events = { "TextChanged", "TextChangedI" },
     })
+
+    -- load snippets form ~/.config/nvim/snippets/
+    require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets/" })
 
     -- load vs-code like snippets from plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
-    -- load snippets form ~/.config/nvim/snippets/
-    require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
-    luasnip.setup({
-        history = true,
-        delete_check_events = "TextChanged",
-    })
 
     -- keybinding for luasnip
-    keymap.set("i", "<tab>", function() -- expand sippets
-        return luasnip.jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-    end, { expr = true, silent = true, noremap = true })
-
-    keymap.set("s", "<tab>", function() -- jump to next sippets node
+    keymap.set({ "i", "s" }, "<tab>", function() -- jump to next sippets node
         luasnip.jump(1)
-    end)
+    end, { silent = true })
 
     keymap.set({ "i", "s" }, "<s-tab>", function() -- jump to previous sippets node
         luasnip.jump(-1)
-    end)
+    end, { silent = true })
 
     --------------------
     -- CMP SETUP

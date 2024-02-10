@@ -45,6 +45,7 @@ export LIBRARY_PATH=/opt/homebrew/lib
 # usr alias setup
 
 alias ls='ls -l --color'
+alias la='colorls -la'
 alias ll='colorls -l'
 alias cl='clear'
 alias cat='bat'
@@ -54,7 +55,7 @@ alias lg='lazygit'
 alias top='btop'
 alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
 alias fv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
-alias ma='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
+alias tl='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'  # pdf viewer for latex
 
 if [[ $TERM == "xterm-kitty" ]]; then
