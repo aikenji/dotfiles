@@ -1,4 +1,3 @@
-local keymap = vim.keymap
 local M = {}
 
 function M.init()
@@ -8,9 +7,7 @@ function M.init()
     vim.g.vimtex_view_method = "skim"
     vim.g.vimtex_indent_enabled = 0
     vim.g.tex_indent_items = 0
-
     vim.g.maplocalleader = " "
-    keymap.set("n", "dsm", "<Plug>(vimtex-env-delete-math)") -- quick navi in normal mode
 end
 
 return M

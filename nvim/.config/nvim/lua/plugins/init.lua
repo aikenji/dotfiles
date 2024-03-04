@@ -111,17 +111,6 @@ local plugins = {
     },
 
     {
-        -- better terminal
-        -- FIX: disabled
-        "akinsho/toggleterm.nvim",
-        enabled = false,
-        version = "*",
-        config = function()
-            require("plugins.toggleterm").init()
-        end,
-    },
-
-    {
         -- buffer line
         "akinsho/bufferline.nvim",
         version = "v3.*",
@@ -144,20 +133,19 @@ local plugins = {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufReadPost", "BufNewFile" },
         opts = {
-            char = "|",
-            filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-            show_trailing_blankline_indent = false,
-            -- show_current_context = true,
-            -- show_current_context_start = true,
+            scope = {},
+            -- filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
+            -- show_trailing_blankline_indent = false,
         },
         config = function(_, opts)
-            require("indent_blankline").setup(opts)
+            require("ibl").setup(opts)
         end,
     },
 
     {
         -- show indent range
         "echasnovski/mini.indentscope",
+        enabled = false,
         version = "*",
         event = { "BufReadPre", "BufNewFile" },
         opts = {
@@ -276,12 +264,6 @@ local plugins = {
     },
 
     {
-        -- treesitter context
-        "nvim-treesitter/nvim-treesitter-context",
-        dependencies = "nvim-treesitter/nvim-treesitter",
-    },
-
-    {
         -- rainbow parentheses
         "HiPhish/nvim-ts-rainbow2",
         dependencies = "nvim-treesitter/nvim-treesitter",
@@ -296,7 +278,7 @@ local plugins = {
             "hrsh7th/cmp-path", -- source for file system paths
             "onsails/lspkind-nvim", -- vs-code like icons for autocompletion
             -- snippets
-            { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+            { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
             "saadparwaiz1/cmp_luasnip", -- for autocompletion
             "rafamadriz/friendly-snippets", -- useful snippets
         },

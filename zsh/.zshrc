@@ -14,14 +14,14 @@ fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/aiken/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/aiken/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/aiken/opt/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/aiken/opt/miniconda3/bin:$PATH"
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -44,7 +44,8 @@ export LIBRARY_PATH=/opt/homebrew/lib
 #==================================================================================================
 # usr alias setup
 
-alias ls='ls -lG'
+alias ls='ls -l --color'
+alias la='colorls -la'
 alias ll='colorls -l'
 alias cl='clear'
 alias cat='bat'
@@ -54,32 +55,12 @@ alias lg='lazygit'
 alias top='btop'
 alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
 alias fv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
-alias ma='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
+alias tl='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'  # pdf viewer for latex
 
 if [[ $TERM == "xterm-kitty" ]]; then
     alias ssh="kitty +kitten ssh"
 fi
-
-#==================================================================================================
-# usr function setup
-
-# If you want to change the dir on demand when you exit ranger, use the following wrapper function. With this, your shell changes the directory only when you quit ranger with keybinding capital Q.
-function ranger {
-    local IFS=$'\t\n'
-    local tempfile="$(mktemp -t tmp.XXXXXX)"
-    local ranger_cmd=(
-        command
-        ranger
-        --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
-    )
-    
-    ${ranger_cmd[@]} "$@"
-    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
-        cd -- "$(cat "$tempfile")" || return
-    fi
-    command rm -f -- "$tempfile" 2>/dev/null
-}
 
 #==================================================================================================
 # Created by Zap installer
