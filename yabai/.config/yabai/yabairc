@@ -47,7 +47,8 @@ yabai -m config                                 \
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^NetEaseMusic$" manage=off
+# yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^NoMachine$" manage=off
 yabai -m rule --add app="^TigerVNC Viewer$" manage=off
 
