@@ -310,8 +310,7 @@ local plugins = {
     {
         -- latex-preview setup
         "lervag/vimtex",
-        lazy = false,
-        config = function()
+        init = function()
             require("plugins.vimtex").init()
         end,
     },
