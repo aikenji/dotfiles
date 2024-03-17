@@ -481,6 +481,12 @@ return {
     s({ trig = ">>", snippetType = "autosnippet" }, {
         t("\\implies "),
     }),
+
+    -- Leftarrow, i.e. \Leftarrow
+    s({ trig = "<<", snippetType = "autosnippet" }, {
+        t("\\Leftarrow "),
+    }),
+
     -- DOT PRODUCT, i.e. \cdot
     s({ trig = ",.", snippetType = "autosnippet" }, {
         t("\\cdot "),

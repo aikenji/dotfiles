@@ -35,16 +35,15 @@ function M.init()
 
     -- load snippets form ~/.config/nvim/snippets/
     require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets/" })
-
     -- load vs-code like snippets from plugins (e.g. friendly-snippets)
     -- require("luasnip.loaders.from_vscode").lazy_load()
 
     -- keybinding for luasnip
-    keymap.set({ "i", "s" }, "<tab>", function() -- jump to next sippets node
+    keymap.set({ "i", "s" }, "<tab>", function()
         luasnip.jump(1)
     end, { silent = true })
 
-    keymap.set({ "i", "s" }, "<s-tab>", function() -- jump to previous sippets node
+    keymap.set({ "i", "s" }, "<s-tab>", function()
         luasnip.jump(-1)
     end, { silent = true })
 

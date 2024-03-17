@@ -1,5 +1,4 @@
 local M = {}
-local keymap = vim.keymap
 
 function M.init()
     vim.opt.conceallevel = 2
@@ -13,13 +12,6 @@ function M.init()
 
     -- Don't open QuickFix for warning messages if no errors are present
     vim.g.vimtex_quickfix_open_on_warning = 0
-
-    -- keybinding for vimtex
-    keymap.set("n", "dsm", "<Plug>(vimtex-env-delete-math)")
-    keymap.set({ "x", "o" }, "ai", "<Plug>(vimtex-am)")
-    keymap.set({ "x", "o" }, "ii", "<Plug>(vimtex-im)")
-    keymap.set({ "x", "o" }, "am", "<Plug>(vimtex-a$)")
-    keymap.set({ "x", "o" }, "im", "<Plug>(vimtex-i$)")
 end
 
 return M
