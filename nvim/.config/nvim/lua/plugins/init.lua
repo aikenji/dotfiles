@@ -184,15 +184,6 @@ local plugins = {
     },
 
     {
-        -- auto closing
-        "windwp/nvim-autopairs",
-        event = "BufRead",
-        config = function()
-            require("plugins.autopairs").init()
-        end,
-    },
-
-    {
         -- add, delete, change surroundings
         -- TODO: find some better keymapings
         "echasnovski/mini.surround",
