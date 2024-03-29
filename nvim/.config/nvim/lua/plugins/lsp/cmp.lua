@@ -39,11 +39,12 @@ function M.init()
     -- require("luasnip.loaders.from_vscode").lazy_load()
 
     -- keybinding for luasnip
-    keymap.set({ "i", "s" }, "<tab>", function()
+
+    keymap.set({ "i", "s" }, "<C-j>", function()
         luasnip.jump(1)
     end, { silent = true })
 
-    keymap.set({ "i", "s" }, "<s-tab>", function()
+    keymap.set({ "i", "s" }, "<C-k>", function()
         luasnip.jump(-1)
     end, { silent = true })
 
@@ -74,10 +75,8 @@ function M.init()
             max_view_entries = 12,
         },
         mapping = cmp.mapping.preset.insert({
-            ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-            ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-            ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-            ["<C-d>"] = cmp.mapping.scroll_docs(4),
+            ["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+            ["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
             ["<C-e>"] = cmp.mapping.abort(), -- close completion window
             ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),

@@ -143,39 +143,6 @@ local plugins = {
     },
 
     {
-        -- show indent range
-        "echasnovski/mini.indentscope",
-        enabled = false,
-        version = "*",
-        event = { "BufReadPre", "BufNewFile" },
-        opts = {
-            symbol = "│",
-            options = { try_as_border = true },
-        },
-        init = function()
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = { "help", "alpha", "neo-tree", "dashboard", "Trouble", "lazy", "mason" },
-                callback = function()
-                    vim.b.miniindentscope_disable = true
-                end,
-            })
-        end,
-        config = function(_, opts)
-            require("mini.indentscope").setup(opts)
-        end,
-    },
-
-    {
-        -- highlight word under cursor
-        "echasnovski/mini.cursorword",
-        enabled = false,
-        version = "*",
-        config = function()
-            require("mini.cursorword").setup()
-        end,
-    },
-
-    {
         -- commenting with <leader>/
         "numToStr/Comment.nvim",
         init = function()

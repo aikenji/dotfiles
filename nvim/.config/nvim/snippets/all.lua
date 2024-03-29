@@ -29,10 +29,10 @@ return {
         t("]"),
     }),
     -- Paired back ticks
-    s({ trig = "sd", snippetType = "autosnippet" }, {
-        f(function(_, snip)
-            return snip.captures[1]
-        end),
+    s({ trig = "`", snippetType = "autosnippet" }, {
+        -- f(function(_, snip)
+        --     return snip.captures[1]
+        -- end),
         t("`"),
         d(1, get_visual),
         t("`"),
@@ -59,30 +59,30 @@ return {
         { f(get_date) }
         -- {f(get_ISO_8601_date)}
     ),
-    -- Curly braces
-    s(
-        { trig = "fds", snippetType = "autosnippet" },
-        fmta(
-            [[
-        {
-          <>
-        }
-        ]],
-            { d(1, get_visual) }
-        )
-    ),
-    -- Square braces
-    s(
-        { trig = "dg", snippetType = "autosnippet" },
-        fmta(
-            [[
-        [
-          <>
-        ]
-        ]],
-            { d(1, get_visual) }
-        )
-    ),
+    -- -- Curly braces
+    -- s(
+    --     { trig = "fds", snippetType = "autosnippet" },
+    --     fmta(
+    --         [[
+    --     {
+    --       <>
+    --     }
+    --     ]],
+    --         { d(1, get_visual) }
+    --     )
+    -- ),
+    -- -- Square braces
+    -- s(
+    --     { trig = "dg", snippetType = "autosnippet" },
+    --     fmta(
+    --         [[
+    --     [
+    --       <>
+    --     ]
+    --     ]],
+    --         { d(1, get_visual) }
+    --     )
+    -- ),
     -- em dash
     s({ trig = "---", wordTrig = false }, { t("—") }),
     -- Lorem ipsum
