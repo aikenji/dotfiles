@@ -113,8 +113,8 @@ local plugins = {
     {
         -- buffer line
         "akinsho/bufferline.nvim",
-        version = "v3.*",
-        dependencies = { "nvim-tree/nvim-web-devicons", "catppuccin/nvim" },
+        version = "*",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("plugins.bufferline").init()
         end,

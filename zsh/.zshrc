@@ -47,6 +47,7 @@ export LIBRARY_PATH=/opt/homebrew/lib
 alias ls='ls -l --color'
 alias la='colorls -la'
 alias ll='colorls -l'
+alias lt='eza --tree --level=2 --icons --git'
 alias cl='clear'
 alias cat='bat'
 alias vim='nvim'

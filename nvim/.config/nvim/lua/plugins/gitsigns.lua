@@ -35,9 +35,6 @@ function M.init()
         },
         current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
         sign_priority = 6,
-        yadm = {
-            enable = false,
-        },
     })
 end
 
