@@ -2,20 +2,24 @@
 
 font_family      JetBrainsMono Nerd Font 
 bold_font        JetBrainsMono Nerd Font Bold 
-italic_font      VictorMono Nerd Font Italic
-bold_italic_font VictorMono Nerd Font SemiBold Italic
+italic_font      JetBrainsMono Nerd Font Italic
+bold_italic_font JetBrainsMono Nerd Font Bold Italic 
 font_size 17.0
 disable_ligatures always
 
 # Themes
 
 # BEGIN_KITTY_THEME
-# fairyfloss
+# citylights
 include current-theme.conf
 # END_KITTY_THEME
+background_opacity 0.75
+background_blur 20
+window_padding_width 20
+
 
 # MACOS specific tweaks
-
+hide_window_decorations titlebar-only
 macos_option_as_alt yes
 # macos_thicken_font 0.5
 

@@ -39,7 +39,7 @@ function M.init()
         mode = { "n" },
         ["<leader>f"] = { name = "+file/find" },
         ["<leader>p"] = { name = "+preview" },
-        ["gz"] = { name = "+surround" },
+        -- ["gz"] = { name = "+surround" },
     })
 end
 

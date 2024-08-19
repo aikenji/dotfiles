@@ -10,7 +10,7 @@ function M.init()
     end
 
     catp.setup({
-        flavour = "macchiato", -- latte, frappe, macchiato, mocha
+        flavour = "mocha", -- latte, frappe, macchiato, mocha
         transparent_background = true,
         dim_inactive = {
             -- FIX:some display bug of noice in transparent mode when dim is enabled
@@ -28,9 +28,8 @@ function M.init()
         integrations = {
             cmp = true,
             gitsigns = true,
-            nvimtree = false,
             treesitter = true,
-            treesitter_context = false,
+            treesitter_context = true,
             notify = true,
             noice = true,
             mini = true,
