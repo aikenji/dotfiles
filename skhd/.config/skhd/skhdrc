@@ -9,3 +9,6 @@ ctrl + alt - h : yabai -m window --swap west
 ctrl + alt - j : yabai -m window --swap south
 ctrl + alt - k : yabai -m window --swap north
 ctrl + alt - l : yabai -m window --swap east
+
+# send window to desktop and follow focus
+ctrl + cmd - z : yabai -m window --space next; yabai -m space --focus next 

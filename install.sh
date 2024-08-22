@@ -6,7 +6,7 @@ set -e
 TERMINALS="kitty/ alacritty/"
 WM="yabai/ skhd/"
 BASICS="git/ zsh/ conda/"
-TOOLS="tmux/ nvim/ lazygit/ joshuto/"
+TOOLS="tmux/ nvim/ neovide/ lazygit/ joshuto/"
 
 DOT_FOLDERS="$TERMINALS $WM $BASICS $TOOLS"
 
