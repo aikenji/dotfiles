@@ -10,7 +10,7 @@ function M.init()
     end
 
     catp.setup({
-        flavour = "mocha", -- latte, frappe, macchiato, mocha
+        flavour = "macchiato", -- latte, frappe, macchiato, mocha
         transparent_background = true,
         dim_inactive = {
             -- FIX:some display bug of noice in transparent mode when dim is enabled

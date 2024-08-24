@@ -457,14 +457,6 @@ return {
     s({ trig = "eqq", snippetType = "autosnippet" }, {
         t("\\equiv "),
     }),
-    -- SETMINUS, i.e. \setminus
-    s({ trig = "stm", snippetType = "autosnippet" }, {
-        t("\\setminus "),
-    }),
-    -- SUBSET, i.e. \subset
-    s({ trig = "sbb", snippetType = "autosnippet" }, {
-        t("\\subset "),
-    }),
     -- APPROX, i.e. \approx
     s({ trig = "px", snippetType = "autosnippet" }, {
         t("\\approx "),
@@ -477,15 +469,6 @@ return {
     s({ trig = "::", snippetType = "autosnippet" }, {
         t("\\colon "),
     }),
-    -- IMPLIES, i.e. \implies
-    s({ trig = ">>", snippetType = "autosnippet" }, {
-        t("\\implies "),
-    }),
-
-    -- Leftarrow, i.e. \Leftarrow
-    s({ trig = "<<", snippetType = "autosnippet" }, {
-        t("\\Leftarrow "),
-    }),
 
     -- DOT PRODUCT, i.e. \cdot
     s({ trig = ",.", snippetType = "autosnippet" }, {
@@ -495,4 +478,66 @@ return {
     s({ trig = "xx", snippetType = "autosnippet" }, {
         t("\\times "),
     }),
+
+    -- set theory==============================================
+    -- EXIST, i.e. \exists
+    s({ trig = "ex", snippetType = "autosnippet" }, {
+        t("\\exists ")
+    },{ condition = tex.in_mathzone }),
+    s({ trig = "forsome", snippetType = "autosnippet" }, {
+        t("\\ \\text{for some}\\ ")
+    },{ condition = tex.in_mathzone }),
+    -- FORALL, i.e. \forall
+    s({ trig = "all", snippetType = "autosnippet" }, {
+        t("\\forall ")
+    },{ condition = tex.in_mathzone }),
+    s({ trig = "forall", snippetType = "autosnippet" }, {
+        t("\\ \\text{for all}\\ ")
+    },{ condition = tex.in_mathzone }),
+    -- IMPLIES, i.e. \implies
+    s({ trig = ">>", snippetType = "autosnippet" }, {
+        t("\\implies "),
+    }),
+    -- Leftarrow, i.e. \Leftarrow
+    s({ trig = "<<", snippetType = "autosnippet" }, {
+        t("\\Leftarrow "),
+    }),
+    -- IFF, i.e. \iff
+    s({ trig = "iff", snippetType = "autosnippet" }, {
+        t("\\iff ")
+    },{ condition = tex.in_mathzone }),
+    -- BELONG, i.e. \in
+    s({ trig = "in", snippetType = "autosnippet" }, {
+        t("\\in ")
+    },{ condition = tex.in_mathzone }),
+    -- SUBSET, i.e. \subset
+    s({ trig = "sbb", snippetType = "autosnippet" }, {
+        t("\\subseteq "),
+    }),
+    -- SETMINUS, i.e. \setminus
+    s({ trig = "stm", snippetType = "autosnippet" }, {
+        t("\\setminus "),
+    }),
+    -- MATHCAL, i.e. \mathcal{}
+    s(
+        { trig = "([^%a])cal", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta("<>\\mathcal{<>}", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+        }),
+        { condition = tex.in_mathzone }
+    ),
+    -- POWER SET, i.e. \mathcal{P}()
+    s(
+        { trig = "([^%a])pow", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+        fmta("<>\\mathcal{P}(<>)", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+        }),
+        { condition = tex.in_mathzone }
+    ),
 }
