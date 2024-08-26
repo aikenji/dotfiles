@@ -34,7 +34,7 @@ yabai -m config                                 \
     bottom_padding               0             \
     left_padding                 0             \
     right_padding                0             \
-    window_gap                   06             \
+    window_gap                   00             \
     layout                       bsp            \
     mouse_modifier               alt            \
     mouse_action1                move           \
@@ -54,7 +54,7 @@ yabai -m rule --add app="^TigerVNC Viewer$" manage=off
 yabai -m rule --add app="^Aliwangwang$" manage=off
 
 # janky borders
-borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
+borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=1.0 &
 
 echo "yabai configuration loaded.."
 

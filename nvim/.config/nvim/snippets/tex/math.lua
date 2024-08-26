@@ -482,18 +482,18 @@ return {
     -- set theory==============================================
     -- EXIST, i.e. \exists
     s({ trig = "ex", snippetType = "autosnippet" }, {
-        t("\\exists ")
-    },{ condition = tex.in_mathzone }),
+        t("\\exists "),
+    }, { condition = tex.in_mathzone }),
     s({ trig = "forsome", snippetType = "autosnippet" }, {
-        t("\\ \\text{for some}\\ ")
-    },{ condition = tex.in_mathzone }),
+        t("\\ \\text{for some}\\ "),
+    }, { condition = tex.in_mathzone }),
     -- FORALL, i.e. \forall
     s({ trig = "all", snippetType = "autosnippet" }, {
-        t("\\forall ")
-    },{ condition = tex.in_mathzone }),
+        t("\\forall "),
+    }, { condition = tex.in_mathzone }),
     s({ trig = "forall", snippetType = "autosnippet" }, {
-        t("\\ \\text{for all}\\ ")
-    },{ condition = tex.in_mathzone }),
+        t("\\ \\text{for all}\\ "),
+    }, { condition = tex.in_mathzone }),
     -- IMPLIES, i.e. \implies
     s({ trig = ">>", snippetType = "autosnippet" }, {
         t("\\implies "),
@@ -504,12 +504,12 @@ return {
     }),
     -- IFF, i.e. \iff
     s({ trig = "iff", snippetType = "autosnippet" }, {
-        t("\\iff ")
-    },{ condition = tex.in_mathzone }),
+        t("\\iff "),
+    }, { condition = tex.in_mathzone }),
     -- BELONG, i.e. \in
     s({ trig = "in", snippetType = "autosnippet" }, {
-        t("\\in ")
-    },{ condition = tex.in_mathzone }),
+        t("\\in "),
+    }, { condition = tex.in_mathzone }),
     -- SUBSET, i.e. \subset
     s({ trig = "sbb", snippetType = "autosnippet" }, {
         t("\\subseteq "),
@@ -537,6 +537,18 @@ return {
                 return snip.captures[1]
             end),
             d(1, get_visual),
+        }),
+        { condition = tex.in_mathzone }
+    ),
+    -- LEFT/RIGHT ANGLE BRACES
+    s(
+        { trig = "([^%a])bra", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+        fmta("<>\\langle <>,<> \\rangle", {
+            f(function(_, snip)
+                return snip.captures[1]
+            end),
+            d(1, get_visual),
+            i(2),
         }),
         { condition = tex.in_mathzone }
     ),
