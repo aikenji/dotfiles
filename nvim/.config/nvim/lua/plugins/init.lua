@@ -7,6 +7,15 @@ local plugins = {
     },
 
     {
+        -- treesitter
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+            require("plugins.lsp.treesitter").init()
+        end,
+    },
+
+    {
         -- navigate code easily
         "folke/flash.nvim",
         event = "VeryLazy",
@@ -210,21 +219,6 @@ local plugins = {
         config = function()
             require("plugins.lsp.lspsaga").init()
         end,
-    },
-
-    {
-        -- treesitter
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        init = function()
-            require("plugins.lsp.treesitter").init()
-        end,
-    },
-
-    {
-        -- rainbow parentheses
-        "HiPhish/nvim-ts-rainbow2",
-        dependencies = "nvim-treesitter/nvim-treesitter",
     },
 
     {
