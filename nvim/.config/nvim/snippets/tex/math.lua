@@ -494,6 +494,14 @@ return {
     s({ trig = "forall", snippetType = "autosnippet" }, {
         t("\\ \\text{for all}\\ "),
     }, { condition = tex.in_mathzone }),
+    -- AND
+    s({ trig = "and", snippetType = "autosnippet" }, {
+        t("\\land "),
+    }, { condition = tex.in_mathzone }),
+    -- OR
+    s({ trig = "or", snippetType = "autosnippet" }, {
+        t("\\lor "),
+    }, { condition = tex.in_mathzone }),
     -- IMPLIES, i.e. \implies
     s({ trig = ">>", snippetType = "autosnippet" }, {
         t("\\implies "),
@@ -510,6 +518,10 @@ return {
     s({ trig = "in", snippetType = "autosnippet" }, {
         t("\\in "),
     }, { condition = tex.in_mathzone }),
+    -- NOT BELONG, i.e. \notin
+    s({ trig = "ni", snippetType = "autosnippet" }, {
+        t("\\in "),
+    }, { condition = tex.in_mathzone }),
     -- SUBSET, i.e. \subset
     s({ trig = "sbb", snippetType = "autosnippet" }, {
         t("\\subseteq "),
@@ -518,17 +530,6 @@ return {
     s({ trig = "stm", snippetType = "autosnippet" }, {
         t("\\setminus "),
     }),
-    -- MATHCAL, i.e. \mathcal{}
-    s(
-        { trig = "([^%a])cal", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta("<>\\mathcal{<>}", {
-            f(function(_, snip)
-                return snip.captures[1]
-            end),
-            d(1, get_visual),
-        }),
-        { condition = tex.in_mathzone }
-    ),
     -- POWER SET, i.e. \mathcal{P}()
     s(
         { trig = "([^%a])pow", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
