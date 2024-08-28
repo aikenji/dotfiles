@@ -6,3 +6,4 @@ state.yml
 *.log
 
 tmux/.config/tmux/plugins
+.DS_Store

@@ -533,7 +533,7 @@ return {
     -- POWER SET, i.e. \mathcal{P}()
     s(
         { trig = "([^%a])pow", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-        fmta("<>\\mathcal{P}(<>)", {
+        fmta("<>\\mathcal{P}(<>) ", {
             f(function(_, snip)
                 return snip.captures[1]
             end),
@@ -544,7 +544,7 @@ return {
     -- LEFT/RIGHT ANGLE BRACES
     s(
         { trig = "([^%a])bra", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-        fmta("<>\\langle <>,<> \\rangle", {
+        fmta("<>\\langle <>,<> \\rangle ", {
             f(function(_, snip)
                 return snip.captures[1]
             end),

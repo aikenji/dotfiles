@@ -44,9 +44,9 @@ export LIBRARY_PATH=/opt/homebrew/lib
 #==================================================================================================
 # usr alias setup
 
-alias ls='ls -l --color'
-alias la='colorls -la'
-alias l='colorls -l'
+alias ls='eza --icons --git'
+alias la='eza --oneline --long --icons --git --all'
+alias ll='eza --oneline --long --icons --git --git-ignore'
 alias lt='eza --tree --level=2 --icons --git'
 alias cl='clear'
 alias cat='bat'
@@ -72,14 +72,16 @@ plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zap-zsh/completions" 
 plug "zap-zsh/vim"
-plug "zap-zsh/fzf"
 
 # completions init
 autoload -Uz compinit
 
 #==================================================================================================
 # additional features setup
-
+#
+# fzf init
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 # use tmux-fzf as default fzf
 export FZF_TMUX=1
 export FZF_TMUX_OPTS='-p --reverse'

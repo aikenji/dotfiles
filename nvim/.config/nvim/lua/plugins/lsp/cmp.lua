@@ -40,13 +40,13 @@ function M.init()
 
     -- keybinding for luasnip
 
-    keymap.set({ "i", "s" }, "<C-j>", function()
+    keymap.set({ "i", "s" }, "<S-Tab>", function()
         luasnip.jump(1)
     end, { silent = true })
 
-    keymap.set({ "i", "s" }, "<C-k>", function()
-        luasnip.jump(-1)
-    end, { silent = true })
+    -- keymap.set({ "i", "s" }, "<S-Tab>", function()
+    --     luasnip.jump(-1)
+    -- end, { silent = true })
 
     --------------------
     -- CMP SETUP
