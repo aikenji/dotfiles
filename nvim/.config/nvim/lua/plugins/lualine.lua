@@ -1,11 +1,9 @@
 local M = {}
 
 function M.init()
-    -- import lualine plugin safely
-    local status, lualine = pcall(require, "lualine")
-    if not status then
-        return
-    end
+    -- Bubbles config for lualine
+    -- Author: lokesh-krishna
+    -- MIT license, see LICENSE for more details.
 
     -- new colors for theme
     local tn_color = {
@@ -41,109 +39,42 @@ function M.init()
         red1 = "#db4b4b",
     }
 
-    -- tab component
-    local indent = {
-        function()
-            local shiftwidth = vim.api.nvim_buf_get_option(0, "shiftwidth")
-            return "󰌒 " .. " " .. shiftwidth
-        end,
-        padding = 1,
-    }
-
-    local treesitter = {
-        function()
-            return " "
-        end,
-        color = function()
-            local buf = vim.api.nvim_get_current_buf()
-            local ts = vim.treesitter.highlighter.active[buf]
-            return { fg = ts and not vim.tbl_isempty(ts) and tn_color.green or tn_color.red }
-        end,
-    }
-
-    local lsp = {
-        function(msg)
-            msg = msg or "LS Inactive"
-            local buf_clients = vim.lsp.buf_get_clients()
-            if next(buf_clients) == nil then
-                -- TODO: clean up this if statement
-                if type(msg) == "boolean" or #msg == 0 then
-                    return "LS Inactive"
-                end
-                return msg
-            end
-            local buf_ft = vim.bo.filetype
-            local buf_client_names = {}
-            local copilot_active = false
-
-            -- add client
-            for _, client in pairs(buf_clients) do
-                if client.name ~= "null-ls" and client.name ~= "copilot" then
-                    table.insert(buf_client_names, client.name)
-                end
-
-                if client.name == "copilot" then
-                    copilot_active = true
-                end
-            end
-
-            -- -- add formatter
-            -- local formatters = require("lvim.lsp.null-ls.formatters")
-            -- local supported_formatters = formatters.list_registered(buf_ft)
-            -- vim.list_extend(buf_client_names, supported_formatters)
-            --
-            -- -- add linter
-            -- local linters = require("lvim.lsp.null-ls.linters")
-            -- local supported_linters = linters.list_registered(buf_ft)
-            -- vim.list_extend(buf_client_names, supported_linters)
-
-            local unique_client_names = vim.fn.uniq(buf_client_names)
-
-            local language_servers = "  " .. table.concat(unique_client_names, ", ")
-
-            return language_servers
-        end,
-        color = { gui = "bold", fg = tn_color.green, bg = tn_color.bg },
-    }
-
-    -- configure lualine with modified theme
-    lualine.setup({
+    require("lualine").setup({
         options = {
             theme = "catppuccin",
-            component_separators = { left = "", right = "" },
-            section_separators = { left = "", right = "" },
             disabled_filetypes = {
                 statusline = { "neo-tree", "alpha", "dashboard", "lspsagaoutline" },
             },
+            component_separators = "",
+            section_separators = { left = "", right = "" },
         },
         sections = {
+            lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
             lualine_b = {
-                {
-                    "branch",
-                    icon = { "", color = { fg = tn_color.yellow } },
-                },
-                "diff",
+                -- "filename",
                 "diagnostics",
+                { "branch", icon = { "", color = { fg = tn_color.yellow } } },
+                "diff",
             },
-
             lualine_c = {
-                {
-                    "filename",
-                    path = 1, -- show relative path
-                    shrting_target = 50,
-                    color = { fg = tn_color.blue },
-                    -- show lspsaga symbolwinbar
-                    -- function()
-                    --     return require("lspsaga.symbolwinbar"):get_winbar()
-                    -- end,
-                },
+                "%=", --[[ add your center compoentnts here in place of this comment ]]
             },
-            lualine_x = {
-                indent,
-                "filetype",
-                lsp,
+            lualine_x = {},
+            lualine_y = { "filetype", "progress" },
+            lualine_z = {
+                { "location", separator = { right = "" }, left_padding = 2 },
             },
         },
+        inactive_sections = {
+            lualine_a = { "filename" },
+            lualine_b = {},
+            lualine_c = {},
+            lualine_x = {},
+            lualine_y = {},
+            lualine_z = { "location" },
+        },
+        tabline = {},
+        extensions = {},
     })
 end
 

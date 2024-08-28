@@ -46,7 +46,8 @@ export LIBRARY_PATH=/opt/homebrew/lib
 
 alias ls='ls -l --color'
 alias la='colorls -la'
-alias ll='colorls -l'
+alias l='colorls -l'
+alias lt='eza --tree --level=2 --icons --git'
 alias cl='clear'
 alias cat='bat'
 alias vim='nvim'
@@ -83,6 +84,6 @@ autoload -Uz compinit
 export FZF_TMUX=1
 export FZF_TMUX_OPTS='-p --reverse'
 # zoxide init
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 # colorscheme setup 
 eval "$(starship init zsh)"
