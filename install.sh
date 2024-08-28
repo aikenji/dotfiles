@@ -4,9 +4,9 @@
 set -e
 
 TERMINALS="kitty/ alacritty/"
-WM="yabai/ skhd/ sketchybar/"
+WM="yabai/ skhd/"
 BASICS="git/ zsh/ conda/"
-TOOLS="tmux/ nvim/ neovide/ lazygit/ joshuto/ cava"
+TOOLS="tmux/ nvim/ lazygit/ joshuto/"
 
 DOT_FOLDERS="$TERMINALS $WM $BASICS $TOOLS"
 

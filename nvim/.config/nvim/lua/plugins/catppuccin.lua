@@ -28,8 +28,9 @@ function M.init()
         integrations = {
             cmp = true,
             gitsigns = true,
+            nvimtree = false,
             treesitter = true,
-            treesitter_context = true,
+            treesitter_context = false,
             notify = true,
             noice = true,
             mini = true,
