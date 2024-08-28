@@ -7,6 +7,15 @@ local plugins = {
     },
 
     {
+        -- treesitter
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+            require("plugins.lsp.treesitter").init()
+        end,
+    },
+
+    {
         -- navigate code easily
         "folke/flash.nvim",
         event = "VeryLazy",
@@ -113,8 +122,8 @@ local plugins = {
     {
         -- buffer line
         "akinsho/bufferline.nvim",
-        version = "v3.*",
-        dependencies = { "nvim-tree/nvim-web-devicons", "catppuccin/nvim" },
+        version = "*",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("plugins.bufferline").init()
         end,
@@ -143,52 +152,10 @@ local plugins = {
     },
 
     {
-        -- show indent range
-        "echasnovski/mini.indentscope",
-        enabled = false,
-        version = "*",
-        event = { "BufReadPre", "BufNewFile" },
-        opts = {
-            symbol = "│",
-            options = { try_as_border = true },
-        },
-        init = function()
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = { "help", "alpha", "neo-tree", "dashboard", "Trouble", "lazy", "mason" },
-                callback = function()
-                    vim.b.miniindentscope_disable = true
-                end,
-            })
-        end,
-        config = function(_, opts)
-            require("mini.indentscope").setup(opts)
-        end,
-    },
-
-    {
-        -- highlight word under cursor
-        "echasnovski/mini.cursorword",
-        enabled = false,
-        version = "*",
-        config = function()
-            require("mini.cursorword").setup()
-        end,
-    },
-
-    {
         -- commenting with <leader>/
         "numToStr/Comment.nvim",
         init = function()
             require("plugins.comment").init()
-        end,
-    },
-
-    {
-        -- auto closing
-        "windwp/nvim-autopairs",
-        event = "BufRead",
-        config = function()
-            require("plugins.autopairs").init()
         end,
     },
 
@@ -255,21 +222,6 @@ local plugins = {
     },
 
     {
-        -- treesitter
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        init = function()
-            require("plugins.lsp.treesitter").init()
-        end,
-    },
-
-    {
-        -- rainbow parentheses
-        "HiPhish/nvim-ts-rainbow2",
-        dependencies = "nvim-treesitter/nvim-treesitter",
-    },
-
-    {
         -- autocompletion
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -310,8 +262,7 @@ local plugins = {
     {
         -- latex-preview setup
         "lervag/vimtex",
-        lazy = false,
-        config = function()
+        init = function()
             require("plugins.vimtex").init()
         end,
     },

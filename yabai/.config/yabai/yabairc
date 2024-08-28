@@ -30,11 +30,11 @@ yabai -m config                                 \
     split_ratio                  0.50           \
     split_type                   auto           \
     auto_balance                 off            \
-    top_padding                  12             \
-    bottom_padding               12             \
-    left_padding                 12             \
-    right_padding                12             \
-    window_gap                   06             \
+    top_padding                  0             \
+    bottom_padding               0             \
+    left_padding                 0             \
+    right_padding                0             \
+    window_gap                   00             \
     layout                       bsp            \
     mouse_modifier               alt            \
     mouse_action1                move           \
@@ -47,12 +47,14 @@ yabai -m config                                 \
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^NetEaseMusic$" manage=off
+# yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^NoMachine$" manage=off
 yabai -m rule --add app="^TigerVNC Viewer$" manage=off
+yabai -m rule --add app="^Aliwangwang$" manage=off
 
 # janky borders
-borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
+borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=1.0 &
 
 echo "yabai configuration loaded.."
 
