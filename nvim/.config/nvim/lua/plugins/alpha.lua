@@ -98,7 +98,7 @@ function M.init()
         end
     end
 
-    local filePath1 = os.getenv("HOME") .. "/.config/nvim/waddle.txt"
+    local filePath1 = os.getenv("HOME") .. "/.config/nvim/dashboard/waddle.txt"
     -- read the logo part of img.txt
     local img = readImage(filePath1)
     local imgv = extractImage(img)
