@@ -485,14 +485,14 @@ return {
         t("\\exists "),
     }, { condition = tex.in_mathzone }),
     s({ trig = "forsome", snippetType = "autosnippet" }, {
-        t("\\ \\text{for some}\\ "),
+        t("\\text{ for some } "),
     }, { condition = tex.in_mathzone }),
     -- FORALL, i.e. \forall
     s({ trig = "all", snippetType = "autosnippet" }, {
         t("\\forall "),
     }, { condition = tex.in_mathzone }),
     s({ trig = "forall", snippetType = "autosnippet" }, {
-        t("\\ \\text{for all}\\ "),
+        t("\\text{ for all } "),
     }, { condition = tex.in_mathzone }),
     -- AND
     s({ trig = "and", snippetType = "autosnippet" }, {
