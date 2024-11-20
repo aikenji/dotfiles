@@ -4,7 +4,7 @@
 set -e
 
 TERMINALS="kitty/ alacritty/"
-WM="yabai/ skhd/ sketchybar/"
+WM="aerospace/"
 BASICS="git/ zsh/ conda/"
 TOOLS="tmux/ nvim/ neovide/ lazygit/ joshuto/ cava"
 
