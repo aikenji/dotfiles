@@ -51,7 +51,6 @@ alias lt='eza --tree --level=2 --icons --git'
 alias cl='clear'
 alias cat='bat'
 alias vim='nvim'
-alias ra='joshuto'
 alias lg='lazygit'
 alias top='btop'
 alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
@@ -89,3 +88,13 @@ export FZF_TMUX_OPTS='-p --reverse'
 eval "$(zoxide init zsh --cmd cd)"
 # colorscheme setup 
 eval "$(starship init zsh)"
+
+# use ra instead of yazi to start and press q to quit and change CWD
+function ra() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
