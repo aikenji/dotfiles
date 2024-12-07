@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # any commands fails will cause script to exit
 set -e
@@ -7,14 +7,14 @@ set -e
 # ===========================================
 #
 # fonts
-brew install font-jetbrains-mono-nerd-font
+# brew install font-jetbrains-mono-nerd-font
 # basic tools of zsh
-brew install eza bat btop fd fzf zoxide tealdeer fastfetch
-brew install git tmux nvim neovide lazygit yazi
+# brew install eza bat btop fd fzf zoxide tealdeer fastfetch
+# brew install git tmux nvim neovide lazygit yazi
 # WM
-brew install kitty aerospace 
-brew tap FelixKratz/formulae
-brew install --ignore-dependencies borders
+# brew install kitty aerospace 
+# brew tap FelixKratz/formulae
+# brew install --ignore-dependencies borders
 # miniconda (upgrade miniconda will lost all your virtual envs in current version)
 # brew install miniconda
 # yazi preamble

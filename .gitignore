@@ -9,3 +9,4 @@ tmux/.config/tmux/plugins
 .DS_Store
 yazi/.config/yazi/flavors
 yazi/.config/yazi/plugins/full-border.yazi
+yazi/.config/yazi/package.toml
