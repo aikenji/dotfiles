@@ -17,9 +17,6 @@ set -e
 # brew install --ignore-dependencies borders
 # miniconda (upgrade miniconda will lost all your virtual envs in current version)
 # brew install miniconda
-# yazi preamble
-ya pack -a yazi-rs/flavors:catppuccin-macchiato
-ya pack -a yazi-rs/plugins:full-border
 
 TERMINALS="kitty/"
 WM="aerospace/"
@@ -33,5 +30,9 @@ do
     echo "[+] $folder"
         stow -v -t $HOME $folder
 done
+
+# yazi preamble
+ya pack -a yazi-rs/flavors:catppuccin-macchiato
+ya pack -a yazi-rs/plugins:full-border
 
 echo "INSTALL SUCESSFULL"

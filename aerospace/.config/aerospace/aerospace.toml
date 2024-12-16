@@ -215,3 +215,6 @@ run = "move-node-to-workspace T"
 if.app-id = 'com.netease.163music'
 run = "move-node-to-workspace M"
 
+[[on-window-detected]]
+if.app-id = 'com.apple.QuickTimePlayerX'
+run = "move-node-to-workspace V"
