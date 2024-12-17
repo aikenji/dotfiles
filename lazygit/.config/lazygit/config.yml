@@ -4,5 +4,5 @@ gui:
   border: 'rounded'
   theme:
     activeBorderColor:
-      - magenta
+      - yellow
       - bold
