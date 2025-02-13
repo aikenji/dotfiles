@@ -40,28 +40,6 @@ export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
 # <<< homebrew initialize <<<
 
-
-#==================================================================================================
-# usr alias setup
-
-alias ls='eza --icons --git'
-alias la='eza --oneline --long --icons --git --all'
-alias ll='eza --oneline --long --icons --git --git-ignore'
-alias lt='eza --tree --level=2 --icons --git'
-alias cl='clear'
-alias cat='bat'
-alias vim='nvim'
-alias lg='lazygit'
-alias top='btop'
-alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
-alias fv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
-alias tl='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
-alias skim='/Applications/Skim.app/Contents/MacOS/Skim'  # pdf viewer for latex
-
-if [[ $TERM == "xterm-kitty" ]]; then
-    alias ssh="kitty +kitten ssh"
-fi
-
 #==================================================================================================
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
@@ -84,6 +62,7 @@ source <(fzf --zsh)
 # use tmux-fzf as default fzf
 export FZF_TMUX=1
 export FZF_TMUX_OPTS='-p --reverse'
+
 # zoxide init
 eval "$(zoxide init zsh --cmd cd)"
 # colorscheme setup 
@@ -97,4 +76,40 @@ function ra() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+#==================================================================================================
+# usr alias setup
+
+alias ls='eza --icons --git'
+alias la='eza --oneline --long --icons --git --all'
+alias ll='eza --oneline --long --icons --git --git-ignore'
+alias lt='eza --tree --level=2 --icons --git'
+alias cl='clear'
+alias cat='bat'
+alias lg='lazygit'
+alias top='btop'
+alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
+alias fv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
+alias tl='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
+alias skim='/Applications/Skim.app/Contents/MacOS/Skim'  # pdf viewer for latex
+
+if [[ $TERM == "xterm-kitty" ]]; then
+    alias ssh="kitty +kitten ssh"
+fi
+
+# neovim config switchers
+alias vim='nvim'
+alias vim-lazy='NVIM_APPNAME=lazyvim nvim'
+
+function vims() {
+  items=("default" "lazyvim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt="Neovim Config >> " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
 }
