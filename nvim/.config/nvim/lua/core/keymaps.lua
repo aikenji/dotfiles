@@ -18,8 +18,8 @@ keymap.set("n", "x", '"_x')
 -- cursor movement
 -- keymap.set("n", "L", "5l", { desc = "move left *5" }) -- quick navi in normal mode
 -- keymap.set("n", "H", "5h", { desc = "move right *5" })
-keymap.set("n", "J", "5j", { desc = "move down *5" })
-keymap.set("n", "K", "5k", { desc = "move up *5" })
+-- keymap.set("n", "J", "5j", { desc = "move down *5" })
+-- keymap.set("n", "K", "5k", { desc = "move up *5" })
 -- keymap.set("i", "<C-h>", "<Left>", { desc = "move left" }) -- navi in insert mode
 -- keymap.set("i", "<C-l>", "<Right>", { desc = "move right" })
 -- keymap.set("i", "<C-j>", "<Down>", { desc = "move down" })

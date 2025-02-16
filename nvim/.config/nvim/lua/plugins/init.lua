@@ -7,6 +7,17 @@ local plugins = {
     },
 
     {
+        "echasnovski/mini.animate",
+        version = "*",
+        opts = {
+            cursor = { enable = false },
+        },
+        config = function(_, opts)
+            require("mini.animate").setup(opts)
+        end,
+    },
+
+    {
         -- treesitter
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
