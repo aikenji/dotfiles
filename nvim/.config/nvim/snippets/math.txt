@@ -1,0 +1,72 @@
+1 SUPERSCRIPT '
+2 SUBSCRIPT ;
+3 SUBSCRIPT AND SUPERSCRIPT __
+4 TEXT SUBSCRIPT sd
+5 SUPERSCRIPT SHORTCUT a"b 
+6 SUBSCRIPT SHORTCUT a:b
+7 EULER'S NUMBER SUPERSCRIPT SHORTCUT ee
+8 ZERO SUBSCRIPT SHORTCUT 00
+9 MINUS ONE SUPERSCRIPT SHORTCUT 11
+10 J SUBSCRIPT SHORTCUT (since jk triggers snippet jump forward) JJ
+11 PLUS SUPERSCRIPT SHORTCUT ++
+12 COMPLEMENT SUPERSCRIPT CC
+13 CONJUGATE (STAR) SUPERSCRIPT SHORTCUT **
+14 VECTOR, i.e. \vec vv
+15 DEFAULT UNIT VECTOR WITH SUBSCRIPT, i.e. \unitvector_{} ue ..
+16 UNIT VECTOR WITH HAT, i.e. \uvec{} ..
+17 MATRIX, i.e. \vec mt ..
+18 FRACTION ff
+19 ANGLE gg ..
+20 ABSOLUTE VALUE aa
+21 SQUARE ROOT sq
+22 BINOMIAL SYMBOL bnn
+23 LOGARITHM WITH BASE SUBSCRIPT ll
+24 DERIVATIVE with denominator only dV
+25 DERIVATIVE with numerator and denominator dvv
+26 DERIVATIVE with numerator, denominator, and higher-order argument dvv
+27 PARTIAL DERIVATIVE with denominator only pV
+28 PARTIAL DERIVATIVE with numerator and denominator pvv
+29 PARTIAL DERIVATIVE with numerator, denominator, and higher-order argument ppv
+30 SUM with lower limit sM
+31 SUM with upper and lower limit smm
+32 INTEGRAL with upper and lower limit intt
+33 INTEGRAL from positive to negative infinity intf
+34 BOXED command bb
+
+BEGIN STATIC SNIPPETS===================================
+
+1 DIFFERENTIAL, i.e. \diff df
+2 BASIC INTEGRAL SYMBOL, i.e. \int in1
+3 DOUBLE INTEGRAL, i.e. \iint in2
+4 TRIPLE INTEGRAL, i.e. \iiint in3
+5 CLOSED SINGLE INTEGRAL, i.e. \oint oi1
+6 CLOSED DOUBLE INTEGRAL, i.e. \oiint oi2
+7 GRADIENT OPERATOR, i.e. \grad gdd
+8 CURL OPERATOR, i.e. \curl cll
+9 DIVERGENCE OPERATOR, i.e. \divergence DI
+10 LAPLACIAN OPERATOR, i.e. \laplacian laa
+11 PARALLEL SYMBOL, i.e. \parallel ||
+12 CDOTS, i.e. \cdots cdd
+13 LDOTS, i.e. \ldots ldd
+14 EQUIV, i.e. \equiv eqq
+15 APPROX, i.e. \approx px
+16 PROPTO, i.e. \propto pt
+17 COLON, i.e. \colon ::
+18 DOT PRODUCT, i.e. \cdot ,.
+19 CROSS PRODUCT, i.e. \times xx
+
+SET THEORY==============================================
+
+1 EXIST, i.e. \exists ex forsome
+2 FORALL, i.e. \forall all forall
+3 AND and
+4 OR or
+5 IMPLIES, i.e. \implies >>
+6 Leftarrow, i.e. \Leftarrow <<
+7 IFF, i.e. \iff iff
+8 BELONG, i.e. \in in
+9 NOT BELONG, i.e. \notin ni
+10 SUBSET, i.e. \subset sbb
+11 SETMINUS, i.e. \setminus stm
+12 POWER SET, i.e. \mathcal{P}() pow
+13 LEFT/RIGHT ANGLE BRACES bra

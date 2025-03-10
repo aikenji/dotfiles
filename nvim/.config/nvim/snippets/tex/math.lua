@@ -520,7 +520,7 @@ return {
     }, { condition = tex.in_mathzone }),
     -- NOT BELONG, i.e. \notin
     s({ trig = "ni", snippetType = "autosnippet" }, {
-        t("\\in "),
+        t("\\notin "),
     }, { condition = tex.in_mathzone }),
     -- SUBSET, i.e. \subset
     s({ trig = "sbb", snippetType = "autosnippet" }, {

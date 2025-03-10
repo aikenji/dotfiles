@@ -254,10 +254,20 @@ local plugins = {
     {
         -- formatting and linting
         "jose-elias-alvarez/null-ls.nvim",
+        enabled = false,
         dependencies = { "jay-babu/mason-null-ls.nvim" },
         config = function()
             require("plugins.lsp.null-ls").init()
         end,
+    },
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
     },
 
     {
@@ -284,6 +294,7 @@ local plugins = {
 -- recommended settings from nvim-tree documentation
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.o.mousescroll = "ver:1,hor:1"
 
 -- 24-bit color is required when using nvim-notify
 vim.opt.termguicolors = true
