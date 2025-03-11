@@ -18,6 +18,20 @@ local plugins = {
     },
 
     {
+        "folke/zen-mode.nvim",
+        opts = {
+            window = {
+                backdrop = 0.15,
+            },
+        },
+    },
+
+    {
+        "folke/twilight.nvim",
+        opts = {},
+    },
+
+    {
         -- treesitter
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
@@ -254,30 +268,52 @@ local plugins = {
     {
         -- formatting and linting
         "jose-elias-alvarez/null-ls.nvim",
-        enabled = false,
         dependencies = { "jay-babu/mason-null-ls.nvim" },
         config = function()
             require("plugins.lsp.null-ls").init()
         end,
     },
+
     {
         "MeanderingProgrammer/render-markdown.nvim",
-        dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-        ---@module 'render-markdown'
-        ---@type render.md.UserConfig
-        opts = {},
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+        opts = {
+            sign = { enabled = false },
+            completions = { lsp = { enabled = true } },
+            code = {
+                width = "block",
+                min_width = 45,
+            },
+        },
     },
 
     {
-        -- markdown-preview
         "iamcco/markdown-preview.nvim",
-        build = "cd app && npm install",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && yarn install",
         init = function()
             vim.g.mkdp_filetypes = { "markdown" }
         end,
         ft = { "markdown" },
+    },
+
+    {
+        "epwalsh/obsidian.nvim",
+        version = "*", -- recommended, use latest release instead of latest commit
+        lazy = true,
+        ft = "markdown",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        opts = {
+            workspaces = {
+                {
+                    name = "second-brain",
+                    path = "~/Notes/second-brain/",
+                },
+            },
+            ui = { enable = false },
+        },
     },
 
     {

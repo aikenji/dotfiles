@@ -152,10 +152,10 @@ function M.init()
     })
 
     -- configure markdown server
-    lspconfig["marksman"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-    })
+    -- lspconfig["marksman"].setup({
+    --     capabilities = capabilities,
+    --     on_attach = on_attach,
+    -- })
 end
 
 return M

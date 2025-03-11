@@ -49,10 +49,6 @@ keymap.set("n", "<A-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase w
 keymap.set("n", "<Up>", "<C-a>", { desc = "Increase number" })
 keymap.set("n", "<Down>", "<C-x>", { desc = "Decrease number" })
 
--- save and quit
--- keymap.set("n", "<C-w>", "<cmd>w<cr>", { desc = "Save" })
--- keymap.set("n", "<C-q>", "<cmd>q<cr>", { desc = "Quit" })
-
 ----------------------
 -- Plugin Keybinds
 ----------------------
@@ -70,9 +66,6 @@ keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in 
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 keymap.set("n", "<leader>ft", "<cmd>Telescope lsp_document_symbols<cr>") -- list all functions/structs/classes/modules in the current buffer
-
--- toggleterm
--- keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "Launch Terminal" })
 
 -- markdown
 keymap.set("n", "<leader>pd", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown Preview Toggle" })
