@@ -27,9 +27,6 @@ function M.init()
             lsp_doc_border = true, -- add a border to hover docs and signature help
         },
     })
-    -- require("notify").setup({
-    --     -- background_colour = "#000000", -- notify bug when using background transparent
-    -- })
 end
 
 return M

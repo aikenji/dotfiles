@@ -90,6 +90,7 @@ alias cat='bat'
 alias lg='lazygit'
 alias top='btop'
 alias du='dust'
+alias g='tgpt'
 alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
 alias fv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
 alias tl='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
@@ -100,6 +101,7 @@ if [[ $TERM == "xterm-kitty" ]]; then
 fi
 
 # neovim config switchers
+alias v='neovide'
 alias vim='nvim'
 alias vim-lazy='NVIM_APPNAME=lazyvim nvim'
 

@@ -21,7 +21,7 @@ set -e
 TERMINALS="kitty/"
 WM="aerospace/"
 BASICS="git/ zsh/ conda/"
-TOOLS="tmux/ nvim/ neovide/ lazygit/ yazi/"
+TOOLS="tmux/ nvim/ neovide/ lazygit/ yazi/ fastfetch/"
 
 DOT_FOLDERS="$TERMINALS $WM $BASICS $TOOLS"
 

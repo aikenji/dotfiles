@@ -27,8 +27,8 @@ function M.init()
                 i = {
                     ["<C-c>"] = "close",
                     ["<C-h>"] = "which_key",
-                    ["<C-p>"] = "move_selection_previous",
-                    ["<C-n>"] = "move_selection_next",
+                    ["<C-k>"] = "move_selection_previous",
+                    ["<C-j>"] = "move_selection_next",
                 },
                 n = {
                     ["q"] = "close",

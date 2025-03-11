@@ -75,8 +75,8 @@ function M.init()
             max_view_entries = 12,
         },
         mapping = cmp.mapping.preset.insert({
-            ["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-            ["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
+            ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+            ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
             ["<C-e>"] = cmp.mapping.abort(), -- close completion window
             ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
