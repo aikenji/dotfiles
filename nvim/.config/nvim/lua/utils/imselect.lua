@@ -2,7 +2,7 @@ local M = {}
 
 local mac = {}
 
-mac.cn = "com.apple.inputmethod.SCIM.Shuangpin"
+mac.cn = "com.apple.inputmethod.SCIM.ITABC"
 mac.en = "com.apple.keylayout.US"
 
 local getChangeIM = function()
