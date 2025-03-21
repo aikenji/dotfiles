@@ -1,11 +1,13 @@
 local plugins = {
 
+    -- PERF:
     {
         -- navigate between tmux and vim
         "christoomey/vim-tmux-navigator",
         lazy = false,
     },
 
+    -- PERF:
     {
         "echasnovski/mini.animate",
         version = "*",
@@ -17,6 +19,7 @@ local plugins = {
         end,
     },
 
+    -- PERF:
     {
         "folke/zen-mode.nvim",
         opts = {
@@ -26,6 +29,7 @@ local plugins = {
         },
     },
 
+    -- PERF:
     {
         "folke/twilight.nvim",
         opts = {},
@@ -40,6 +44,7 @@ local plugins = {
         end,
     },
 
+    -- PERF:
     {
         -- navigate code easily
         "folke/flash.nvim",
@@ -69,6 +74,7 @@ local plugins = {
         },
     },
 
+    -- PERF:
     {
         -- colorscheme catppuccin
         "catppuccin/nvim",
@@ -100,6 +106,7 @@ local plugins = {
         end,
     },
 
+    -- PERF:
     {
         -- highlight todo comment
         "folke/todo-comments.nvim",
@@ -107,6 +114,7 @@ local plugins = {
         opts = {},
     },
 
+    -- PERF:
     {
         -- dashboard of nvim
         "goolord/alpha-nvim",
@@ -116,6 +124,7 @@ local plugins = {
         end,
     },
 
+    -- PERF:
     {
         -- ehanced vim.notify ui
         "folke/noice.nvim",
@@ -129,6 +138,7 @@ local plugins = {
         end,
     },
 
+    -- PERF:
     {
         -- file manager
         "nvim-neo-tree/neo-tree.nvim",
@@ -144,6 +154,7 @@ local plugins = {
         end,
     },
 
+    -- PERF:
     {
         -- buffer line
         "akinsho/bufferline.nvim",
@@ -154,6 +165,7 @@ local plugins = {
         end,
     },
 
+    -- PERF:
     {
         -- status line
         "nvim-lualine/lualine.nvim",
@@ -162,6 +174,7 @@ local plugins = {
         end,
     },
 
+    -- PERF:
     {
         -- show indent line
         "lukas-reineke/indent-blankline.nvim",
@@ -194,6 +207,7 @@ local plugins = {
         end,
     },
 
+    -- PERF:
     {
         -- git integration
         "lewis6991/gitsigns.nvim", -- show line modifications on left hand side
@@ -202,6 +216,7 @@ local plugins = {
         end,
     },
 
+    -- PERF:
     {
         -- show keymap list
         "folke/which-key.nvim",
@@ -210,6 +225,7 @@ local plugins = {
         end,
     },
 
+    -- PERF:
     {
         -- fuzzy finding w/ telescope
         "nvim-telescope/telescope.nvim",
@@ -274,6 +290,7 @@ local plugins = {
         end,
     },
 
+    -- PERF:
     {
         "MeanderingProgrammer/render-markdown.nvim",
         dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
@@ -287,6 +304,7 @@ local plugins = {
         },
     },
 
+    -- PERF:
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -297,6 +315,7 @@ local plugins = {
         ft = { "markdown" },
     },
 
+    -- PERF:
     {
         "epwalsh/obsidian.nvim",
         version = "*", -- recommended, use latest release instead of latest commit
@@ -316,6 +335,7 @@ local plugins = {
         },
     },
 
+    -- PERF:
     {
         -- latex-preview setup
         "lervag/vimtex",
@@ -327,14 +347,8 @@ local plugins = {
 
 -- preload of lazy plugins
 
--- recommended settings from nvim-tree documentation
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 -- mini.animate scroll bugs when using mouse
 vim.o.mousescroll = "ver:1,hor:1"
-
--- 24-bit color is required when using nvim-notify
-vim.opt.termguicolors = true
 
 -- auto install lazy if not installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

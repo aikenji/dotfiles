@@ -1,54 +1,43 @@
-local M = {}
+return {
+    { -- Highlight, edit, and navigate code
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        main = "nvim-treesitter.configs", -- Sets main module to use for opts
+        opts = {
+            ensure_installed = {
+                "bash",
+                "c",
+                "cpp",
+                "cmake",
+                "python",
+                "diff",
+                "html",
+                "lua",
+                "luadoc",
+                "markdown",
+                "markdown_inline",
+                "query",
+                "json",
+                "gitignore",
+                "vim",
+                "vimdoc",
+            },
 
-function M.init()
-    -- import nvim-treesitter plugin safely
-    local ts_status, treesitter = pcall(require, "nvim-treesitter.configs")
-    if not ts_status then
-        return
-    end
-
-    -- configure treesitter
-    treesitter.setup({
-        -- ensure these language parsers are installed
-        ensure_installed = {
-            "c",
-            "cpp",
-            "cmake",
-            "python",
-            "markdown",
-            "markdown_inline",
-            "bash",
-            "lua",
-            "json",
-            "vim",
-            "gitignore",
-        },
-        -- use vimtex as syntax highlighting
-        ignore_install = { "latex" },
-        -- install sync
-        sync_install = true,
-        --Automatically install missing parsers
-        auto_install = true,
-        -- enable syntax highlighting
-        highlight = {
-            additional_vim_regex_highlighting = false,
-            enable = true,
-        },
-        indent = {
-            enable = true,
-            disable = { "yaml", "python" },
-        },
-
-        incremental_selection = {
-            enable = true,
-            keymaps = {
-                init_selection = "<cr>", -- set to `false` to disable one of the mappings
-                node_incremental = "<cr>",
-                scope_incremental = false,
-                node_decremental = "<bs>",
+            -- Autoinstall languages that are not installed
+            auto_install = true,
+            ignore_install = { "latex" },
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = { "ruby" },
+            },
+            indent = {
+                enable = true,
+                disable = {
+                    "yaml",
+                    "ruby",
+                    "python",
+                },
             },
         },
-    })
-end
-
-return M
+    },
+}
