@@ -44,7 +44,7 @@ return {
                     icons = {
                         package_pending = " ",
                         package_installed = "󰄳 ",
-                        package_uninstalled = " 󰚌",
+                        package_uninstalled = "󰚌 ",
                     },
 
                     keymaps = {
@@ -128,7 +128,7 @@ return {
                     Lua = {
                         -- make the language server recognize "vim" global
                         diagnostics = {
-                            globals = { "vim" },
+                            globals = { "vim", "Snacks" },
                         },
                         workspace = {
                             -- make language server aware of runtime files

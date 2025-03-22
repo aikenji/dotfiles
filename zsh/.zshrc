@@ -6,7 +6,7 @@ export PAGER='less'
 export LANG='en_US.UTF-8'
 # colorize some commands such as tree
 export CLICOLOR=1
-export PATH=".local/bin:$PATH"
+export PATH="$HOMW/.local/bin:$HOME/.cargo/bin:$PATH"
 # change the default config dir in macos
 if [[ "$(uname)" == "Darwin" ]]; then
     export XDG_CONFIG_HOME="$HOME/.config" 
@@ -91,6 +91,7 @@ alias lg='lazygit'
 alias top='btop'
 alias du='dust'
 alias g='tgpt'
+alias fetch='pokeget gengar --hide-name | fastfetch --file-raw -'
 alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
 alias fv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
 alias tl='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
@@ -116,3 +117,6 @@ function vims() {
   fi
   NVIM_APPNAME=$config nvim $@
 }
+
+# run scripts when login
+pokeget random --hide-name | fastfetch --file-raw -

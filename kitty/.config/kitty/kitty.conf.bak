@@ -1,22 +1,23 @@
 # Fonts
-font_family      JetBrainsMono Nerd Font 
-bold_font        JetBrainsMono Nerd Font Bold 
-italic_font      JetBrainsMono Nerd Font Italic
-bold_italic_font JetBrainsMono Nerd Font Bold Italic 
-font_size 15.0
+font_family      JetBrains Mono
+bold_font        JetBrains Mono Bold 
+italic_font      Maple Mono Italic
+bold_italic_font Maple Mono Bold Italic 
+font_size 13.0
 disable_ligatures always
 
 # Themes
 # BEGIN_KITTY_THEME
-# Catppuccin-Macchiato
+# Tokyo Night Moon
 include current-theme.conf
 # END_KITTY_THEME
 
 # Windows
 hide_window_decorations titlebar-only
-#background_opacity 0.75
-#background_blur 30
+background_opacity 0.75
+background_blur 20
 window_padding_width 15
+enabled_layouts horizontal,vertical
 
 # Tab bar
 tab_bar_edge top
@@ -34,16 +35,16 @@ cursor_trail 3
 # vim key-bindings
 # map cmd+s send_text all \e:w\r
 # tmux key-bindings
-map cmd+t combine : send_key ctrl+space : send_key c
-map cmd+x combine : send_key ctrl+space : send_key x
-map cmd+j combine : send_key ctrl+space : send_key v
-map cmd+h combine : send_key ctrl+space : send_key h
-map cmd+1 combine : send_key ctrl+space : send_key 1
-map cmd+2 combine : send_key ctrl+space : send_key 2
-map cmd+3 combine : send_key ctrl+space : send_key 3
-map cmd+4 combine : send_key ctrl+space : send_key 4
-map cmd+5 combine : send_key ctrl+space : send_key 5
-map cmd+6 combine : send_key ctrl+space : send_key 6
-map cmd+7 combine : send_key ctrl+space : send_key 7
-map cmd+8 combine : send_key ctrl+space : send_key 8
-map cmd+9 combine : send_key ctrl+space : send_key 9
+# map cmd+t combine : send_key ctrl+space : send_key c
+# map cmd+x combine : send_key ctrl+space : send_key x
+# map cmd+j combine : send_key ctrl+space : send_key v
+# map cmd+h combine : send_key ctrl+space : send_key h
+# map cmd+1 combine : send_key ctrl+space : send_key 1
+# map cmd+2 combine : send_key ctrl+space : send_key 2
+# map cmd+3 combine : send_key ctrl+space : send_key 3
+# map cmd+4 combine : send_key ctrl+space : send_key 4
+# map cmd+5 combine : send_key ctrl+space : send_key 5
+# map cmd+6 combine : send_key ctrl+space : send_key 6
+# map cmd+7 combine : send_key ctrl+space : send_key 7
+# map cmd+8 combine : send_key ctrl+space : send_key 8
+# map cmd+9 combine : send_key ctrl+space : send_key 9

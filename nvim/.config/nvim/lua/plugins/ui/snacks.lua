@@ -7,8 +7,16 @@ return {
         ---@type snacks.Config
         opts = {
             bigfile = { enabled = true },
-            dashboard = { enabled = true },
+            dashboard = {
+                enabled = true,
+                sections = {
+                    { section = "header" },
+                    { section = "keys", gap = 1, padding = 1 },
+                    { section = "startup" },
+                },
+            },
             explorer = { enabled = true },
+            image = { enabled = true },
             indent = { enabled = true },
             input = { enabled = true },
             notifier = {
@@ -56,13 +64,6 @@ return {
                     Snacks.picker.buffers()
                 end,
                 desc = "Buffers",
-            },
-            {
-                "<leader>/",
-                function()
-                    Snacks.picker.grep()
-                end,
-                desc = "Grep",
             },
             {
                 "<leader>:",
@@ -529,6 +530,10 @@ return {
             },
         },
         init = function()
+            vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#99f29d" })
+            vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { link = "Title" })
+            vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = "#5c7ff2" })
+
             vim.api.nvim_create_autocmd("User", {
                 pattern = "VeryLazy",
                 callback = function()
