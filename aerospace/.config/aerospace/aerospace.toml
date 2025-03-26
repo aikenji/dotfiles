@@ -207,5 +207,9 @@ run = "move-node-to-workspace E"
 if.app-id = 'com.apple.finder'
 run = "layout floating"
 
+[[on-window-detected]]
+if.app-id = 'com.tencent.qq'
+run = "layout floating"
+
 [workspace-to-monitor-force-assignment]
 S = 'secondary'

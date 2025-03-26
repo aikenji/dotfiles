@@ -18,11 +18,11 @@ return {
                 end,
                 desc = "Previous todo comments",
             },
-            {
-                "<leader>tt",
-                "<cmd>TodoLocList<cr>",
-                desc = "LocList of Todo comments",
-            },
+            -- {
+            --     "<leader>tt",
+            --     "<cmd>TodoLocList<cr>",
+            --     desc = "LocList of Todo comments",
+            -- },
         },
     },
 

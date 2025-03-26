@@ -2,11 +2,11 @@ if vim.g.neovide then
     -- basic options of neovim for bluring
     vim.opt.winblend = 50
     vim.opt.pumblend = 65
-    require("telescope").setup({
-        defaults = {
-            winblend = 50,
-        },
-    })
+    -- require("telescope").setup({
+    --     defaults = {
+    --         winblend = 50,
+    --     },
+    -- })
     -- basic settings for paste in neovide
     vim.keymap.set("v", "<D-c>", '"+y') -- Copy
     vim.keymap.set("n", "<D-v>", '"+P') -- Paste normal mode
@@ -32,7 +32,7 @@ if vim.g.neovide then
     vim.g.neovide_text_contrast = 0.5
 
     -- transparency of background
-    vim.g.neovide_transparency = 0.6
+    vim.g.neovide_transparency = 0.5
     vim.g.neovide_window_blurred = true
 
     -- blur and shadow of floating windows

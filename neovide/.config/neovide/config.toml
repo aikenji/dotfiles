@@ -10,6 +10,20 @@ theme = "auto"
 vsync = true
 
 [font]
-normal = "JetBrainsMono Nerd Font"
 size = 15
 
+[[font.normal]]
+family = "JetBrainsMono Nerd Font"
+style = "Normal"
+
+[[font.bold]]
+family = "JetBrainsMono Nerd Font"
+style = "SemiBold"
+
+[[font.italic]]
+family = "Maple Mono"
+style = "Italic"
+
+[[font.bold_italic]]
+family = "Maple Mono"
+style = "SemiBold Italic"
