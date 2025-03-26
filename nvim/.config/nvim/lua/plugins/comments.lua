@@ -2,7 +2,11 @@ return {
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {},
+        opts = {
+            highlight = {
+                comments_only = false,
+            },
+        },
         keys = {
             {
                 "]t",
@@ -18,32 +22,11 @@ return {
                 end,
                 desc = "Previous todo comments",
             },
-            {
-                "<leader>tt",
-                "<cmd>TodoLocList<cr>",
-                desc = "LocList of Todo comments",
-            },
-        },
-    },
-
-    {
-        "numToStr/Comment.nvim",
-        opts = {},
-        keys = {
-            {
-                "<leader>/",
-                function()
-                    require("Comment.api").toggle.linewise.current()
-                end,
-                desc = "Toggle comments",
-            },
-
-            {
-                "<leader>/",
-                mode = "v",
-                "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-                desc = "Toggle comments",
-            },
+            -- {
+            --     "<leader>tt",
+            --     "<cmd>TodoLocList<cr>",
+            --     desc = "LocList of Todo comments",
+            -- },
         },
     },
 }

@@ -81,7 +81,8 @@ return {
                         border = "rounded",
                     }),
                     documentation = cmp.config.window.bordered({
-                        border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
+                        -- border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
+                        border = "rounded",
                     }),
                 },
                 performance = {
@@ -102,17 +103,17 @@ return {
                 }),
                 -- configure lspkind for vs-code like icons
                 formatting = {
-                    fields = { "abbr", "kind", "menu" },
+                    fields = { "abbr", "kind" },
                     format = lspkind.cmp_format({
-                        mode = "symbol_text",
+                        mode = "symbol",
                         maxwidth = 40,
                         ellipsis_char = "...",
-                        menu = {
-                            buffer = "󱞶 Buf",
-                            nvim_lsp = "󱞶 LSP",
-                            luasnip = "󱞶 Snip",
-                            path = "󱞶 Path",
-                        },
+                        -- menu = {
+                        --     buffer = "󱞶 Buf",
+                        --     nvim_lsp = "󱞶 LSP",
+                        --     luasnip = "󱞶 Snip",
+                        --     path = "󱞶 Path",
+                        -- },
                     }),
                 },
             })

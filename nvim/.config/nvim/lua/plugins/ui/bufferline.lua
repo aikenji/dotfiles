@@ -11,7 +11,9 @@ return {
                 max_name_length = 30,
                 max_prefix_length = 30,
                 tab_size = 21,
-                offsets = { { filetype = "explorer", text = "", padding = 1 } },
+                offsets = {
+                    { filetype = "snacks_layout_box" },
+                },
                 show_buffer_close_icons = true,
                 enforce_regular_tabs = true,
                 hover = {

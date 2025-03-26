@@ -55,47 +55,22 @@ Press `prefix + U`.
 ## File Structure of neovim
 
 ```pre
-.
-├── ftplugin
-│   ├── markdown.lua
-│   └── tex.lua
-├── init.lua
-├── lazy-lock.json
-├── lua
-│   ├── core
-│   │   ├── init.lua
-│   │   ├── keymaps.lua
-│   │   └── options.lua
-│   ├── plugins
-│   │   ├── alpha.lua
-│   │   ├── autopairs.lua
-│   │   ├── bufferline.lua
-│   │   ├── catppuccin.lua
-│   │   ├── comment.lua
-│   │   ├── gitsigns.lua
-│   │   ├── init.lua
-│   │   ├── lsp
-│   │   │   ├── cmp.lua
-│   │   │   ├── lsp.lua
-│   │   │   ├── lspsaga.lua
-│   │   │   ├── null-ls.lua
-│   │   │   └── treesitter.lua
-│   │   ├── lualine.lua
-│   │   ├── neo-tree.lua
-│   │   ├── noice.lua
-│   │   ├── surround.lua
-│   │   ├── telescope.lua
-│   │   ├── toggleterm.lua
-│   │   ├── tokyonight.lua
-│   │   ├── vimtex.lua
-│   │   └── whichkey.lua
-│   └── utils
-│       ├── imselect.lua
-│       └── neovide.lua
-├── snippets
-│   ├── all.lua
-│   └── markdown.lua
-└── spell
-    ├── en.utf-8.add
-    └── en.utf-8.add.spl
+ .
+├──  ftplugin
+│   ├──  markdown.lua
+│   └──  tex.lua
+├──  init.lua
+├──  lazy-lock.json
+├──  lua
+│   ├──  configs
+│   ├──  plugins
+│   └──  utils
+├──  snippets
+│   ├──  all.lua
+│   ├──  markdown.lua
+│   ├──  math.txt
+│   └──  tex
+└──  spell
+    ├──  en.utf-8.add
+    └──  en.utf-8.add.spl
 ```

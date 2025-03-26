@@ -49,6 +49,6 @@ vim.api.nvim_create_user_command("ToggleInputCN", function()
 end, {})
 
 -- Bind a keymap to toggle the input_cn (optional)
-vim.keymap.set("n", "<leader>ti", M.toggle_input_cn, { noremap = true, silent = true, desc = "Toggle input-cn" })
+vim.keymap.set("n", "<leader>ui", M.toggle_input_cn, { noremap = true, silent = true, desc = "Toggle input-cn" })
 
 return M

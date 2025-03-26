@@ -67,7 +67,6 @@ return {
                     "lua_ls",
                     "clangd",
                     "pyright",
-                    "marksman",
                 },
             })
 
@@ -78,11 +77,24 @@ return {
             -- enable keybinds only for when lsp server available
             local on_attach = function(client, bufnr) end
 
-            local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-            for type, icon in pairs(signs) do
-                local hl = "DiagnosticSign" .. type
-                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-            end
+            -- diagnostic virtual texts
+            vim.diagnostic.config({
+                virtual_text = true,
+                underline = true,
+                update_in_insert = false,
+                severity_sort = true,
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = " ",
+                        [vim.diagnostic.severity.WARN] = " ",
+                        [vim.diagnostic.severity.INFO] = " ",
+                        [vim.diagnostic.severity.HINT] = " ",
+                    },
+                    linehl = {
+                        [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+                    },
+                },
+            })
 
             -- configure cpp clangd
             lspconfig["clangd"].setup({
@@ -120,12 +132,36 @@ return {
                 },
             })
 
+            -- lspconfig["basedpyright"].setup({
+            --     capabilities = capabilities,
+            --     on_attach = on_attach,
+            --     cmd = { "basedpyright-langserver", "--stdio" },
+            --     filetype = { "python" },
+            --     single_file_support = true,
+            --     settings = {
+            --         basedpyright = {
+            --             analysis = {
+            --                 autoSearchPaths = true,
+            --                 diagnosticsMode = "workspace",
+            --                 useLibraryCodeForTypes = true,
+            --                 inlayHints = {
+            --                     variableTypes = true,
+            --                     functionReturnTypes = true,
+            --                     parameterNames = true,
+            --                     parameterTypes = true,
+            --                 },
+            --             },
+            --         },
+            --     },
+            -- })
+
             -- configure lua server (with special settings)
             lspconfig["lua_ls"].setup({
                 capabilities = capabilities,
                 on_attach = on_attach,
                 settings = { -- custom settings for lua
                     Lua = {
+                        hint = { enable = true },
                         -- make the language server recognize "vim" global
                         diagnostics = {
                             globals = { "vim", "Snacks" },

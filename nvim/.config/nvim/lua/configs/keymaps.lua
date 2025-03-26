@@ -6,7 +6,6 @@ local keymap = vim.keymap
 
 -- built-in search and subsitution
 keymap.set("n", "<ESC><ESC>", ":noh<CR><ESC>") -- clear search highlights
-keymap.set("n", "gw", "*N", { desc = "search word under cursor" }) -- quick search and highlight same word
 
 -- delete single char without copying into register
 keymap.set("n", "x", '"_x')

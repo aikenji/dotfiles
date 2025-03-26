@@ -28,6 +28,7 @@ return {
             quickfile = { enabled = true },
             scope = { enabled = true },
             scroll = { enabled = true },
+            terminal = { enabled = true },
             statuscolumn = {
                 enabled = true,
                 left = { "mark", "sign" }, -- priority of signs on the left (high to low)
@@ -372,14 +373,14 @@ return {
                 end,
                 desc = "Goto Declaration",
             },
-            {
-                "gr",
-                function()
-                    Snacks.picker.lsp_references()
-                end,
-                nowait = true,
-                desc = "References",
-            },
+            -- {
+            --     "gr",
+            --     function()
+            --         Snacks.picker.lsp_references()
+            --     end,
+            --     nowait = true,
+            --     desc = "References",
+            -- },
             {
                 "gI",
                 function()
@@ -481,18 +482,11 @@ return {
                 desc = "Dismiss All Notifications",
             },
             {
-                "<c-/>",
+                "<leader>t",
                 function()
-                    Snacks.terminal()
+                    Snacks.terminal.toggle()
                 end,
                 desc = "Toggle Terminal",
-            },
-            {
-                "<c-_>",
-                function()
-                    Snacks.terminal()
-                end,
-                desc = "which_key_ignore",
             },
             {
                 "]]",

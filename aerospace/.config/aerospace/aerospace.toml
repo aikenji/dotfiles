@@ -181,7 +181,7 @@ run = "move-node-to-workspace B"
 
 [[on-window-detected]]
 if.app-id = 'app.zen-browser.zen'
-run = "move-node-to-workspace S"
+run = "move-node-to-workspace B"
 
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
@@ -207,5 +207,9 @@ run = "move-node-to-workspace E"
 if.app-id = 'com.apple.finder'
 run = "layout floating"
 
+[[on-window-detected]]
+if.app-id = 'com.tencent.qq'
+run = "layout floating"
+
 [workspace-to-monitor-force-assignment]
-S = 'secondary'
+B = 'secondary'
