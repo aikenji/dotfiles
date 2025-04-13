@@ -66,13 +66,14 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "clangd",
-                    "pyright",
+                    "basedpyright",
+                    "texlab",
+                    "marksman",
                 },
             })
 
             -- used to enable autocompletion (assign to every lsp server config)
             local capabilities = cmp_nvim_lsp.default_capabilities()
-            capabilities.offsetEncoding = "utf-16"
 
             -- enable keybinds only for when lsp server available
             local on_attach = function(client, bufnr) end
@@ -98,7 +99,7 @@ return {
 
             -- configure cpp clangd
             lspconfig["clangd"].setup({
-                capabilities = capabilities,
+                capabilities = { offsetEncoding = "utf-8" },
                 on_attach = on_attach,
                 cmd = { "clangd" },
                 filetype = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
@@ -114,46 +115,47 @@ return {
                 single_file_support = true,
             })
 
-            -- configure pyright server
-            lspconfig["pyright"].setup({
-                capabilities = capabilities,
-                on_attach = on_attach,
-                cmd = { "pyright-langserver", "--stdio" },
-                filetype = { "python" },
-                single_file_support = true,
-                settings = {
-                    python = {
-                        analysis = {
-                            autoSearchPaths = true,
-                            diagnosticsMode = "workspace",
-                            useLibraryCodeForTypes = true,
-                        },
-                    },
-                },
-            })
-
-            -- lspconfig["basedpyright"].setup({
+            -- -- configure pyright server
+            -- lspconfig["pyright"].setup({
             --     capabilities = capabilities,
             --     on_attach = on_attach,
-            --     cmd = { "basedpyright-langserver", "--stdio" },
+            --     cmd = { "pyright-langserver", "--stdio" },
             --     filetype = { "python" },
             --     single_file_support = true,
             --     settings = {
-            --         basedpyright = {
+            --         python = {
             --             analysis = {
             --                 autoSearchPaths = true,
             --                 diagnosticsMode = "workspace",
             --                 useLibraryCodeForTypes = true,
-            --                 inlayHints = {
-            --                     variableTypes = true,
-            --                     functionReturnTypes = true,
-            --                     parameterNames = true,
-            --                     parameterTypes = true,
-            --                 },
             --             },
             --         },
             --     },
             -- })
+
+            lspconfig["basedpyright"].setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+                cmd = { "basedpyright-langserver", "--stdio" },
+                filetype = { "python" },
+                single_file_support = true,
+                settings = {
+                    basedpyright = {
+                        analysis = {
+                            typeCheckingMode = "off",
+                            autoSearchPaths = true,
+                            diagnosticsMode = "workspace",
+                            useLibraryCodeForTypes = true,
+                            inlayHints = {
+                                variableTypes = true,
+                                functionReturnTypes = true,
+                                parameterNames = true,
+                                parameterTypes = true,
+                            },
+                        },
+                    },
+                },
+            })
 
             -- configure lua server (with special settings)
             lspconfig["lua_ls"].setup({
@@ -178,10 +180,13 @@ return {
             })
 
             -- configure markdown server
-            -- lspconfig["marksman"].setup({
-            --     capabilities = capabilities,
-            --     on_attach = on_attach,
-            -- })
+            lspconfig["marksman"].setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+
+            -- configure markdown server
+            lspconfig["texlab"].setup({})
         end,
     },
 }
