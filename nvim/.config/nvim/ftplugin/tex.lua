@@ -1,7 +1,7 @@
 local opt = vim.opt
 local keymap = vim.keymap
--- shell check
 
+-- shell check
 opt.spelllang = "en_us"
 opt.spell = true
 

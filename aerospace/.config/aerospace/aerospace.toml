@@ -201,7 +201,7 @@ run = "move-node-to-workspace P"
 
 [[on-window-detected]]
 if.app-id = 'com.neovide.neovide'
-run = "move-node-to-workspace E"
+run = ["layout floating", "move-node-to-workspace E"]
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
