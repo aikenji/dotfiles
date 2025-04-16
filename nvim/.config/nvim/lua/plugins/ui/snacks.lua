@@ -87,6 +87,13 @@ return {
         end,
         desc = "File Explorer",
       },
+      {
+        "<leader>E",
+        function()
+          Snacks.explorer()
+        end,
+        desc = "File Explorer (CWD)",
+      },
       -- find
       {
         "<leader>fb",

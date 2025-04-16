@@ -41,7 +41,7 @@ return {
         options = {
           theme = "catppuccin",
           disabled_filetypes = {
-            statusline = { "snacks_dashboard", "lspsagaoutline" },
+            statusline = { "snacks_dashboard" },
           },
           component_separators = "",
           section_separators = { left = "", right = "" },
