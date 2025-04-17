@@ -21,8 +21,8 @@ if vim.g.neovide then
   vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 
   -- padding
-  vim.g.neovide_padding_top = 30.0
-  vim.g.neovide_padding_bottom = 30.0
+  vim.g.neovide_padding_top = 10.0
+  vim.g.neovide_padding_bottom = 0.0
   vim.g.neovide_padding_right = 10.0
   vim.g.neovide_padding_left = 10.0
   -- scale factor

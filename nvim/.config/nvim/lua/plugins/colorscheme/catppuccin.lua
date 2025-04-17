@@ -15,7 +15,7 @@ return {
 
       catp.setup({
         flavour = "macchiato", -- latte, frappe, macchiato, mocha
-        transparent_background = true,
+        transparent_background = false,
         dim_inactive = {
           -- FIX:some display bug of noice in transparent mode when dim is enabled
           enabled = false, -- dims the background color of inactive window

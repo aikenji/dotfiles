@@ -13,7 +13,9 @@ keymap.set("n", "x", '"_x')
 -- navigation in insert mode
 
 keymap.set("i", "<C-l>", "<Right>", { desc = "move right in insert mode" })
-keymap.set("i", "<C-h>", "<Left>", { desc = "move right in insert mode" })
+keymap.set("i", "<C-h>", "<Left>", { desc = "move left in insert mode" })
+keymap.set("i", "<C-j>", "<Down>", { desc = "move down in insert mode" })
+keymap.set("i", "<C-k>", "<Up>", { desc = "move up in insert mode" })
 
 -- Resize window using arrow keys
 keymap.set("n", "<A-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
