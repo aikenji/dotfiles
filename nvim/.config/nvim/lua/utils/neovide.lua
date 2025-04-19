@@ -1,12 +1,9 @@
 if vim.g.neovide then
-  -- basic options of neovim for bluring
-  vim.opt.winblend = 50
-  vim.opt.pumblend = 65
-  -- require("telescope").setup({
-  --     defaults = {
-  --         winblend = 50,
-  --     },
-  -- })
+  -- basic options of neovim
+  vim.opt.winblend = 50 -- opacity of floating windows
+  vim.opt.pumblend = 65 -- opacity of popup menu
+  vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,i:blinkwait700-blinkoff700-blinkon700"
+
   -- basic settings for paste in neovide
   vim.keymap.set("v", "<D-c>", '"+y') -- Copy
   vim.keymap.set("n", "<D-v>", '"+P') -- Paste normal mode
@@ -25,37 +22,32 @@ if vim.g.neovide then
   vim.g.neovide_padding_bottom = 0.0
   vim.g.neovide_padding_right = 10.0
   vim.g.neovide_padding_left = 10.0
-  -- scale factor
-  vim.g.neovide_scale_factor = 1.0
-  -- contrast and gamma
-  vim.g.neovide_text_gamma = 0.0
-  vim.g.neovide_text_contrast = 0.5
 
   -- transparency of background
-  vim.g.neovide_transparency = 0.5
+  vim.g.neovide_opacity = 0.6
   vim.g.neovide_window_blurred = true
 
   -- blur and shadow of floating windows
-  vim.g.neovide_floating_blur = true
   vim.g.neovide_floating_blur_amount_x = 8.0
   vim.g.neovide_floating_blur_amount_y = 8.0
   vim.g.neovide_floating_shadow = true
   vim.g.neovide_floating_z_height = 10
   vim.g.neovide_light_angle_degrees = 45
   vim.g.neovide_light_radius = 5
-
-  -- show borders
-  vim.g.neovide_show_border = true
+  vim.g.neovide_floating_corner_radius = 0.2
 
   -- cursor settings
   vim.g.neovide_hide_mouse_when_typing = true
-  vim.g.neovide_cursor_animate_in_insert_mode = true
+  vim.g.neovide_cursor_animation_length = 0.15
+  vim.g.neovide_cursor_animate_in_insert_mode = false
   vim.g.neovide_cursor_animate_command_line = true
   vim.g.neovide_cursor_smooth_blink = true
 
   -- particle settings
-  vim.g.neovide_cursor_vfx_mode = "torpedo"
-  vim.g.neovide_cursor_vfx_opacity = 500.0
-  vim.g.neovide_cursor_vfx_particle_lifetime = 1.2
-  vim.g.neovide_cursor_vfx_particle_density = 16.0
+  vim.g.neovide_cursor_vfx_mode = "pixiedust"
+  vim.g.neovide_cursor_vfx_opacity = 300.0
+  vim.g.neovide_cursor_vfx_particle_lifetime = 1.0
+  vim.g.neovide_cursor_vfx_particle_density = 2.0
+  vim.g.neovide_cursor_vfx_particle_speed = 10.0
+  vim.g.neovide_cursor_vfx_particle_curl = 1.0
 end

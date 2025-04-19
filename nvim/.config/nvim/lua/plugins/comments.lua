@@ -2,6 +2,7 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = false,
     opts = {
       highlight = {
         comments_only = false,
@@ -22,11 +23,11 @@ return {
         end,
         desc = "Previous todo comments",
       },
-      -- {
-      --     "<leader>tt",
-      --     "<cmd>TodoLocList<cr>",
-      --     desc = "LocList of Todo comments",
-      -- },
+      {
+        "<leader>st",
+        "<cmd>TodoLocList<cr>",
+        desc = "LocList of Todo comments",
+      },
     },
   },
 }

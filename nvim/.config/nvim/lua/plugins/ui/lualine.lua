@@ -40,8 +40,9 @@ return {
       require("lualine").setup({
         options = {
           theme = "catppuccin",
+          globalstatus = true,
           disabled_filetypes = {
-            statusline = { "snacks_dashboard" },
+            statusline = { "snacks_dashboard", "snacks_layout_box" },
           },
           component_separators = "",
           section_separators = { left = "", right = "" },
@@ -49,13 +50,34 @@ return {
         sections = {
           lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
           lualine_b = {
-            -- "filename",
-            "diagnostics",
-            { "branch", icon = { "", color = { fg = tn_color.yellow } } },
-            "diff",
+            {
+              "diagnostics",
+
+              symbols = { error = " ", warn = " ", info = " ", hint = "󰠠 " },
+              diagnostics_color = {
+                error = { fg = tn_color.red },
+                warn = { fg = tn_color.yellow },
+                info = { fg = tn_color.cyan },
+              },
+            },
+            {
+              "branch",
+              icon = " ",
+              color = { fg = tn_color.purple, gui = "bold" },
+            },
+            {
+              "diff",
+              -- Is it me or the symbol for modified us really weird
+              symbols = { added = " ", modified = "󰇊 ", removed = " " },
+              diff_color = {
+                added = { fg = tn_color.green },
+                modified = { fg = tn_color.orange },
+                removed = { fg = tn_color.red },
+              },
+            },
           },
           lualine_c = {
-            "%=", --[[ add your center compoentnts here in place of this comment ]]
+            "filename",
           },
           lualine_x = {},
           lualine_y = { "filetype", "progress" },

@@ -1,10 +1,10 @@
 frame = "buttonless"
 title-hidden = true
-fork = false
+fork = true
 idle = true
 maximized = false
 no-multigrid = false
-srgb = false
+srgb = true
 tabs = true
 theme = "auto"
 vsync = true

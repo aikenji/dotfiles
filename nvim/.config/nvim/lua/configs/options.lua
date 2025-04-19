@@ -18,8 +18,6 @@ opt.cursorline = true -- highlight cursorline
 opt.scrolloff = 8 -- get 8 line margins when scroll over the file
 
 -- appearance
--- opt.list = true -- show invisible space, tab, eol
--- vim.opt.listchars:append("space:⋅") -- show invisible space with .
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- clipboard

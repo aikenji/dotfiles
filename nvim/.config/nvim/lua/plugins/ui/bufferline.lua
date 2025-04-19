@@ -14,7 +14,7 @@ return {
         offsets = {
           { filetype = "snacks_layout_box" },
         },
-        show_buffer_close_icons = true,
+        show_buffer_close_icons = false,
         enforce_regular_tabs = true,
         hover = {
           enabled = true,
