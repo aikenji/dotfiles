@@ -27,3 +27,8 @@ style = "Italic"
 [[font.bold_italic]]
 family = "Maple Mono"
 style = "SemiBold Italic"
+
+[box-drawing]
+# "font-glyph", "native" or "selected-native"
+mode = "font-glyph"
+# selected = "🮐🮑🮒"
