@@ -91,6 +91,10 @@ alias lg='lazygit'
 alias top='btop'
 alias du='dust'
 alias fastfetch='pokeget random --hide-name | fastfetch --file-raw -'
+function ff() {
+    aerospace list-windows --all \
+        | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
+}
 # alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
 # alias fv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
 alias tl='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
@@ -117,5 +121,19 @@ function vims() {
   NVIM_APPNAME=$config nvim $@
 }
 
+#==================================================================================================
 # run scripts when login
 # pokeget random --hide-name | fastfetch --file-raw -
+login_term() {
+    if [[ "$TERM" == "xterm-ghostty" ]]; then
+        if ! pgrep -x "kew" >/dev/null; then
+            kew
+            return 0
+        elif ! pgrep -f "todo" >/dev/null; then
+            todo
+            return 0
+        fi
+    fi
+}
+
+login_term

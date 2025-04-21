@@ -10,3 +10,4 @@ tmux/.config/tmux/plugins
 yazi/.config/yazi/flavors
 yazi/.config/yazi/plugins/full-border.yazi
 yazi/.config/yazi/package.toml
+ghostty/.config/ghostty/ghostty-shaders

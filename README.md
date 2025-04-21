@@ -1,7 +1,8 @@
 # MY CONFIG FILES
 
-<img src="./dotfiles.png" alt="dotfiles" height=size>
+<img src="./example_1.png" alt="dotfiles" height=size>
 
+<img src="./example_2.png" alt="dotfiles" height=size>
 ## Installation
 
 You will need `git` and GNU `stow`. Clone into your `$HOME` directory.

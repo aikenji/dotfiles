@@ -18,7 +18,7 @@ set -e
 # miniconda (upgrade miniconda will lost all your virtual envs in current version)
 # brew install miniconda
 
-TERMINALS="kitty/"
+TERMINALS="kitty/ ghostty/"
 WM="aerospace/"
 BASICS="git/ zsh/ conda/"
 TOOLS="tmux/ nvim/ neovide/ lazygit/ yazi/ fastfetch/"
