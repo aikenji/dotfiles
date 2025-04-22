@@ -9,12 +9,12 @@ export CLICOLOR=1
 export PATH="$HOMW/.local/bin:$HOME/.cargo/bin:$PATH"
 # change the default config dir in macos
 if [[ "$(uname)" == "Darwin" ]]; then
-    export XDG_CONFIG_HOME="$HOME/.config" 
+    export XDG_CONFIG_HOME="$HOME/.config"
 fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
@@ -47,7 +47,7 @@ export LIBRARY_PATH=/opt/homebrew/lib
 # dont change the order of plugins
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
-plug "zap-zsh/completions" 
+plug "zap-zsh/completions"
 plug "zap-zsh/vim"
 
 # completions init
@@ -65,17 +65,17 @@ export FZF_TMUX_OPTS='-p --reverse'
 
 # zoxide init
 eval "$(zoxide init zsh --cmd cd)"
-# colorscheme setup 
+# colorscheme setup
 eval "$(starship init zsh)"
 
 # use ra instead of yazi to start and press q to quit and change CWD
 function ra() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
 }
 
 #==================================================================================================
@@ -92,13 +92,13 @@ alias top='btop'
 alias du='dust'
 alias fastfetch='pokeget random --hide-name | fastfetch --file-raw -'
 function ff() {
-    aerospace list-windows --all \
-        | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
+    aerospace list-windows --all |
+        fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
 }
-# alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse' 
+# alias f='fd --type d --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse'
 # alias fv='fd --type f --hidden --exclude .git --exclude Library| fzf-tmux -p --reverse | xargs nvim'
 alias tl='tldr --list | fzf-tmux -p --reverse --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
-alias skim='/Applications/Skim.app/Contents/MacOS/Skim'  # pdf viewer for latex
+alias skim='/Applications/Skim.app/Contents/MacOS/Skim' # pdf viewer for latex
 
 if [[ $TERM == "xterm-kitty" ]]; then
     alias ssh="kitty +kitten ssh"
@@ -110,15 +110,15 @@ alias vim='nvim'
 alias vim-lazy='NVIM_APPNAME=lazyvim nvim'
 
 function vims() {
-  items=("default" "lazyvim")
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt="Neovim Config >> " --height=~50% --layout=reverse --border --exit-0)
-  if [[ -z $config ]]; then
-    echo "Nothing selected"
-    return 0
-  elif [[ $config == "default" ]]; then
-    config=""
-  fi
-  NVIM_APPNAME=$config nvim $@
+    items=("default" "lazyvim")
+    config=$(printf "%s\n" "${items[@]}" | fzf --prompt="Neovim Config >> " --height=~50% --layout=reverse --border --exit-0)
+    if [[ -z $config ]]; then
+        echo "Nothing selected"
+        return 0
+    elif [[ $config == "default" ]]; then
+        config=""
+    fi
+    NVIM_APPNAME=$config nvim $@
 }
 
 #==================================================================================================

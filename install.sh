@@ -12,7 +12,7 @@ set -e
 # brew install eza bat btop fd fzf zoxide tealdeer fastfetch
 # brew install git tmux nvim neovide lazygit yazi
 # WM
-# brew install kitty aerospace 
+# brew install kitty aerospace
 # brew tap FelixKratz/formulae
 # brew install --ignore-dependencies borders
 # miniconda (upgrade miniconda will lost all your virtual envs in current version)
@@ -25,10 +25,9 @@ TOOLS="tmux/ nvim/ neovide/ lazygit/ yazi/ fastfetch/"
 
 DOT_FOLDERS="$TERMINALS $WM $BASICS $TOOLS"
 
-for folder in $DOT_FOLDERS
-do
+for folder in $DOT_FOLDERS; do
     echo "[+] $folder"
-        stow -v -t $HOME $folder
+    stow -v -t $HOME $folder
 done
 
 # yazi preamble

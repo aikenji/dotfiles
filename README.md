@@ -11,7 +11,7 @@ You will need `git` and GNU `stow`. Clone into your `$HOME` directory.
 Clone dotfiles:
 
 ```bash
-git clone --recurse-submodules https://github.com/aikenji/dotfiles.git 
+git clone --recurse-submodules https://github.com/aikenji/dotfiles.git
 ```
 
 Run `sh install.sh` to symlink all config files into `$HOME` directory,

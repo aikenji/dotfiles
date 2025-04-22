@@ -7,22 +7,14 @@ return {
         "williamboman/mason.nvim",
         opts = {
           ui = {
-            border = "rounded",
             icons = {
-              package_pending = " ",
-              package_installed = "󰄳 ",
-              package_uninstalled = "󰚌 ",
+              package_installed = "✓",
+              package_pending = "➜",
+              package_uninstalled = "✗",
             },
-
             keymaps = {
-              toggle_server_expand = "<CR>",
-              install_server = "i",
-              update_server = "u",
-              check_server_version = "c",
-              update_all_servers = "U",
-              check_outdated_servers = "C",
-              uninstall_server = "X",
-              cancel_installation = "<C-c>",
+              apply_language_filter = "<C-f>",
+              toggle_help = "?",
             },
           },
         },
@@ -32,10 +24,17 @@ return {
         "williamboman/mason-lspconfig.nvim",
         opts = {
           ensure_installed = {
+            -- lua
             "lua_ls",
+            -- shell
+            "bashls",
+            -- C
             "clangd",
+            -- python
             "basedpyright",
+            -- tex
             "texlab",
+            -- markdown
             "marksman",
           },
         },
@@ -119,8 +118,13 @@ return {
       -- configure markdown server
       vim.lsp.enable("marksman")
 
-      -- configure markdown server
-      vim.lsp.enable("texlab")
+      -- configure tex server
+      -- vim.lsp.enable("texlab")
+
+      -- configure shell server
+      lspconfig["bashls"].setup({
+        filetypes = { "bash", "sh", "zsh" },
+      })
     end,
   },
 }

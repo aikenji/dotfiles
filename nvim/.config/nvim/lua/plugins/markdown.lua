@@ -1,16 +1,16 @@
 return {
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-    opts = {
-      sign = { enabled = false },
-      completions = { lsp = { enabled = true } },
-      code = {
-        width = "block",
-        min_width = 45,
-      },
-    },
-  },
+  -- {
+  --   "MeanderingProgrammer/render-markdown.nvim",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+  --   opts = {
+  --     sign = { enabled = false },
+  --     completions = { lsp = { enabled = true } },
+  --     code = {
+  --       width = "block",
+  --       min_width = 45,
+  --     },
+  --   },
+  -- },
 
   {
     "iamcco/markdown-preview.nvim",

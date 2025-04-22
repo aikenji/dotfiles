@@ -1,7 +1,6 @@
 return {
   { -- Autoformat
     "stevearc/conform.nvim",
-    event = { "BufWritePre" },
     opts = {
       notify_on_error = true,
       format_on_save = function(bufnr)
@@ -24,6 +23,11 @@ return {
         lua = { "stylua" },
         python = { "black" },
         tex = { "tex_fmt" },
+        markdown = { "prettierd" },
+        json = { "prettierd" },
+        yaml = { "prettierd" },
+        bash = { "shfmt" },
+        zsh = { "shfmt" },
       },
       formatters = {
         tex_fmt = {

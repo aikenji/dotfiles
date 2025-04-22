@@ -6,6 +6,7 @@ return {
     opts = {
       ensure_installed = {
         "bash",
+        "regex",
         "c",
         "cpp",
         "cmake",
