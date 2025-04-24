@@ -1,6 +1,6 @@
 local M = {}
 
-M.colors = {
+M = {
   -- Markdown Headings (foreground)
   color01 = "#987afb", -- h1
   color02 = "#37f499", -- h2

@@ -5,26 +5,14 @@ return {
   enabled = true,
   init = function()
     -- Define color variables
-    local color_bg1 = colors["linkarzu_color04"]
-    local color_bg2 = colors["linkarzu_color02"]
-    local color_bg3 = colors["linkarzu_color03"]
-    local color_bg4 = colors["linkarzu_color01"]
-    local color_bg5 = colors["linkarzu_color05"]
-    local color_bg6 = colors["linkarzu_color08"]
-    local color_fg1 = colors["linkarzu_color18"]
-    local color_fg2 = colors["linkarzu_color19"]
-    local color_fg3 = colors["linkarzu_color20"]
-    local color_fg4 = colors["linkarzu_color21"]
-    local color_fg5 = colors["linkarzu_color22"]
-    local color_fg6 = colors["linkarzu_color23"]
 
     -- Heading colors (when not hovered over), extends through the entire line
-    vim.cmd(string.format([[highlight Headline1Bg guibg=%s guifg=%s ]], color_bg1, color_fg1))
-    vim.cmd(string.format([[highlight Headline2Bg guibg=%s guifg=%s ]], color_bg2, color_fg2))
-    vim.cmd(string.format([[highlight Headline3Bg guibg=%s guifg=%s ]], color_bg3, color_fg3))
-    vim.cmd(string.format([[highlight Headline4Bg guibg=%s guifg=%s ]], color_bg4, color_fg4))
-    vim.cmd(string.format([[highlight Headline5Bg guibg=%s guifg=%s ]], color_bg5, color_fg5))
-    vim.cmd(string.format([[highlight Headline6Bg guibg=%s guifg=%s ]], color_bg6, color_fg6))
+    vim.api.nvim_set_hl(0, "Headline1Bg", { fg = colors.color08, bg = colors.color01 })
+    vim.api.nvim_set_hl(0, "Headline2Bg", { fg = colors.color09, bg = colors.color02 })
+    vim.api.nvim_set_hl(0, "Headline3Bg", { fg = colors.color10, bg = colors.color03 })
+    vim.api.nvim_set_hl(0, "Headline4Bg", { fg = colors.color11, bg = colors.color04 })
+    vim.api.nvim_set_hl(0, "Headline5Bg", { fg = colors.color12, bg = colors.color05 })
+    vim.api.nvim_set_hl(0, "Headline6Bg", { fg = colors.color13, bg = colors.color06 })
   end,
   opts = {
     bullet = {
