@@ -5,7 +5,7 @@ local imselect = require("utils.imselect")
 
 -- shell check
 opt.spelllang = "en_us"
-opt.spell = true
+opt.spell = false
 
 -- Global variable to store the enabled/disabled state of the input_cn
 M.enabled = false

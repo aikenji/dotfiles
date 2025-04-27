@@ -19,7 +19,7 @@ set -e
 # brew install miniconda
 
 TERMINALS="kitty/ ghostty/"
-WM="aerospace/"
+WM="aerospace/ sketchybar/"
 BASICS="git/ zsh/ conda/"
 TOOLS="tmux/ nvim/ neovide/ lazygit/ yazi/ fastfetch/"
 
@@ -31,7 +31,9 @@ for folder in $DOT_FOLDERS; do
 done
 
 # yazi preamble
+set +e # when return 1 not exit
 ya pack -a yazi-rs/flavors:catppuccin-macchiato
 ya pack -a yazi-rs/plugins:full-border
+set -e
 
 echo "INSTALL SUCESSFULL"

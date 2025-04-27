@@ -118,22 +118,23 @@ function vims() {
     elif [[ $config == "default" ]]; then
         config=""
     fi
-    NVIM_APPNAME=$config nvim $@
+    NVIM_APPNAME=$config nvim "$@"
 }
 
 #==================================================================================================
 # run scripts when login
 # pokeget random --hide-name | fastfetch --file-raw -
-login_term() {
-    if [[ "$TERM" == "xterm-ghostty" ]]; then
-        if ! pgrep -x "kew" >/dev/null; then
-            kew
-            return 0
-        elif ! pgrep -f "todo" >/dev/null; then
-            todo
-            return 0
-        fi
-    fi
-}
-
-login_term
+#
+# login_term() {
+#     if [[ "$TERM" == "xterm-ghostty" ]]; then
+#         if ! pgrep -x "kew" >/dev/null; then
+#             kew
+#             return 0
+#         elif ! pgrep -f "todo" >/dev/null; then
+#             todo
+#             return 0
+#         fi
+#     fi
+# }
+#
+# login_term
