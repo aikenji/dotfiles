@@ -185,7 +185,7 @@ run = "move-node-to-workspace B"
 
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
-run = ['move-node-to-workspace T'] 
+run = ["layout floating",'move-node-to-workspace T'] 
 
 [[on-window-detected]]
 if.app-id = 'com.netease.163music'
