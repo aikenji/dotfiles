@@ -8,8 +8,8 @@ quick-terminal-screen = macos-menu-bar
 window-padding-x = 10
 window-padding-y = 10
 window-decoration = false
-# window-height = 50
-# window-width = 40
+window-height = 55
+window-width = 205
 # window-position-x = 2195
 # window-position-y = 0
 
