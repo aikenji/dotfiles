@@ -2,11 +2,25 @@ return {
   {
     "saghen/blink.cmp",
     -- optional: provides snippets for the snippet source
-    dependencies = { "rafamadriz/friendly-snippets" },
+    dependencies = { "rafamadriz/friendly-snippets", "L3MON4D3/LuaSnip", version = "v2.*" },
     version = "1.*",
-
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
+    init = function()
+      require("luasnip").setup({
+        -- Enable autotriggered snippets
+        enable_autosnippets = true,
+        -- Use Tab (or some other key if you prefer) to trigger visual selection
+        store_selection_keys = "<Tab>",
+        history = true,
+        update_events = { "TextChanged", "TextChangedI" },
+      })
+
+      -- load snippets form ~/.config/nvim/snippets/
+      require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets/" })
+      -- load vs-code like snippets from plugins (e.g. friendly-snippets)
+      -- require("luasnip.loaders.from_vscode").lazy_load()
+    end,
     opts = {
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = {
@@ -34,6 +48,7 @@ return {
       -- (Default) Only show the documentation popup when manually triggered
       completion = { documentation = { auto_show = true } },
 
+      snippets = { preset = "luasnip" },
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
