@@ -110,7 +110,7 @@ return {
       {
         "<leader>E",
         function()
-          Snacks.explorer()
+          Snacks.explorer.open()
         end,
         desc = "File Explorer (CWD)",
       },
@@ -281,14 +281,14 @@ return {
         desc = "Commands",
       },
       {
-        "<leader>sd",
+        "<leader>sD",
         function()
           Snacks.picker.diagnostics()
         end,
         desc = "Diagnostics",
       },
       {
-        "<leader>sD",
+        "<leader>sd",
         function()
           Snacks.picker.diagnostics_buffer()
         end,

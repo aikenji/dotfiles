@@ -28,6 +28,11 @@ return {
         "<cmd>Trouble todo<cr>",
         desc = "Trouble of Todo comments",
       },
+      {
+        "<leader>st",
+        "<cmd>lua Snacks.picker.todo_comments()<cr>",
+        desc = "todo-comments",
+      },
     },
   },
 }

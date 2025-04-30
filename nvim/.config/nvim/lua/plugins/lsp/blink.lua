@@ -1,9 +1,30 @@
 -- TODO: rewrite blink configs
+-- TODO: display snippets parts
 return {
+  -- copilot.lua
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+      filetypes = {
+        markdown = true,
+        help = true,
+      },
+    },
+  },
+
+  -- blink.cmp
   {
     "saghen/blink.cmp",
     -- optional: provides snippets for the snippet source
-    dependencies = { "rafamadriz/friendly-snippets", "L3MON4D3/LuaSnip", version = "v2.*" },
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      { "L3MON4D3/LuaSnip", version = "v2.*" },
+      { "fang2hou/blink-copilot" },
+    },
     version = "1.*",
     init = function()
       require("luasnip").setup({
@@ -53,7 +74,15 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
+        default = { "lsp", "path", "snippets", "buffer", "copilot" },
+        providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 100,
+            async = true,
+          },
+        },
       },
 
       -- See the fuzzy documentation for more information
