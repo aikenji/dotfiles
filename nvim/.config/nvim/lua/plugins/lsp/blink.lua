@@ -1,11 +1,10 @@
+-- TODO: rewrite blink configs
 return {
   {
     "saghen/blink.cmp",
     -- optional: provides snippets for the snippet source
     dependencies = { "rafamadriz/friendly-snippets", "L3MON4D3/LuaSnip", version = "v2.*" },
     version = "1.*",
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
     init = function()
       require("luasnip").setup({
         -- Enable autotriggered snippets
@@ -21,6 +20,8 @@ return {
       -- load vs-code like snippets from plugins (e.g. friendly-snippets)
       -- require("luasnip.loaders.from_vscode").lazy_load()
     end,
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = {

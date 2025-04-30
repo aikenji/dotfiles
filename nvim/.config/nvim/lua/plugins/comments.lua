@@ -24,9 +24,9 @@ return {
         desc = "Previous todo comments",
       },
       {
-        "<leader>st",
-        "<cmd>TodoLocList<cr>",
-        desc = "LocList of Todo comments",
+        "<leader>xt",
+        "<cmd>Trouble todo<cr>",
+        desc = "Trouble of Todo comments",
       },
     },
   },
