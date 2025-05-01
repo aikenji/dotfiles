@@ -1,5 +1,7 @@
 -- TODO: rewrite blink configs
 -- TODO: display snippets parts
+local colors = require("utils.colors")
+
 return {
   -- copilot.lua
   {
@@ -40,6 +42,8 @@ return {
       require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets/" })
       -- load vs-code like snippets from plugins (e.g. friendly-snippets)
       -- require("luasnip.loaders.from_vscode").lazy_load()
+
+      vim.api.nvim_set_hl(0, "SnippetTabstop", { fg = colors.color03, bg = colors.color05 })
     end,
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
