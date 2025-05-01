@@ -25,7 +25,7 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       { "L3MON4D3/LuaSnip", version = "v2.*" },
-      { "fang2hou/blink-copilot" },
+      "fang2hou/blink-copilot",
     },
     version = "1.*",
     init = function()
@@ -43,8 +43,9 @@ return {
       -- load vs-code like snippets from plugins (e.g. friendly-snippets)
       -- require("luasnip.loaders.from_vscode").lazy_load()
 
-      vim.api.nvim_set_hl(0, "SnippetTabstop", { fg = colors.color03, bg = colors.color05 })
+      vim.api.nvim_set_hl(0, "SnippetTabstop", { fg = colors.color06, bg = colors.color13 })
     end,
+
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {

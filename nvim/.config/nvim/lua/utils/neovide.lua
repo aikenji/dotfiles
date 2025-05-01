@@ -1,3 +1,4 @@
+-- TODO: nerdfont sizes bug
 if vim.g.neovide then
   -- basic options of neovim
   vim.opt.winblend = 50 -- opacity of floating windows
