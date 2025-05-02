@@ -1,10 +1,10 @@
+local colors = require("catppuccin.palettes").get_palette("macchiato")
+
 return {
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      local colors = require("catppuccin.palettes").get_palette("macchiato")
-
       require("lualine").setup({
         options = {
           theme = "catppuccin",

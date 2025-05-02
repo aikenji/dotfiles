@@ -30,5 +30,5 @@ style = "SemiBold Italic"
 
 [box-drawing]
 # "font-glyph", "native" or "selected-native"
-mode = "font-glyph"
+mode = "native"
 # selected = "🮐🮑🮒"

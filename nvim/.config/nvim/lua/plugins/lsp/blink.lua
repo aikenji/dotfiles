@@ -1,5 +1,4 @@
 -- TODO: rewrite blink configs
--- TODO: display snippets parts
 local colors = require("utils.colors")
 
 return {
