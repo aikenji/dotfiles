@@ -4,6 +4,9 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+    -- config = function()
+    --   vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { link = "NoiceCmdlineIcon" })
+    -- end,
     opts = {
       -- you can enable a preset for easier configuration
       presets = {
@@ -18,20 +21,19 @@ return {
         view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
         opts = {}, -- global options for the cmdline. See section on views
         ---@type table<string, CmdlineFormat>
-        format = {
-          cmdline = { pattern = "^:", icon = " ", lang = "vim" },
-          search_down = { kind = "search", pattern = "^/", icon = "  ", lang = "regex" },
-          search_up = { kind = "search", pattern = "^%?", icon = "  ", lang = "regex" },
-          filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
-          lua = {
-            pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" },
-            icon = " ",
-            lang = "lua",
-          },
-          help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
-          input = { view = "cmdline_input", icon = "󰥻 " }, -- Used by input()
-          -- lua = false, -- to disable a format, set to `false`
-        },
+        -- format = {
+        --   cmdline = { pattern = "^:", icon = " ", lang = "vim" },
+        --   search_down = { kind = "search", pattern = "^/", icon = "  ", lang = "regex" },
+        --   search_up = { kind = "search", pattern = "^%?", icon = "  ", lang = "regex" },
+        --   filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
+        --   lua = {
+        --     pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" },
+        --     icon = " ",
+        --     lang = "lua",
+        --   },
+        --   input = { view = "cmdline_input", icon = "󰥻 " }, -- Used by input()
+        --   -- lua = false, -- to disable a format, set to `false`
+        -- },
       },
       views = {
         cmdline_popup = {
@@ -58,9 +60,9 @@ return {
             style = "rounded",
             padding = { 0, 1 },
           },
-          win_options = {
-            winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
-          },
+          -- win_options = {
+          --   winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+          -- },
         },
       },
       lsp = {
