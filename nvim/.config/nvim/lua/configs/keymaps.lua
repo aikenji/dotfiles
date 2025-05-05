@@ -10,8 +10,9 @@ keymap.set("n", "<ESC><ESC>", ":noh<CR><ESC>") -- clear search highlights
 -- delete single char without copying into register
 keymap.set("n", "x", '"_x')
 
--- navigation in insert mode
-
+-- navigation
+keymap.set({ "n", "v", "x", "o" }, "<S-h>", "^", { desc = "start of the line" })
+keymap.set({ "n", "v", "x", "o" }, "<S-l>", "$", { desc = "end of the line" })
 keymap.set("i", "<C-l>", "<Right>", { desc = "move right in insert mode" })
 keymap.set("i", "<C-h>", "<Left>", { desc = "move left in insert mode" })
 keymap.set("i", "<C-j>", "<Down>", { desc = "move down in insert mode" })
