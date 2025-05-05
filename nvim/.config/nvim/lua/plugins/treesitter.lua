@@ -61,4 +61,13 @@ return {
       on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
     },
   },
+
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    enabled = false,
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("rainbow-delimiters.setup").setup({})
+    end,
+  },
 }

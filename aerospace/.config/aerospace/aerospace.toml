@@ -72,6 +72,7 @@ outer.right =      2
 
 cmd-h = [] # Disable "hide application"
 cmd-alt-h = [] # Disable "hide others"
+
 # All possible keys:
 # - Letters.        a, b, c, ..., z
 # - Numbers.        0, 1, 2, ..., 9

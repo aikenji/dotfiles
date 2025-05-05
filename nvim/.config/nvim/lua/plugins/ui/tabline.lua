@@ -21,6 +21,7 @@ return {
           delay = 200,
           reveal = { "close" },
         },
+        always_show_bufferline = false,
       },
     },
   },
