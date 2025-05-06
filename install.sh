@@ -21,9 +21,10 @@ set -e
 TERMINALS="kitty/ ghostty/"
 WM="aerospace/ sketchybar/"
 BASICS="git/ zsh/ conda/"
-TOOLS="tmux/ nvim/ neovide/ lazygit/ yazi/ fastfetch/"
+TOOLS="tmux/ nvim/ neovide/ lazygit/ yazi/"
+MISCS="fastfetch/ btop"
 
-DOT_FOLDERS="$TERMINALS $WM $BASICS $TOOLS"
+DOT_FOLDERS="$TERMINALS $WM $BASICS $TOOLS $MISCS"
 
 for folder in $DOT_FOLDERS; do
     echo "[+] $folder"
