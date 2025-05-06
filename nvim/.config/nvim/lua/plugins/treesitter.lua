@@ -64,7 +64,7 @@ return {
 
   {
     "HiPhish/rainbow-delimiters.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
       require("rainbow-delimiters.setup").setup({})
