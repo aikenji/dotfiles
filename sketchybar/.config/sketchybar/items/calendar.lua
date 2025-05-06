@@ -49,5 +49,5 @@ end)
 
 -- english date
 cal:subscribe({ "forced", "routine", "system_woke" }, function(env)
-  cal:set { icon = os.date "%H:%M", label = icons.separators.left .. " " .. icons.calendar }
+  cal:set { icon = os.date "%H:%M", label = icons.separators.left .. " " .. icons.calendar .. " " .. os.date "%a %b %d" }
 end)
