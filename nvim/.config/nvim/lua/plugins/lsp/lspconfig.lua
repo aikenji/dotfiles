@@ -2,9 +2,11 @@ return {
   {
     -- Main LSP Configuration
     "neovim/nvim-lspconfig",
+    version = "1.*",
     dependencies = {
       {
         "williamboman/mason.nvim",
+        version = "1.*",
         opts = {
           ui = {
             icons = {
@@ -22,6 +24,7 @@ return {
 
       {
         "williamboman/mason-lspconfig.nvim",
+        version = "1.*",
         opts = {
           ensure_installed = {
             -- lua
