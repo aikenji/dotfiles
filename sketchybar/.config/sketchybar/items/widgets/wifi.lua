@@ -69,7 +69,7 @@ local router = sbar.add("item", {
 })
 
 wifi:subscribe({ "wifi_change", "system_woke" }, function(env)
-  sbar.exec([[ipconfig getsummary en1 | awk -F ' SSID : '  '/ SSID : / {print $2}']], function(wifi_name)
+  sbar.exec([[ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}']], function(wifi_name)
     local connected = not (wifi_name == "")
     wifi:set {
       icon = {
@@ -104,7 +104,7 @@ local function toggle_details()
   local should_draw = wifi:query().popup.drawing == "off"
   if should_draw then
     wifi:set { popup = { drawing = true } }
-    sbar.exec("ipconfig getifaddr en1", function(result)
+    sbar.exec("ipconfig getifaddr en0", function(result)
       ip:set { label = result }
     end)
     sbar.exec("networksetup -getinfo Wi-Fi | awk -F 'Subnet mask: ' '/^Subnet mask: / {print $2}'", function(result)
