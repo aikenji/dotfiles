@@ -8,7 +8,7 @@ sbar.exec "killall swap_load >/dev/null; $CONFIG_DIR/helpers/event_providers/swa
 -- RAM Plugin
 local ram = sbar.add("item", "widgets.ram1", {
   position = "right",
-  padding_left = 5,
+  padding_left = 18,
   width = 0,
   icon = {
     padding_right = 0,
@@ -60,24 +60,24 @@ local ram = sbar.add("item", "widgets.ram1", {
 --   update_freq = 180,
 -- })
 
-local swapram = sbar.add("item", "widgets.ram.padding", {
-  position = "right",
-  label = { drawing = false },
-})
+-- local swapram = sbar.add("item", "widgets.ram.padding", {
+--   position = "right",
+--   label = { drawing = false },
+-- })
+--
+-- local ram_bracket = sbar.add("bracket", "widgets.ram.bracket", {
+--   swapram.name,
+--   ram.name,
+--   -- swap.name,
+-- }, {
+--   background = {
+--     color = colors.bg2,
+--     border_color = colors.bg1,
+--     border_width = 2,
+--   },
+-- })
 
-local ram_bracket = sbar.add("bracket", "widgets.ram.bracket", {
-  swapram.name,
-  ram.name,
-  -- swap.name,
-}, {
-  background = {
-    color = colors.bg2,
-    border_color = colors.bg1,
-    border_width = 2,
-  },
-})
-
-sbar.add("item", { position = "right", width = settings.group_paddings })
+-- sbar.add("item", { position = "right", width = settings.group_paddings })
 
 ram:subscribe("ram_update", function(env)
   local raw = env.pressure

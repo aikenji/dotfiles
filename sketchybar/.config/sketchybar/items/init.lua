@@ -6,4 +6,5 @@ require "items.menus"
 --right (reverse order)
 require "items.calendar"
 require "items.widgets"
+require "items.cpu"
 -- require "items.media"
