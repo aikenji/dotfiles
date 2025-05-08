@@ -90,7 +90,7 @@ alias cat='bat'
 alias lg='lazygit'
 alias top='btop'
 alias du='dust'
-alias fastfetch='pokeget random --hide-name | fastfetch --file-raw -'
+alias ffetch='pokeget random --hide-name | fastfetch --file-raw -'
 function ff() {
     aerospace list-windows --all |
         fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
