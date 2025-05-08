@@ -1,39 +1,33 @@
 local icons = require "icons"
-local colors = require "colors"
+local colors = require("colors").sections.widgets.battery
 local settings = require "settings"
 
 -- Execute the event provider binary which provides the event "cpu_update" for
 -- the cpu load data, which is fired every 2.0 seconds.
 sbar.exec "killall cpu_load >/dev/null; $CONFIG_DIR/helpers/event_providers/cpu_load/bin/cpu_load cpu_update 2.0"
 
-local cpu = sbar.add("graph", "widgets.cpu", 42, {
+local cpu = sbar.add("item", "cpu", {
   position = "right",
-  graph = { color = colors.blue },
-  background = {
-    height = 22,
-    color = { alpha = 0 },
-    border_color = { alpha = 0 },
-    drawing = true,
-  },
   icon = {
     string = icons.cpu,
+    -- color = colors.low,
+    padding_left = 10,
     font = {
       size = 17.0,
     },
   },
   label = {
-    string = "cpu ??%",
+    string = "CPU ??%",
     font = {
       family = settings.font.numbers,
       style = settings.font.style_map["Bold"],
-      size = 9.0,
+      size = 12.0,
     },
     align = "right",
-    padding_right = 0,
-    width = 0,
-    y_offset = 4,
+    padding_right = 8,
+    y_offset = 0,
   },
-  padding_right = settings.paddings + 6,
+  padding_right = 4,
 })
 
 cpu:subscribe("cpu_update", function(env)
@@ -41,38 +35,26 @@ cpu:subscribe("cpu_update", function(env)
   local load = tonumber(env.total_load)
   cpu:push { load / 100. }
 
-  local color = colors.blue
+  local color = colors.high
   if load > 30 then
     if load < 60 then
-      color = colors.yellow
+      color = colors.mid
     elseif load < 80 then
-      color = colors.orange
+      color = colors.mid
     else
-      color = colors.red
+      color = colors.low
     end
   end
 
   cpu:set {
-    graph = { color = color },
-    label = "cpu " .. env.total_load .. "%",
+    label = {
+      -- string = "CPU " .. env.total_load .. "%",
+      string = env.total_load .. "%",
+      color = color,
+    },
   }
 end)
 
 cpu:subscribe("mouse.clicked", function(env)
   sbar.exec "open -a 'Activity Monitor'"
 end)
-
--- Background around the cpu items
-sbar.add("bracket", "widgets.cpu.bracket", { cpu.name }, {
-  background = {
-    color = colors.bg2,
-    border_color = colors.bg1,
-    border_width = 2,
-  },
-})
-
--- Background around the cpu item
-sbar.add("item", "widgets.cpu.padding", {
-  position = "right",
-  width = settings.group_paddings,
-})
