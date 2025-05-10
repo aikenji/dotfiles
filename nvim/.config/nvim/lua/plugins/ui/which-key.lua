@@ -3,11 +3,13 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
+      ---@type false | "classic" | "modern" | "helix"
+      preset = "helix",
       ---@type wk.Win.opts
       win = {
         -- don't allow the popup to overlap with the cursor
         no_overlap = true,
-        -- width = 1,
+        -- width = 0.3,
         -- height = { min = 4, max = 25 },
         -- col = 0,
         -- row = math.huge,
