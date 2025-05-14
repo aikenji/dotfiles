@@ -22,7 +22,7 @@ TERMINALS="kitty/ ghostty/"
 WM="aerospace/ sketchybar/"
 BASICS="git/ zsh/ conda/"
 TOOLS="tmux/ nvim/ neovide/ lazygit/ yazi/"
-MISCS="fastfetch/ btop"
+MISCS="fastfetch/ btop/ cava/"
 
 DOT_FOLDERS="$TERMINALS $WM $BASICS $TOOLS $MISCS"
 
