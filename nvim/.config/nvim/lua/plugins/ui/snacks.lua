@@ -44,7 +44,13 @@ return {
         timeout = 3000,
       },
       notify = { enabled = true },
-      picker = { enabled = true },
+      picker = {
+        enabled = true,
+        layout = {
+          cycle = true,
+          preset = "vertical",
+        },
+      },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
