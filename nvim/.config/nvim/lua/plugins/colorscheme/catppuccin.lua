@@ -44,9 +44,6 @@ return {
 
       -- setup the color of falsh plugins
       vim.api.nvim_set_hl(0, "FlashLabel", { fg = "white", bg = "#ff3030" })
-
-      -- setup the color of cursorline
-      -- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#162011" })
     end,
   },
 }
