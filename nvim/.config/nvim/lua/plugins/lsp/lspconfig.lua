@@ -120,6 +120,7 @@ return {
       })
 
       -- configure markdown server
+      lspconfig["marksman"].setup({})
       vim.lsp.enable("marksman")
 
       -- configure tex server
