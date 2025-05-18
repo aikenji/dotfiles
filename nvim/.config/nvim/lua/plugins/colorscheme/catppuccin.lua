@@ -41,9 +41,6 @@ return {
       })
 
       vim.cmd("colorscheme catppuccin")
-
-      -- setup the color of falsh plugins
-      vim.api.nvim_set_hl(0, "FlashLabel", { fg = "white", bg = "#ff3030" })
     end,
   },
 }

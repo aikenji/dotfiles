@@ -33,7 +33,7 @@ return {
               },
             },
           },
-          lualine_c = {},
+          lualine_c = { "g:obsidian" },
           lualine_x = {
             {
               "diagnostics",

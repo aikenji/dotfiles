@@ -11,7 +11,7 @@ return {
       suggestion = { enabled = false },
       panel = { enabled = false },
       filetypes = {
-        markdown = true,
+        markdown = false,
         help = true,
       },
     },
@@ -28,6 +28,10 @@ return {
     },
     version = "1.*",
     init = function()
+      require("blink-copilot").setup({
+        kind_icon = "",
+      })
+
       require("luasnip").setup({
         -- Enable autotriggered snippets
         enable_autosnippets = true,
@@ -51,7 +55,7 @@ return {
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = {
         preset = "none",
-        -- ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+        ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
         -- ["<C-e>"] = { "hide", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
 
@@ -72,13 +76,28 @@ return {
       },
 
       -- (Default) Only show the documentation popup when manually triggered
-      completion = { documentation = { auto_show = true } },
+      completion = {
+        documentation = {
+          auto_show = true,
+          -- window = { border = "rounded" },
+        },
+        list = { selection = { preselect = true, auto_insert = false } },
+        menu = {
+          border = "rounded",
+          draw = {
+            columns = { { "kind_icon" }, { "label" }, { "source_name" } },
+          },
+        },
+      },
 
       snippets = { preset = "luasnip" },
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         default = { "lsp", "path", "snippets", "buffer", "copilot" },
+        per_filetype = {
+          markdown = { "path", "snippets", "buffer" },
+        },
         providers = {
           copilot = {
             name = "copilot",
