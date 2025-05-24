@@ -222,7 +222,7 @@ run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'com.tencent.qq'
-run = "layout floating"
+run = ["layout floating", "move-node-to-workspace E"]
 
 [workspace-to-monitor-force-assignment]
 B = 'secondary'
