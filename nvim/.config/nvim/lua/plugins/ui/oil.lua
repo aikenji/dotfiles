@@ -8,7 +8,7 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
-    keys = { vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" }) },
+    keys = { vim.keymap.set("n", "-", "<CMD>Oil --preview<CR>", { desc = "Open parent directory" }) },
     config = function()
       -- define the oil winbar
       function _G.get_oil_winbar()
