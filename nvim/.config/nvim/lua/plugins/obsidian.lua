@@ -20,14 +20,7 @@ return {
         new_notes_location = "notes_subdir",
 
         note_frontmatter_func = function(note)
-          local out = { id = note.id, aliases = note.aliases, date = os.date("%Y-%m-%d"), tags = note.tags }
-
-          if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-            for k, v in pairs(note.metadata) do
-              out[k] = v
-            end
-          end
-
+          local out = { id = note.id, date = os.date("%Y-%m-%d"), tags = note.tags }
           return out
         end,
         daily_notes = {
@@ -56,7 +49,6 @@ return {
           blink = true,
         },
         picker = {
-          -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', 'mini.pick' or 'snacks.pick'.
           name = "snacks.pick",
           note_mappings = {
             -- Create a new note from your query.
@@ -71,12 +63,35 @@ return {
             insert_tag = "<C-l>",
           },
         },
+        attachments = {
+          img_folder = "assets", -- This is the default
+
+          -- A function that determines default name or prefix when pasting images via `:Obsidian paste_img`.
+          ---@return string
+          img_name_func = function()
+            -- Prefix image names with timestamp.
+            return string.format("")
+          end,
+
+          -- A function that determines the text to insert in the note when pasting an image.
+          -- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
+          -- This is the default implementation.
+          ---@param client obsidian.Client
+          ---@param path obsidian.Path the absolute path to the image file
+          ---@return string
+          img_text_func = function(client, path)
+            path = client:vault_relative_path(path) or path
+            return string.format("![%s](%s)", path.name, path)
+          end,
+        },
+
         statusline = {
           enabled = true,
           format = "{{properties}} properties {{backlinks}} backlinks",
         },
       })
       vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "Insert Obsidian Template" })
+      vim.keymap.set("n", "<leader>op", "<cmd>ObsidianPasteImg<CR>", { desc = "Obsidian Paste Img" })
       vim.keymap.set("n", "<leader>oO", "<cmd>ObsidianOpen<CR>", { desc = "Open in Obsidian App" })
       vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Show ObsidianBacklinks" })
       vim.keymap.set("n", "<leader>ol", "<cmd>ObsidianLinks<CR>", { desc = "Show ObsidianLinks" })
