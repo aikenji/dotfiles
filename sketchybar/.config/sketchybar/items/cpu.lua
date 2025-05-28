@@ -33,7 +33,6 @@ local cpu = sbar.add("item", "cpu", {
 cpu:subscribe("cpu_update", function(env)
   -- Also available: env.user_load, env.sys_load
   local load = tonumber(env.total_load)
-  cpu:push { load / 100. }
 
   local color = colors.high
   if load > 30 then
