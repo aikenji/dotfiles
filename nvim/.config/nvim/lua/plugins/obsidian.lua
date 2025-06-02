@@ -19,10 +19,15 @@ return {
         -- notes_subdir = "notes",
         new_notes_location = "notes_subdir",
 
+        disable_frontmatter = false,
+        note_id_func = function(title)
+          return title
+        end,
         note_frontmatter_func = function(note)
-          local out = { id = note.id, date = os.date("%Y-%m-%d"), tags = note.tags }
+          local out = { id = note.id, alias = note.alias, date = os.date("%Y-%m-%d"), tags = note.tags }
           return out
         end,
+
         daily_notes = {
           folder = "dailies",
           date_format = "%Y-%m-%d",
@@ -31,12 +36,6 @@ return {
           template = nil,
           workdays_only = true,
         },
-
-        note_id_func = function(title)
-          return title
-        end,
-
-        disable_frontmatter = false,
         ui = {
           enable = false,
           checkboxes = {

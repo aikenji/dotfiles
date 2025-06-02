@@ -1,4 +1,3 @@
--- TODO: rewrite blink configs
 local colors = require("utils.colors")
 
 return {
@@ -22,8 +21,7 @@ return {
     "saghen/blink.cmp",
     -- optional: provides snippets for the snippet source
     dependencies = {
-      "rafamadriz/friendly-snippets",
-      { "L3MON4D3/LuaSnip", version = "v2.*" },
+      { "L3MON4D3/LuaSnip", version = "v2.*", dependencies = "rafamadriz/friendly-snippets" },
       "fang2hou/blink-copilot",
     },
     version = "1.*",
@@ -41,10 +39,10 @@ return {
         update_events = { "TextChanged", "TextChangedI" },
       })
 
+      require("luasnip.loaders.from_vscode").lazy_load()
       -- load snippets form ~/.config/nvim/snippets/
       require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets/" })
       -- load vs-code like snippets from plugins (e.g. friendly-snippets)
-      -- require("luasnip.loaders.from_vscode").lazy_load()
 
       vim.api.nvim_set_hl(0, "SnippetTabstop", { fg = colors.color06, bg = colors.color13 })
     end,
@@ -91,14 +89,15 @@ return {
       },
 
       snippets = { preset = "luasnip" },
-      -- Default list of enabled providers defined so that you can extend it
-      -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         default = { "lsp", "path", "snippets", "buffer", "copilot" },
         per_filetype = {
           markdown = { "path", "snippets", "buffer" },
         },
         providers = {
+          snippets = {
+            score_offset = 10,
+          },
           copilot = {
             name = "copilot",
             module = "blink-copilot",
