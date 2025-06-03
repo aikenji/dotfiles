@@ -7,7 +7,7 @@ return {
     config = function()
       require("lualine").setup({
         options = {
-          theme = "catppuccin",
+          -- theme = "catppuccin",
           globalstatus = true,
           disabled_filetypes = {
             statusline = { "snacks_dashboard", "snacks_layout_box" },

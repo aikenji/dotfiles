@@ -560,6 +560,7 @@ return {
       vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#99f29d" })
       vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { link = "Title" })
       vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = "#5c7ff2" })
+      vim.api.nvim_set_hl(0, "SnacksPickerTitle", { fg = "#FFC777" })
 
       vim.api.nvim_create_autocmd("User", {
         pattern = "VeryLazy",

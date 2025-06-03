@@ -30,3 +30,5 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.iskeyword:append("-") -- consider string-string as whole word
 
 opt.completeopt = "menu,menuone,noselect" -- menu setup for snippets
+
+opt.termguicolors = true -- enable 24-bit RGB colors in the terminal
