@@ -77,11 +77,11 @@ return {
       completion = {
         documentation = {
           auto_show = true,
-          -- window = { border = "rounded" },
+          window = { border = "rounded" },
         },
         list = { selection = { preselect = true, auto_insert = false } },
         menu = {
-          border = "rounded",
+          -- border = "rounded",
           draw = {
             columns = { { "kind_icon" }, { "label" }, { "source_name" } },
           },

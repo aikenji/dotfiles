@@ -1,2 +1,6 @@
-require("configs")
 require("utils.neovide")
+require("configs.options")
+require("configs.lazy")
+require("configs.keymaps")
+require("configs.autocmds")
+require("configs.lsp")
