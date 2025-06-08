@@ -23,8 +23,18 @@ return {
         note_id_func = function(title)
           return title
         end,
+
+        -- Optional, alternatively you can customize the frontmatter data.
+        ---@return table
         note_frontmatter_func = function(note)
-          local out = { id = note.id, alias = note.alias, date = os.date("%Y-%m-%d"), tags = note.tags }
+          local out = { id = note.id, aliases = nil, date = os.date("%Y-%m-%d"), tags = note.tags }
+          -- `note.metadata` contains any manually added fields in the frontmatter.
+          -- So here we just make sure those fields are kept in the frontmatter.
+          if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+            for k, v in pairs(note.metadata) do
+              out[k] = v
+            end
+          end
           return out
         end,
 
