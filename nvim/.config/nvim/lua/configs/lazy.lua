@@ -36,3 +36,6 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = false },
 })
+
+vim.cmd.colorscheme("gruvbox-material")
+-- vim.cmd("colorscheme catppuccin")

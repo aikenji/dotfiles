@@ -29,6 +29,7 @@ return {
         bash = { "shfmt" },
         zsh = { "shfmt" },
       },
+
       formatters = {
         tex_fmt = {
           inherit = false,
