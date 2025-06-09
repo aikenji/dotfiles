@@ -525,11 +525,15 @@ return {
   -- SUBSET, i.e. \subset
   s({ trig = "sbb", snippetType = "autosnippet" }, {
     t("\\subseteq "),
-  }),
+  }, { condition = tex.in_mathzone }),
   -- SETMINUS, i.e. \setminus
   s({ trig = "stm", snippetType = "autosnippet" }, {
     t("\\setminus "),
-  }),
+  }, { condition = tex.in_mathzone }),
+  -- REAL NUMBERS, i.e. \mathbb{R}
+  s({ trig = "RR", snippetType = "autosnippet" }, {
+    t("\\mathbb{R}"),
+  }, { condition = tex.in_mathzone }),
   -- POWER SET, i.e. \mathcal{P}()
   s(
     { trig = "([^%a])pow", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
