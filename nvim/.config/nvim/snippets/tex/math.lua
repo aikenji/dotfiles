@@ -485,14 +485,14 @@ return {
     t("\\exists "),
   }, { condition = tex.in_mathzone }),
   s({ trig = "forsome", snippetType = "autosnippet" }, {
-    t("\\ \\text{for some}\\ "),
+    t("\\text{ for some }"),
   }, { condition = tex.in_mathzone }),
   -- FORALL, i.e. \forall
   s({ trig = "all", snippetType = "autosnippet" }, {
     t("\\forall "),
   }, { condition = tex.in_mathzone }),
   s({ trig = "forall", snippetType = "autosnippet" }, {
-    t("\\ \\text{for all}\\ "),
+    t("\\text{ for all }"),
   }, { condition = tex.in_mathzone }),
   -- AND
   s({ trig = "and", snippetType = "autosnippet" }, {
@@ -534,10 +534,25 @@ return {
   s({ trig = "RR", snippetType = "autosnippet" }, {
     t("\\mathbb{R}"),
   }, { condition = tex.in_mathzone }),
+  -- special B, i.e. \mathcal{B}
+  s({ trig = "BB", snippetType = "autosnippet" }, {
+    t("\\mathcal{B}"),
+  }, { condition = tex.in_mathzone }),
   -- POWER SET, i.e. \mathcal{P}()
   s(
     { trig = "([^%a])pow", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta("<>\\mathcal{P}(<>) ", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      d(1, get_visual),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- MATHCAL, i.e. \mathcal{}
+  s(
+    { trig = "([^%a])mc", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<>\\mathcal{<>}", {
       f(function(_, snip)
         return snip.captures[1]
       end),

@@ -23,7 +23,18 @@ return {
     -- optional: provides snippets for the snippet source
     dependencies = {
       { "L3MON4D3/LuaSnip", version = "v2.*", dependencies = "rafamadriz/friendly-snippets" },
-      "fang2hou/blink-copilot",
+      { "fang2hou/blink-copilot" },
+      {
+        "micangl/cmp-vimtex",
+        dependencies = {
+          {
+            "saghen/blink.compat",
+            version = "*",
+            lazy = true,
+            opts = {},
+          },
+        },
+      },
     },
     version = "1.*",
     init = function()
@@ -91,9 +102,10 @@ return {
 
       snippets = { preset = "luasnip" },
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "copilot" },
+        default = { "lsp", "path", "snippets", "buffer", "copilot", "vimtex" },
         per_filetype = {
           markdown = { "path", "snippets", "buffer" },
+          tex = { "vimtex", "path", "snippets", "buffer" },
         },
         providers = {
           snippets = {
@@ -104,6 +116,11 @@ return {
             module = "blink-copilot",
             score_offset = 100,
             async = true,
+          },
+          vimtex = {
+            name = "vimtex",
+            module = "blink.compat.source",
+            score_offset = 100,
           },
         },
       },
