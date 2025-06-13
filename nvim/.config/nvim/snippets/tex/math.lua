@@ -534,10 +534,25 @@ return {
   s({ trig = "RR", snippetType = "autosnippet" }, {
     t("\\mathbb{R}"),
   }, { condition = tex.in_mathzone }),
+  -- special B, i.e. \mathcal{B}
+  s({ trig = "BB", snippetType = "autosnippet" }, {
+    t("\\mathcal{B}"),
+  }, { condition = tex.in_mathzone }),
   -- POWER SET, i.e. \mathcal{P}()
   s(
     { trig = "([^%a])pow", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta("<>\\mathcal{P}(<>) ", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      d(1, get_visual),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- MATHCAL, i.e. \mathcal{}
+  s(
+    { trig = "([^%a])mc", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<>\\mathcal{<>}", {
       f(function(_, snip)
         return snip.captures[1]
       end),
