@@ -89,7 +89,7 @@ return {
       completion = {
         documentation = {
           auto_show = true,
-          window = { border = "rounded" },
+          -- window = { border = "rounded" },
         },
         list = { selection = { preselect = true, auto_insert = false } },
         menu = {
@@ -128,5 +128,6 @@ return {
       -- See the fuzzy documentation for more information
       fuzzy = { implementation = "prefer_rust_with_warning" },
     },
+    opts_extend = { "sources.default" },
   },
 }
