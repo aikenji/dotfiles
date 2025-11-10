@@ -57,10 +57,9 @@ return {
 
         ui = {
           enable = false,
-          checkboxes = {
-            [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-            ["x"] = { char = "", hl_group = "ObsidianDone" },
-          },
+        },
+        checkbox = {
+          order = { " ", "x" },
         },
         completion = {
           nvim_cmp = false,
@@ -103,19 +102,21 @@ return {
           end,
         },
 
+        legacy_commands = false, -- Set to true if you want to use the legacy commands.
+        ---@deprecated in favor of the footer option below
         statusline = {
-          enabled = true,
-          format = "{{properties}} properties {{backlinks}} backlinks",
+          enabled = false,
+          format = "{{properties}} properties {{backlinks}} backlinks {{words}} words {{chars}} chars",
         },
       })
-      vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "Insert Obsidian Template" })
-      vim.keymap.set("n", "<leader>op", "<cmd>ObsidianPasteImg<CR>", { desc = "Obsidian Paste Img" })
-      vim.keymap.set("n", "<leader>oO", "<cmd>ObsidianOpen<CR>", { desc = "Open in Obsidian App" })
-      vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Show ObsidianBacklinks" })
-      vim.keymap.set("n", "<leader>ol", "<cmd>ObsidianLinks<CR>", { desc = "Show ObsidianLinks" })
-      vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Create New Note" })
-      vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Search Obsidian" })
-      vim.keymap.set("n", "<leader>oo", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })
+      vim.keymap.set("n", "<leader>ot", "<cmd>Obsidian template<CR>", { desc = "Insert Obsidian Template" })
+      vim.keymap.set("n", "<leader>op", "<cmd>Obsidian paste_img<CR>", { desc = "Obsidian Paste Img" })
+      vim.keymap.set("n", "<leader>oO", "<cmd>Obsidian open<CR>", { desc = "Open in Obsidian App" })
+      vim.keymap.set("n", "<leader>ob", "<cmd>Obsidian backlinks<CR>", { desc = "Show ObsidianBacklinks" })
+      vim.keymap.set("n", "<leader>ol", "<cmd>Obsidian links<CR>", { desc = "Show ObsidianLinks" })
+      vim.keymap.set("n", "<leader>on", "<cmd>Obsidian new<CR>", { desc = "Create New Note" })
+      vim.keymap.set("n", "<leader>os", "<cmd>Obsidian search<CR>", { desc = "Search Obsidian" })
+      vim.keymap.set("n", "<leader>oo", "<cmd>Obsidian quick_switch<CR>", { desc = "Quick Switch" })
     end,
   },
 }

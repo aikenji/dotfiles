@@ -10,7 +10,7 @@ theme = "auto"
 vsync = true
 
 [font]
-size = 13
+size = 14
 
 [[font.normal]]
 family = "JetBrainsMono Nerd Font"

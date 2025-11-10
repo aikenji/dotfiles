@@ -4,7 +4,7 @@ vim.lsp.enable({
   "basedpyright",
   "bashls",
   "marksman",
-  "texlab",
+  -- "texlab",
 })
 
 -- diagnostic settings
