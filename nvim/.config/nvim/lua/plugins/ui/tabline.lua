@@ -4,7 +4,7 @@ return {
     version = "*",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-      highlights = require("catppuccin.groups.integrations.bufferline").get(),
+      -- highlights = require("catppuccin.groups.integrations.bufferline").get(),
       options = {
         mode = "buffers",
         separator_style = "thin",
