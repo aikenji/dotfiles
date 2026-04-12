@@ -1,0 +1,5 @@
+  layout splits
+  launch --title shell
+  launch --location=vsplit --bias=60 --title ai --hold codex
+  launch --location=vsplit --bias=50 --title moniter --hold btop
+  launch --location=hsplit --title music --hold cava

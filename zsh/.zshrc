@@ -86,10 +86,10 @@ alias la='eza --oneline --long --icons --git --all'
 alias ll='eza --oneline --long --icons --git --git-ignore'
 alias lt='eza --tree --level=2 --icons --git'
 alias cl='clear'
-alias cat='bat'
 alias lg='lazygit'
 alias top='btop'
 alias du='dust'
+alias ql='qlmanage -p'
 alias ffetch='pokeget random --hide-name | fastfetch --file-raw -'
 function ff() {
     aerospace list-windows --all |
