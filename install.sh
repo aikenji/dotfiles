@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # any commands fails will cause script to exit
 set -e
